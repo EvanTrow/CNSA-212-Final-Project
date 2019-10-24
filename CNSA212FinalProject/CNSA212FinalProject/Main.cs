@@ -16,7 +16,7 @@ namespace CNSA212FinalProject
         {
             InitializeComponent();
         }
-
+        NewPhysician newPhysician;
         NewPatient newPatient;
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -35,6 +35,26 @@ namespace CNSA212FinalProject
         private void NewPatient_FormClosed(object sender, FormClosedEventArgs e)
         {
             newPatient = null;
+        }
+
+        private void physicianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (newPhysician == null)
+            {
+                newPhysician = new NewPhysician();
+                newPhysician.MdiParent = this;
+                newPhysician.FormClosed += new FormClosedEventHandler(NewPhysician_FormClosed);
+                newPhysician.Show();
+            }
+            else
+            {
+                newPhysician.Activate();
+            }
+        }
+
+        private void NewPhysician_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            newPhysician = null;
         }
     }
 }

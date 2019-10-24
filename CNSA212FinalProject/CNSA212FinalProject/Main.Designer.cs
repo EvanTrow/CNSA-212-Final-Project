@@ -92,6 +92,7 @@
             this.physicianToolStripMenuItem.Name = "physicianToolStripMenuItem";
             this.physicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.physicianToolStripMenuItem.Text = "Physician";
+            this.physicianToolStripMenuItem.Click += new System.EventHandler(this.physicianToolStripMenuItem_Click);
             // 
             // Main
             // 
