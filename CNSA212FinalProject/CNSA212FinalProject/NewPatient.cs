@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CNSA212FinalProject
 {
-    public partial class Form1 : Form
+    public partial class NewPatient : Form
     {
-        public Form1()
+        public NewPatient()
         {
             InitializeComponent();
         }
