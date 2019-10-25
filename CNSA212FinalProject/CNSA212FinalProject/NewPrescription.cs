@@ -16,5 +16,10 @@ namespace CNSA212FinalProject
         {
             InitializeComponent();
         }
+
+        private void NewPrescription_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

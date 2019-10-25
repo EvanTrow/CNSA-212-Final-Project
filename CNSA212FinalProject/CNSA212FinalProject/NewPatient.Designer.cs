@@ -28,351 +28,377 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblMiddleInitial = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.lblDateofBirth = new System.Windows.Forms.Label();
-            this.lblGender = new System.Windows.Forms.Label();
-            this.lblPhone1 = new System.Windows.Forms.Label();
-            this.lblEmail1 = new System.Windows.Forms.Label();
-            this.lblPhone2 = new System.Windows.Forms.Label();
-            this.lblEmail2 = new System.Windows.Forms.Label();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.lblStreet = new System.Windows.Forms.Label();
-            this.lblState = new System.Windows.Forms.Label();
-            this.lblZip = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.txtPhone2 = new System.Windows.Forms.TextBox();
-            this.txtPhone1 = new System.Windows.Forms.TextBox();
-            this.txtEmail2 = new System.Windows.Forms.TextBox();
-            this.txtEmail1 = new System.Windows.Forms.TextBox();
-            this.txtMiddleInitial = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtDateOfBirth = new System.Windows.Forms.TextBox();
-            this.txtGender = new System.Windows.Forms.TextBox();
-            this.txtZip = new System.Windows.Forms.TextBox();
-            this.txtState = new System.Windows.Forms.TextBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtStreet = new System.Windows.Forms.TextBox();
+            this.lblfirstName = new System.Windows.Forms.Label();
+            this.lblmiddleInitial = new System.Windows.Forms.Label();
+            this.lbllastName = new System.Windows.Forms.Label();
+            this.lbldateofBirth = new System.Windows.Forms.Label();
+            this.lblgender = new System.Windows.Forms.Label();
+            this.lblphone1 = new System.Windows.Forms.Label();
+            this.lblemail1 = new System.Windows.Forms.Label();
+            this.lblphone2 = new System.Windows.Forms.Label();
+            this.lblemail2 = new System.Windows.Forms.Label();
+            this.lblcity = new System.Windows.Forms.Label();
+            this.lblstreet = new System.Windows.Forms.Label();
+            this.lblstate = new System.Windows.Forms.Label();
+            this.lblzip = new System.Windows.Forms.Label();
+            this.txtfirstName = new System.Windows.Forms.TextBox();
+            this.txtphone2 = new System.Windows.Forms.TextBox();
+            this.txtphone1 = new System.Windows.Forms.TextBox();
+            this.txtemail2 = new System.Windows.Forms.TextBox();
+            this.txtemail1 = new System.Windows.Forms.TextBox();
+            this.txtmiddleInitial = new System.Windows.Forms.TextBox();
+            this.txtlastName = new System.Windows.Forms.TextBox();
+            this.txtdateOfBirth = new System.Windows.Forms.TextBox();
+            this.txtgender = new System.Windows.Forms.TextBox();
+            this.txtzip = new System.Windows.Forms.TextBox();
+            this.txtstate = new System.Windows.Forms.TextBox();
+            this.txtcity = new System.Windows.Forms.TextBox();
+            this.txtstreet = new System.Windows.Forms.TextBox();
+            this.txtpatientId = new System.Windows.Forms.TextBox();
+            this.lblpatientId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblFirstName
+            // lblfirstName
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(16, 13);
-            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(90, 20);
-            this.lblFirstName.TabIndex = 0;
-            this.lblFirstName.Text = "First Name:";
+            this.lblfirstName.AutoSize = true;
+            this.lblfirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfirstName.Location = new System.Drawing.Point(23, 83);
+            this.lblfirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblfirstName.Name = "lblfirstName";
+            this.lblfirstName.Size = new System.Drawing.Size(90, 20);
+            this.lblfirstName.TabIndex = 0;
+            this.lblfirstName.Text = "First Name:";
             // 
-            // lblMiddleInitial
+            // lblmiddleInitial
             // 
-            this.lblMiddleInitial.AutoSize = true;
-            this.lblMiddleInitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMiddleInitial.Location = new System.Drawing.Point(16, 50);
-            this.lblMiddleInitial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMiddleInitial.Name = "lblMiddleInitial";
-            this.lblMiddleInitial.Size = new System.Drawing.Size(100, 20);
-            this.lblMiddleInitial.TabIndex = 1;
-            this.lblMiddleInitial.Text = "Middle Initial:";
+            this.lblmiddleInitial.AutoSize = true;
+            this.lblmiddleInitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmiddleInitial.Location = new System.Drawing.Point(22, 120);
+            this.lblmiddleInitial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblmiddleInitial.Name = "lblmiddleInitial";
+            this.lblmiddleInitial.Size = new System.Drawing.Size(100, 20);
+            this.lblmiddleInitial.TabIndex = 1;
+            this.lblmiddleInitial.Text = "Middle Initial:";
             // 
-            // lblLastName
+            // lbllastName
             // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(16, 81);
-            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(90, 20);
-            this.lblLastName.TabIndex = 2;
-            this.lblLastName.Text = "Last Name:";
+            this.lbllastName.AutoSize = true;
+            this.lbllastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbllastName.Location = new System.Drawing.Point(22, 151);
+            this.lbllastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbllastName.Name = "lbllastName";
+            this.lbllastName.Size = new System.Drawing.Size(90, 20);
+            this.lbllastName.TabIndex = 2;
+            this.lbllastName.Text = "Last Name:";
             // 
-            // lblDateofBirth
+            // lbldateofBirth
             // 
-            this.lblDateofBirth.AutoSize = true;
-            this.lblDateofBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateofBirth.Location = new System.Drawing.Point(16, 115);
-            this.lblDateofBirth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDateofBirth.Name = "lblDateofBirth";
-            this.lblDateofBirth.Size = new System.Drawing.Size(103, 20);
-            this.lblDateofBirth.TabIndex = 3;
-            this.lblDateofBirth.Text = "Date of Birth:";
+            this.lbldateofBirth.AutoSize = true;
+            this.lbldateofBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldateofBirth.Location = new System.Drawing.Point(22, 185);
+            this.lbldateofBirth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbldateofBirth.Name = "lbldateofBirth";
+            this.lbldateofBirth.Size = new System.Drawing.Size(103, 20);
+            this.lbldateofBirth.TabIndex = 3;
+            this.lbldateofBirth.Text = "Date of Birth:";
             // 
-            // lblGender
+            // lblgender
             // 
-            this.lblGender.AutoSize = true;
-            this.lblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(17, 149);
-            this.lblGender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(67, 20);
-            this.lblGender.TabIndex = 4;
-            this.lblGender.Text = "Gender:";
+            this.lblgender.AutoSize = true;
+            this.lblgender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgender.Location = new System.Drawing.Point(23, 219);
+            this.lblgender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblgender.Name = "lblgender";
+            this.lblgender.Size = new System.Drawing.Size(67, 20);
+            this.lblgender.TabIndex = 4;
+            this.lblgender.Text = "Gender:";
             // 
-            // lblPhone1
+            // lblphone1
             // 
-            this.lblPhone1.AutoSize = true;
-            this.lblPhone1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone1.Location = new System.Drawing.Point(16, 183);
-            this.lblPhone1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPhone1.Name = "lblPhone1";
-            this.lblPhone1.Size = new System.Drawing.Size(68, 20);
-            this.lblPhone1.TabIndex = 5;
-            this.lblPhone1.Text = "Phone1:";
+            this.lblphone1.AutoSize = true;
+            this.lblphone1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblphone1.Location = new System.Drawing.Point(22, 253);
+            this.lblphone1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblphone1.Name = "lblphone1";
+            this.lblphone1.Size = new System.Drawing.Size(68, 20);
+            this.lblphone1.TabIndex = 5;
+            this.lblphone1.Text = "Phone1:";
             // 
-            // lblEmail1
+            // lblemail1
             // 
-            this.lblEmail1.AutoSize = true;
-            this.lblEmail1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail1.Location = new System.Drawing.Point(16, 251);
-            this.lblEmail1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail1.Name = "lblEmail1";
-            this.lblEmail1.Size = new System.Drawing.Size(61, 20);
-            this.lblEmail1.TabIndex = 6;
-            this.lblEmail1.Text = "Email1:";
+            this.lblemail1.AutoSize = true;
+            this.lblemail1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblemail1.Location = new System.Drawing.Point(22, 321);
+            this.lblemail1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblemail1.Name = "lblemail1";
+            this.lblemail1.Size = new System.Drawing.Size(61, 20);
+            this.lblemail1.TabIndex = 6;
+            this.lblemail1.Text = "Email1:";
             // 
-            // lblPhone2
+            // lblphone2
             // 
-            this.lblPhone2.AutoSize = true;
-            this.lblPhone2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone2.Location = new System.Drawing.Point(16, 217);
-            this.lblPhone2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPhone2.Name = "lblPhone2";
-            this.lblPhone2.Size = new System.Drawing.Size(68, 20);
-            this.lblPhone2.TabIndex = 7;
-            this.lblPhone2.Text = "Phone2:";
+            this.lblphone2.AutoSize = true;
+            this.lblphone2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblphone2.Location = new System.Drawing.Point(22, 287);
+            this.lblphone2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblphone2.Name = "lblphone2";
+            this.lblphone2.Size = new System.Drawing.Size(68, 20);
+            this.lblphone2.TabIndex = 7;
+            this.lblphone2.Text = "Phone2:";
             // 
-            // lblEmail2
+            // lblemail2
             // 
-            this.lblEmail2.AutoSize = true;
-            this.lblEmail2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail2.Location = new System.Drawing.Point(17, 285);
-            this.lblEmail2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEmail2.Name = "lblEmail2";
-            this.lblEmail2.Size = new System.Drawing.Size(61, 20);
-            this.lblEmail2.TabIndex = 8;
-            this.lblEmail2.Text = "Email2:";
+            this.lblemail2.AutoSize = true;
+            this.lblemail2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblemail2.Location = new System.Drawing.Point(23, 355);
+            this.lblemail2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblemail2.Name = "lblemail2";
+            this.lblemail2.Size = new System.Drawing.Size(61, 20);
+            this.lblemail2.TabIndex = 8;
+            this.lblemail2.Text = "Email2:";
             // 
-            // lblCity
+            // lblcity
             // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCity.Location = new System.Drawing.Point(17, 352);
-            this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(39, 20);
-            this.lblCity.TabIndex = 9;
-            this.lblCity.Text = "City:";
+            this.lblcity.AutoSize = true;
+            this.lblcity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcity.Location = new System.Drawing.Point(23, 422);
+            this.lblcity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblcity.Name = "lblcity";
+            this.lblcity.Size = new System.Drawing.Size(39, 20);
+            this.lblcity.TabIndex = 9;
+            this.lblcity.Text = "City:";
             // 
-            // lblStreet
+            // lblstreet
             // 
-            this.lblStreet.AutoSize = true;
-            this.lblStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreet.Location = new System.Drawing.Point(17, 319);
-            this.lblStreet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(57, 20);
-            this.lblStreet.TabIndex = 10;
-            this.lblStreet.Text = "Street:";
+            this.lblstreet.AutoSize = true;
+            this.lblstreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstreet.Location = new System.Drawing.Point(23, 389);
+            this.lblstreet.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblstreet.Name = "lblstreet";
+            this.lblstreet.Size = new System.Drawing.Size(57, 20);
+            this.lblstreet.TabIndex = 10;
+            this.lblstreet.Text = "Street:";
             // 
-            // lblState
+            // lblstate
             // 
-            this.lblState.AutoSize = true;
-            this.lblState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblState.Location = new System.Drawing.Point(17, 386);
-            this.lblState.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(52, 20);
-            this.lblState.TabIndex = 11;
-            this.lblState.Text = "State:";
+            this.lblstate.AutoSize = true;
+            this.lblstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblstate.Location = new System.Drawing.Point(23, 456);
+            this.lblstate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblstate.Name = "lblstate";
+            this.lblstate.Size = new System.Drawing.Size(52, 20);
+            this.lblstate.TabIndex = 11;
+            this.lblstate.Text = "State:";
             // 
-            // lblZip
+            // lblzip
             // 
-            this.lblZip.AutoSize = true;
-            this.lblZip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZip.Location = new System.Drawing.Point(17, 420);
-            this.lblZip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblZip.Name = "lblZip";
-            this.lblZip.Size = new System.Drawing.Size(35, 20);
-            this.lblZip.TabIndex = 12;
-            this.lblZip.Text = "Zip:";
+            this.lblzip.AutoSize = true;
+            this.lblzip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblzip.Location = new System.Drawing.Point(23, 490);
+            this.lblzip.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblzip.Name = "lblzip";
+            this.lblzip.Size = new System.Drawing.Size(35, 20);
+            this.lblzip.TabIndex = 12;
+            this.lblzip.Text = "Zip:";
             // 
-            // txtFirstName
+            // txtfirstName
             // 
-            this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtfirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(136, 10);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(198, 26);
-            this.txtFirstName.TabIndex = 13;
+            this.txtfirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfirstName.Location = new System.Drawing.Point(142, 80);
+            this.txtfirstName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtfirstName.Name = "txtfirstName";
+            this.txtfirstName.Size = new System.Drawing.Size(586, 26);
+            this.txtfirstName.TabIndex = 13;
             // 
-            // txtPhone2
+            // txtphone2
             // 
-            this.txtPhone2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtphone2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhone2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone2.Location = new System.Drawing.Point(136, 214);
-            this.txtPhone2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPhone2.Name = "txtPhone2";
-            this.txtPhone2.Size = new System.Drawing.Size(198, 26);
-            this.txtPhone2.TabIndex = 14;
+            this.txtphone2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtphone2.Location = new System.Drawing.Point(142, 284);
+            this.txtphone2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtphone2.Name = "txtphone2";
+            this.txtphone2.Size = new System.Drawing.Size(586, 26);
+            this.txtphone2.TabIndex = 14;
             // 
-            // txtPhone1
+            // txtphone1
             // 
-            this.txtPhone1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtphone1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPhone1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone1.Location = new System.Drawing.Point(136, 180);
-            this.txtPhone1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPhone1.Name = "txtPhone1";
-            this.txtPhone1.Size = new System.Drawing.Size(198, 26);
-            this.txtPhone1.TabIndex = 15;
+            this.txtphone1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtphone1.Location = new System.Drawing.Point(142, 250);
+            this.txtphone1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtphone1.Name = "txtphone1";
+            this.txtphone1.Size = new System.Drawing.Size(586, 26);
+            this.txtphone1.TabIndex = 15;
             // 
-            // txtEmail2
+            // txtemail2
             // 
-            this.txtEmail2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtemail2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail2.Location = new System.Drawing.Point(136, 282);
-            this.txtEmail2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmail2.Name = "txtEmail2";
-            this.txtEmail2.Size = new System.Drawing.Size(198, 26);
-            this.txtEmail2.TabIndex = 16;
+            this.txtemail2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail2.Location = new System.Drawing.Point(142, 352);
+            this.txtemail2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtemail2.Name = "txtemail2";
+            this.txtemail2.Size = new System.Drawing.Size(586, 26);
+            this.txtemail2.TabIndex = 16;
             // 
-            // txtEmail1
+            // txtemail1
             // 
-            this.txtEmail1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtemail1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEmail1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail1.Location = new System.Drawing.Point(136, 248);
-            this.txtEmail1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmail1.Name = "txtEmail1";
-            this.txtEmail1.Size = new System.Drawing.Size(198, 26);
-            this.txtEmail1.TabIndex = 17;
+            this.txtemail1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtemail1.Location = new System.Drawing.Point(142, 318);
+            this.txtemail1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtemail1.Name = "txtemail1";
+            this.txtemail1.Size = new System.Drawing.Size(586, 26);
+            this.txtemail1.TabIndex = 17;
             // 
-            // txtMiddleInitial
+            // txtmiddleInitial
             // 
-            this.txtMiddleInitial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtmiddleInitial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMiddleInitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMiddleInitial.Location = new System.Drawing.Point(136, 44);
-            this.txtMiddleInitial.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMiddleInitial.Name = "txtMiddleInitial";
-            this.txtMiddleInitial.Size = new System.Drawing.Size(198, 26);
-            this.txtMiddleInitial.TabIndex = 18;
+            this.txtmiddleInitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmiddleInitial.Location = new System.Drawing.Point(142, 114);
+            this.txtmiddleInitial.Margin = new System.Windows.Forms.Padding(4);
+            this.txtmiddleInitial.Name = "txtmiddleInitial";
+            this.txtmiddleInitial.Size = new System.Drawing.Size(586, 26);
+            this.txtmiddleInitial.TabIndex = 18;
             // 
-            // txtLastName
+            // txtlastName
             // 
-            this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtlastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(136, 78);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(198, 26);
-            this.txtLastName.TabIndex = 19;
+            this.txtlastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtlastName.Location = new System.Drawing.Point(142, 148);
+            this.txtlastName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtlastName.Name = "txtlastName";
+            this.txtlastName.Size = new System.Drawing.Size(586, 26);
+            this.txtlastName.TabIndex = 19;
             // 
-            // txtDateOfBirth
+            // txtdateOfBirth
             // 
-            this.txtDateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtdateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateOfBirth.Location = new System.Drawing.Point(136, 112);
-            this.txtDateOfBirth.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDateOfBirth.Name = "txtDateOfBirth";
-            this.txtDateOfBirth.Size = new System.Drawing.Size(198, 26);
-            this.txtDateOfBirth.TabIndex = 20;
+            this.txtdateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdateOfBirth.Location = new System.Drawing.Point(142, 182);
+            this.txtdateOfBirth.Margin = new System.Windows.Forms.Padding(4);
+            this.txtdateOfBirth.Name = "txtdateOfBirth";
+            this.txtdateOfBirth.Size = new System.Drawing.Size(586, 26);
+            this.txtdateOfBirth.TabIndex = 20;
             // 
-            // txtGender
+            // txtgender
             // 
-            this.txtGender.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtgender.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGender.Location = new System.Drawing.Point(136, 146);
-            this.txtGender.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(198, 26);
-            this.txtGender.TabIndex = 21;
+            this.txtgender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtgender.Location = new System.Drawing.Point(142, 216);
+            this.txtgender.Margin = new System.Windows.Forms.Padding(4);
+            this.txtgender.Name = "txtgender";
+            this.txtgender.Size = new System.Drawing.Size(586, 26);
+            this.txtgender.TabIndex = 21;
             // 
-            // txtZip
+            // txtzip
             // 
-            this.txtZip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtzip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtZip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtZip.Location = new System.Drawing.Point(136, 417);
-            this.txtZip.Margin = new System.Windows.Forms.Padding(4);
-            this.txtZip.Name = "txtZip";
-            this.txtZip.Size = new System.Drawing.Size(198, 26);
-            this.txtZip.TabIndex = 22;
+            this.txtzip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtzip.Location = new System.Drawing.Point(142, 487);
+            this.txtzip.Margin = new System.Windows.Forms.Padding(4);
+            this.txtzip.Name = "txtzip";
+            this.txtzip.Size = new System.Drawing.Size(586, 26);
+            this.txtzip.TabIndex = 22;
             // 
-            // txtState
+            // txtstate
             // 
-            this.txtState.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtstate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtState.Location = new System.Drawing.Point(136, 383);
-            this.txtState.Margin = new System.Windows.Forms.Padding(4);
-            this.txtState.Name = "txtState";
-            this.txtState.Size = new System.Drawing.Size(198, 26);
-            this.txtState.TabIndex = 23;
+            this.txtstate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstate.Location = new System.Drawing.Point(142, 453);
+            this.txtstate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtstate.Name = "txtstate";
+            this.txtstate.Size = new System.Drawing.Size(586, 26);
+            this.txtstate.TabIndex = 23;
             // 
-            // txtCity
+            // txtcity
             // 
-            this.txtCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtcity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCity.Location = new System.Drawing.Point(136, 349);
-            this.txtCity.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(198, 26);
-            this.txtCity.TabIndex = 24;
+            this.txtcity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcity.Location = new System.Drawing.Point(142, 419);
+            this.txtcity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtcity.Name = "txtcity";
+            this.txtcity.Size = new System.Drawing.Size(586, 26);
+            this.txtcity.TabIndex = 24;
             // 
-            // txtStreet
+            // txtstreet
             // 
-            this.txtStreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtstreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStreet.Location = new System.Drawing.Point(136, 316);
-            this.txtStreet.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStreet.Name = "txtStreet";
-            this.txtStreet.Size = new System.Drawing.Size(198, 26);
-            this.txtStreet.TabIndex = 25;
+            this.txtstreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstreet.Location = new System.Drawing.Point(142, 386);
+            this.txtstreet.Margin = new System.Windows.Forms.Padding(4);
+            this.txtstreet.Name = "txtstreet";
+            this.txtstreet.Size = new System.Drawing.Size(586, 26);
+            this.txtstreet.TabIndex = 25;
+            // 
+            // txtpatientId
+            // 
+            this.txtpatientId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtpatientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpatientId.Location = new System.Drawing.Point(143, 40);
+            this.txtpatientId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtpatientId.Name = "txtpatientId";
+            this.txtpatientId.Size = new System.Drawing.Size(586, 26);
+            this.txtpatientId.TabIndex = 27;
+            // 
+            // lblpatientId
+            // 
+            this.lblpatientId.AutoSize = true;
+            this.lblpatientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpatientId.Location = new System.Drawing.Point(23, 43);
+            this.lblpatientId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblpatientId.Name = "lblpatientId";
+            this.lblpatientId.Size = new System.Drawing.Size(84, 20);
+            this.lblpatientId.TabIndex = 26;
+            this.lblpatientId.Text = "Patient ID:";
             // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 460);
-            this.Controls.Add(this.txtStreet);
-            this.Controls.Add(this.txtCity);
-            this.Controls.Add(this.txtState);
-            this.Controls.Add(this.txtZip);
-            this.Controls.Add(this.txtGender);
-            this.Controls.Add(this.txtDateOfBirth);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtMiddleInitial);
-            this.Controls.Add(this.txtEmail1);
-            this.Controls.Add(this.txtEmail2);
-            this.Controls.Add(this.txtPhone1);
-            this.Controls.Add(this.txtPhone2);
-            this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.lblZip);
-            this.Controls.Add(this.lblState);
-            this.Controls.Add(this.lblStreet);
-            this.Controls.Add(this.lblCity);
-            this.Controls.Add(this.lblEmail2);
-            this.Controls.Add(this.lblPhone2);
-            this.Controls.Add(this.lblEmail1);
-            this.Controls.Add(this.lblPhone1);
-            this.Controls.Add(this.lblGender);
-            this.Controls.Add(this.lblDateofBirth);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblMiddleInitial);
-            this.Controls.Add(this.lblFirstName);
+            this.ClientSize = new System.Drawing.Size(1292, 671);
+            this.Controls.Add(this.txtpatientId);
+            this.Controls.Add(this.lblpatientId);
+            this.Controls.Add(this.txtstreet);
+            this.Controls.Add(this.txtcity);
+            this.Controls.Add(this.txtstate);
+            this.Controls.Add(this.txtzip);
+            this.Controls.Add(this.txtgender);
+            this.Controls.Add(this.txtdateOfBirth);
+            this.Controls.Add(this.txtlastName);
+            this.Controls.Add(this.txtmiddleInitial);
+            this.Controls.Add(this.txtemail1);
+            this.Controls.Add(this.txtemail2);
+            this.Controls.Add(this.txtphone1);
+            this.Controls.Add(this.txtphone2);
+            this.Controls.Add(this.txtfirstName);
+            this.Controls.Add(this.lblzip);
+            this.Controls.Add(this.lblstate);
+            this.Controls.Add(this.lblstreet);
+            this.Controls.Add(this.lblcity);
+            this.Controls.Add(this.lblemail2);
+            this.Controls.Add(this.lblphone2);
+            this.Controls.Add(this.lblemail1);
+            this.Controls.Add(this.lblphone1);
+            this.Controls.Add(this.lblgender);
+            this.Controls.Add(this.lbldateofBirth);
+            this.Controls.Add(this.lbllastName);
+            this.Controls.Add(this.lblmiddleInitial);
+            this.Controls.Add(this.lblfirstName);
             this.Name = "NewPatient";
             this.Text = "New Patient";
             this.ResumeLayout(false);
@@ -382,31 +408,33 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Label lblMiddleInitial;
-        private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.Label lblDateofBirth;
-        private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.Label lblPhone1;
-        private System.Windows.Forms.Label lblEmail1;
-        private System.Windows.Forms.Label lblPhone2;
-        private System.Windows.Forms.Label lblEmail2;
-        private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.Label lblStreet;
-        private System.Windows.Forms.Label lblState;
-        private System.Windows.Forms.Label lblZip;
-        private System.Windows.Forms.TextBox txtFirstName;
-        private System.Windows.Forms.TextBox txtPhone2;
-        private System.Windows.Forms.TextBox txtPhone1;
-        private System.Windows.Forms.TextBox txtEmail2;
-        private System.Windows.Forms.TextBox txtEmail1;
-        private System.Windows.Forms.TextBox txtMiddleInitial;
-        private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtDateOfBirth;
-        private System.Windows.Forms.TextBox txtGender;
-        private System.Windows.Forms.TextBox txtZip;
-        private System.Windows.Forms.TextBox txtState;
-        private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.TextBox txtStreet;
+        private System.Windows.Forms.Label lblfirstName;
+        private System.Windows.Forms.Label lblmiddleInitial;
+        private System.Windows.Forms.Label lbllastName;
+        private System.Windows.Forms.Label lbldateofBirth;
+        private System.Windows.Forms.Label lblgender;
+        private System.Windows.Forms.Label lblphone1;
+        private System.Windows.Forms.Label lblemail1;
+        private System.Windows.Forms.Label lblphone2;
+        private System.Windows.Forms.Label lblemail2;
+        private System.Windows.Forms.Label lblcity;
+        private System.Windows.Forms.Label lblstreet;
+        private System.Windows.Forms.Label lblstate;
+        private System.Windows.Forms.Label lblzip;
+        private System.Windows.Forms.TextBox txtfirstName;
+        private System.Windows.Forms.TextBox txtphone2;
+        private System.Windows.Forms.TextBox txtphone1;
+        private System.Windows.Forms.TextBox txtemail2;
+        private System.Windows.Forms.TextBox txtemail1;
+        private System.Windows.Forms.TextBox txtmiddleInitial;
+        private System.Windows.Forms.TextBox txtlastName;
+        private System.Windows.Forms.TextBox txtdateOfBirth;
+        private System.Windows.Forms.TextBox txtgender;
+        private System.Windows.Forms.TextBox txtzip;
+        private System.Windows.Forms.TextBox txtstate;
+        private System.Windows.Forms.TextBox txtcity;
+        private System.Windows.Forms.TextBox txtstreet;
+        private System.Windows.Forms.TextBox txtpatientId;
+        private System.Windows.Forms.Label lblpatientId;
     }
 }
