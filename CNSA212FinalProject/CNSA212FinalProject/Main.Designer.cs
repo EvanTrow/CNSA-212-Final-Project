@@ -33,7 +33,7 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newPrescriptionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.refillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.physicianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -41,11 +41,13 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -56,53 +58,56 @@
             this.prescriptionToolStripMenuItem,
             this.physicianToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(63, 29);
             this.newToolStripMenuItem.Text = "New";
             // 
             // patientToolStripMenuItem
             // 
             this.patientToolStripMenuItem.Name = "patientToolStripMenuItem";
-            this.patientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.patientToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.patientToolStripMenuItem.Text = "Patient";
             this.patientToolStripMenuItem.Click += new System.EventHandler(this.patientToolStripMenuItem_Click);
             // 
             // prescriptionToolStripMenuItem
             // 
             this.prescriptionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripMenuItem1,
+            this.newPrescriptionToolStripMenuItem1,
             this.refillToolStripMenuItem});
             this.prescriptionToolStripMenuItem.Name = "prescriptionToolStripMenuItem";
-            this.prescriptionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.prescriptionToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.prescriptionToolStripMenuItem.Text = "Prescription";
             // 
-            // newToolStripMenuItem1
+            // newPrescriptionToolStripMenuItem1
             // 
-            this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
-            this.newToolStripMenuItem1.Text = "New";
+            this.newPrescriptionToolStripMenuItem1.Name = "newPrescriptionToolStripMenuItem1";
+            this.newPrescriptionToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.newPrescriptionToolStripMenuItem1.Text = "New Prescription";
+            this.newPrescriptionToolStripMenuItem1.Click += new System.EventHandler(this.prescriptionToolStripMenuItem1_Click);
             // 
             // refillToolStripMenuItem
             // 
             this.refillToolStripMenuItem.Name = "refillToolStripMenuItem";
-            this.refillToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.refillToolStripMenuItem.Text = "Refill";
+            this.refillToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.refillToolStripMenuItem.Text = "Refill Prescription";
+            this.refillToolStripMenuItem.Click += new System.EventHandler(this.refillToolStripMenuItem_click);
             // 
             // physicianToolStripMenuItem
             // 
             this.physicianToolStripMenuItem.Name = "physicianToolStripMenuItem";
-            this.physicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.physicianToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.physicianToolStripMenuItem.Text = "Physician";
             this.physicianToolStripMenuItem.Click += new System.EventHandler(this.physicianToolStripMenuItem_Click);
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Main";
             this.Text = "Louis’ Pharmacy";
             this.menuStrip1.ResumeLayout(false);
@@ -118,7 +123,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prescriptionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem newPrescriptionToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem refillToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem physicianToolStripMenuItem;
     }

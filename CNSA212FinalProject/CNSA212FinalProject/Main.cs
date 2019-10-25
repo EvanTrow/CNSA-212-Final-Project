@@ -18,9 +18,12 @@ namespace CNSA212FinalProject
         }
         NewPhysician newPhysician;
         NewPatient newPatient;
+        NewPrescription newPrescription;
+        Refill refill;
+        //Patient
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(newPatient == null)
+            if (newPatient == null)
             {
                 newPatient = new NewPatient();
                 newPatient.MdiParent = this;
@@ -37,6 +40,8 @@ namespace CNSA212FinalProject
             newPatient = null;
         }
 
+
+        //Physician
         private void physicianToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (newPhysician == null)
@@ -55,6 +60,46 @@ namespace CNSA212FinalProject
         private void NewPhysician_FormClosed(object sender, FormClosedEventArgs e)
         {
             newPhysician = null;
+        }
+
+
+        //New Prescription
+        private void prescriptionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (newPrescription == null)
+            {
+                newPrescription = new NewPrescription();
+                newPrescription.MdiParent = this;
+                newPrescription.FormClosed += new FormClosedEventHandler(NewPrescription_FormClosed);
+                newPrescription.Show();
+            }
+            else
+            {
+                newPrescription.Activate();
+            }
+        }
+       private void NewPrescription_FormClosed(object sender, FormClosedEventArgs e)
+       {
+                newPrescription = null;
+       }
+
+        private void refillToolStripMenuItem_click(object sender, EventArgs e)
+        {
+            if (refill == null)
+            {
+                refill = new Refill();
+                refill.MdiParent = this;
+                refill.FormClosed += new FormClosedEventHandler(Refill_FormClosed);
+                refill.Show();
+            }
+            else
+            {
+                refill.Activate();
+            }
+        }
+        private void Refill_FormClosed(object sender, FormClosedEventArgs e)
+        {
+                refill = null;    
         }
     }
 }

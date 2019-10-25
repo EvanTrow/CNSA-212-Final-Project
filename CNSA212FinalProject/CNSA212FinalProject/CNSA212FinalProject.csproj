@@ -64,6 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Refill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refill.Designer.cs">
+      <DependentUpon>Refill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewPrescription.Designer.cs">
+      <DependentUpon>NewPrescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewPhysician.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +105,9 @@
     <EmbeddedResource Include="NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewPrescription.resx">
+      <DependentUpon>NewPrescription.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,6 +117,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Refill.resx">
+      <DependentUpon>Refill.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
