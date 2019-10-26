@@ -60,7 +60,6 @@
             this.txtInsuranceCo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -344,7 +343,6 @@
             this.btnAddPatient.TabIndex = 15;
             this.btnAddPatient.Text = "Add Patient";
             this.btnAddPatient.UseVisualStyleBackColor = true;
-            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
             // dateDOB
             // 
@@ -407,21 +405,11 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(25, 541);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 594);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtInsuranceCo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtInsuranceNum);
@@ -491,6 +479,5 @@
         private System.Windows.Forms.TextBox txtInsuranceCo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button button1;
     }
 }
