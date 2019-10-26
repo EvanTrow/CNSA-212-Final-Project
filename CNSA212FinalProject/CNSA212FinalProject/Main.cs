@@ -99,7 +99,12 @@ namespace CNSA212FinalProject
         }
         private void Refill_FormClosed(object sender, FormClosedEventArgs e)
         {
-                refill = null;    
+            newPrescription = null;
+        }
+
+        private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
