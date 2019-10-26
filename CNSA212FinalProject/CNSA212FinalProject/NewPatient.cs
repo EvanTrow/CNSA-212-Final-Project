@@ -24,7 +24,7 @@ namespace CNSA212FinalProject
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                String query = "EXEC Add_Patient @FNAME, @LNAME, @MINIT, @DOB, @GENDER, @STREET1, @CITY, @STATEABBR, @ZIP, @HOMEPHONE, @CELLPHONE, @HOMEEMAIL, @WORKEMAIL";
+                String query = "EXEC Add_Patient @FNAME, @LNAME, @MINIT, @DOB, @GENDER, @STREET1, @CITY, @STATEABBR, @ZIP, @HOMEPHONE, @CELLPHONE, @HOMEEMAIL";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -40,7 +40,6 @@ namespace CNSA212FinalProject
                     command.Parameters.AddWithValue("@HOMEPHONE", txtphone1.Text);
                     command.Parameters.AddWithValue("@CELLPHONE", txtphone2.Text);
                     command.Parameters.AddWithValue("@HOMEEMAIL", txtemail1.Text);
-                    command.Parameters.AddWithValue("@WORKEMAIL", txtemail2.Text);
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();

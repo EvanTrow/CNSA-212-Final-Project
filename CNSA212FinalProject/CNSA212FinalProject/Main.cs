@@ -20,6 +20,7 @@ namespace CNSA212FinalProject
         NewPatient newPatient;
         NewPrescription newPrescription;
         Refill refill;
+        UpdatePatient updatePatient;
         //Patient
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -29,7 +30,8 @@ namespace CNSA212FinalProject
                 newPatient.MdiParent = this;
                 newPatient.FormClosed += new FormClosedEventHandler(NewPatient_FormClosed);
                 newPatient.Show();
-            } else
+            }
+            else
             {
                 newPatient.Activate();
             }
@@ -105,6 +107,25 @@ namespace CNSA212FinalProject
         private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void updatePatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (updatePatient == null)
+            {
+                updatePatient = new UpdatePatient();
+                updatePatient.MdiParent = this;
+                updatePatient.FormClosed += new FormClosedEventHandler(UpdatePatient_FormClosed);
+                updatePatient.Show();
+            }
+            else
+            {
+                updatePatient.Activate();
+            }
+        }
+        private void UpdatePatient_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            updatePatient = null;
         }
     }
 }
