@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPrescription));
             this.txtpatientId = new System.Windows.Forms.TextBox();
             this.lblPatientId = new System.Windows.Forms.Label();
             this.txtmedName = new System.Windows.Forms.TextBox();
@@ -247,6 +248,7 @@
             this.Controls.Add(this.lbldosage);
             this.Controls.Add(this.lblmedName);
             this.Controls.Add(this.lblperscriptionRefills);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewPrescription";
             this.Text = "New Prescription";
             this.ResumeLayout(false);
