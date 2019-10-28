@@ -16,20 +16,37 @@ namespace CNSA212FinalProject
         {
             InitializeComponent();
 
-            checkErrors();
+
+            //  get all textboxes in array and send to checker for first launch check
+            TextBox[] textBoxes = new TextBox[50];
+            int countCheck = 0;
+            foreach (Control c in this.Controls)
+            {
+                if (c.GetType() == txtcity.GetType() && ((TextBox)c).AccessibleDescription != null)
+                {
+                    textBoxes[countCheck] = ((TextBox)c);
+                    countCheck++;
+                }
+            }
+            checkErrors(textBoxes);
+
+
             btnAddPatient.Enabled = false;
         }
 
         public bool[] containsErrors = new bool[15];
-        public void checkErrors()
+        public void checkErrors(TextBox[] textBoxes)
         {
             allValidCheck();
-            foreach (Control c in this.Controls)
+            foreach (TextBox c in textBoxes)
             {
-                if (c.GetType() == txtcity.GetType())
+
+                // if sender is textbox and NOT empty sender
+                if (c != null && c.GetType() == txtcity.GetType())
                 {
                     try
                     {
+                        // if not mataching regex process error
                         Regex pattern = new Regex(((TextBox)c).AccessibleDescription);
                         if (!pattern.IsMatch(((TextBox)c).Text))
                         {
@@ -39,24 +56,31 @@ namespace CNSA212FinalProject
                         }
                         else
                         {
+                            //clear error without removing all errorProviders
                             errorProvider1.SetError(((TextBox)c), "");
                         }
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                 }
-            }
-            if (containsErrors.Contains(true))
-            {
-                btnAddPatient.Enabled = false;
-            }
-            else
-            {
-                btnAddPatient.Enabled = true;
+
+                // Enable/Disable button if error exist
+                if (containsErrors.Contains(true))
+                {
+                    btnAddPatient.Enabled = false;
+                }
+                else
+                {
+                    btnAddPatient.Enabled = true;
+                }
             }
         }
 
         public void allValidCheck()
         {
+            // verify all textboxes are valid
             foreach (Control c in this.Controls)
             {
                 if (c.GetType() == txtcity.GetType() && ((TextBox)c).AccessibleDescription != null)
@@ -76,7 +100,10 @@ namespace CNSA212FinalProject
 
         private void form_TextChanged(object sender, EventArgs e)
         {
-            checkErrors();
+            // send array of textbox sender's then send to error checker
+            TextBox[] textBoxes = new TextBox[1];
+            textBoxes[0] = ((TextBox)sender);
+            checkErrors(textBoxes);
         }
     }
 }
