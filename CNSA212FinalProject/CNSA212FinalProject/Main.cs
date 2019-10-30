@@ -16,116 +16,70 @@ namespace CNSA212FinalProject
         {
             InitializeComponent();
         }
-        NewPhysician newPhysician;
-        NewPatient newPatient;
-        NewPrescription newPrescription;
-        Refill refill;
-        UpdatePatient updatePatient;
-        //Patient
-        private void patientToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Main_MdiChildActivate(object sender, EventArgs e)
         {
-            if (newPatient == null)
-            {
-                newPatient = new NewPatient();
-                newPatient.MdiParent = this;
-                newPatient.FormClosed += new FormClosedEventHandler(NewPatient_FormClosed);
-                newPatient.Show();
-            }
+            if (this.ActiveMdiChild == null)
+                tabForms.Visible = false; // If no any child form, hide tabControl
             else
             {
-                newPatient.Activate();
+                this.ActiveMdiChild.WindowState = FormWindowState.Maximized; // Child form always maximized
+
+                // If child form is new and no has tabPage, create new tabPage
+                if (this.ActiveMdiChild.Tag == null)
+                {
+                    // Add a tabPage to tabControl with child form caption
+                    TabPage tp = new TabPage(this.ActiveMdiChild.Text);
+                    tp.Tag = this.ActiveMdiChild;
+                    tp.Parent = tabForms;
+                    tabForms.SelectedTab = tp;
+
+                    this.ActiveMdiChild.Tag = tp;
+                    this.ActiveMdiChild.FormClosed += new FormClosedEventHandler(ActiveMdiChild_FormClosed);
+                }
+
+                if (!tabForms.Visible) tabForms.Visible = true;
             }
         }
 
-        private void NewPatient_FormClosed(object sender, FormClosedEventArgs e)
+        // If child form closed, remove tabPage
+        private void ActiveMdiChild_FormClosed(object sender, FormClosedEventArgs e)
         {
-            newPatient = null;
+            ((sender as Form).Tag as TabPage).Dispose();
+        }
+
+        private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
+                (tabForms.SelectedTab.Tag as Form).Select();
         }
 
 
-        //Physician
-        private void physicianToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (newPhysician == null)
+            var menuItem = sender as ToolStripMenuItem;
+            string menuTag = menuItem.Name;
+
+            Form newForm = null;
+
+
+            if (menuTag == "newPatientToolStripMenuItem")
             {
-                newPhysician = new NewPhysician();
-                newPhysician.MdiParent = this;
-                newPhysician.FormClosed += new FormClosedEventHandler(NewPhysician_FormClosed);
-                newPhysician.Show();
+                newForm = new NewPatient();
             }
-            else
+            else if (menuTag == "newPhysicianToolStripMenuItem")
             {
-                newPhysician.Activate();
+                newForm = new NewPhysician();
             }
-        }
-
-        private void NewPhysician_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            newPhysician = null;
-        }
-
-
-        //New Prescription
-        private void prescriptionToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (newPrescription == null)
+            else if (menuTag == "newPrescriptionToolStripMenuItem")
             {
-                newPrescription = new NewPrescription();
-                newPrescription.MdiParent = this;
-                newPrescription.FormClosed += new FormClosedEventHandler(NewPrescription_FormClosed);
-                newPrescription.Show();
+                newForm = new NewPrescription();
             }
-            else
-            {
-                newPrescription.Activate();
-            }
-        }
-       private void NewPrescription_FormClosed(object sender, FormClosedEventArgs e)
-       {
-                newPrescription = null;
-       }
 
-        private void refillToolStripMenuItem_click(object sender, EventArgs e)
-        {
-            if (refill == null)
+            if (newForm != null)
             {
-                refill = new Refill();
-                refill.MdiParent = this;
-                refill.FormClosed += new FormClosedEventHandler(Refill_FormClosed);
-                refill.Show();
+                newForm.MdiParent = this;
+                newForm.Show();
             }
-            else
-            {
-                refill.Activate();
-            }
-        }
-        private void Refill_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            newPrescription = null;
-        }
-
-        private void patientsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void updatePatientToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (updatePatient == null)
-            {
-                updatePatient = new UpdatePatient();
-                updatePatient.MdiParent = this;
-                updatePatient.FormClosed += new FormClosedEventHandler(UpdatePatient_FormClosed);
-                updatePatient.Show();
-            }
-            else
-            {
-                updatePatient.Activate();
-            }
-        }
-        private void UpdatePatient_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            updatePatient = null;
         }
     }
 }
