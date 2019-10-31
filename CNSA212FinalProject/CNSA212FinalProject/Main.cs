@@ -53,7 +53,7 @@ namespace CNSA212FinalProject
                 (tabForms.SelectedTab.Tag as Form).Select();
         }
 
-
+        int tabIndex = 0;
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var menuItem = sender as ToolStripMenuItem;
@@ -64,7 +64,7 @@ namespace CNSA212FinalProject
 
             if (menuTag == "newPatientToolStripMenuItem")
             {
-                newForm = new NewPatient();
+                newForm = new NewPatient(tabForms, tabIndex);
             }
             else if (menuTag == "newPhysicianToolStripMenuItem")
             {
@@ -80,6 +80,7 @@ namespace CNSA212FinalProject
                 newForm.MdiParent = this;
                 newForm.Show();
             }
+            tabIndex++;
         }
     }
 }

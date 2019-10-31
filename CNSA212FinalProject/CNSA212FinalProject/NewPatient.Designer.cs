@@ -48,9 +48,6 @@
             this.txtemail = new System.Windows.Forms.TextBox();
             this.txtmiddleInitial = new System.Windows.Forms.TextBox();
             this.txtlastName = new System.Windows.Forms.TextBox();
-            this.txtgender = new System.Windows.Forms.TextBox();
-            this.txtzip = new System.Windows.Forms.TextBox();
-            this.txtstate = new System.Windows.Forms.TextBox();
             this.txtcity = new System.Windows.Forms.TextBox();
             this.txtstreet = new System.Windows.Forms.TextBox();
             this.btnAddPatient = new System.Windows.Forms.Button();
@@ -60,6 +57,9 @@
             this.txtInsuranceCo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtzip = new System.Windows.Forms.TextBox();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
+            this.genderComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -202,23 +202,26 @@
             this.txtfirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtfirstName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfirstName.Location = new System.Drawing.Point(141, 13);
+            this.txtfirstName.Location = new System.Drawing.Point(150, 13);
             this.txtfirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtfirstName.Name = "txtfirstName";
-            this.txtfirstName.Size = new System.Drawing.Size(325, 30);
+            this.txtfirstName.Size = new System.Drawing.Size(327, 30);
             this.txtfirstName.TabIndex = 1;
             this.txtfirstName.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtphone2
             // 
+            this.txtphone2.AccessibleDescription = "^(^$|((\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}))$";
+            this.txtphone2.AccessibleName = "Invalid Phone #";
             this.txtphone2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtphone2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtphone2.Location = new System.Drawing.Point(141, 239);
+            this.txtphone2.Location = new System.Drawing.Point(150, 239);
             this.txtphone2.Margin = new System.Windows.Forms.Padding(4);
             this.txtphone2.Name = "txtphone2";
-            this.txtphone2.Size = new System.Drawing.Size(325, 30);
+            this.txtphone2.Size = new System.Drawing.Size(327, 30);
             this.txtphone2.TabIndex = 7;
+            this.txtphone2.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtphone1
             // 
@@ -227,10 +230,10 @@
             this.txtphone1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtphone1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtphone1.Location = new System.Drawing.Point(141, 201);
+            this.txtphone1.Location = new System.Drawing.Point(150, 201);
             this.txtphone1.Margin = new System.Windows.Forms.Padding(4);
             this.txtphone1.Name = "txtphone1";
-            this.txtphone1.Size = new System.Drawing.Size(325, 30);
+            this.txtphone1.Size = new System.Drawing.Size(327, 30);
             this.txtphone1.TabIndex = 6;
             this.txtphone1.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -241,23 +244,26 @@
             this.txtemail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtemail.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(141, 277);
+            this.txtemail.Location = new System.Drawing.Point(150, 277);
             this.txtemail.Margin = new System.Windows.Forms.Padding(4);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(325, 30);
+            this.txtemail.Size = new System.Drawing.Size(327, 30);
             this.txtemail.TabIndex = 8;
             this.txtemail.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtmiddleInitial
             // 
+            this.txtmiddleInitial.AccessibleDescription = "^(^$|([a-zA-z]{1}))$";
+            this.txtmiddleInitial.AccessibleName = "Invalid";
             this.txtmiddleInitial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtmiddleInitial.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmiddleInitial.Location = new System.Drawing.Point(141, 51);
+            this.txtmiddleInitial.Location = new System.Drawing.Point(150, 51);
             this.txtmiddleInitial.Margin = new System.Windows.Forms.Padding(4);
             this.txtmiddleInitial.Name = "txtmiddleInitial";
-            this.txtmiddleInitial.Size = new System.Drawing.Size(325, 30);
+            this.txtmiddleInitial.Size = new System.Drawing.Size(327, 30);
             this.txtmiddleInitial.TabIndex = 2;
+            this.txtmiddleInitial.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtlastName
             // 
@@ -266,69 +272,38 @@
             this.txtlastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtlastName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtlastName.Location = new System.Drawing.Point(141, 89);
+            this.txtlastName.Location = new System.Drawing.Point(150, 89);
             this.txtlastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtlastName.Name = "txtlastName";
-            this.txtlastName.Size = new System.Drawing.Size(325, 30);
+            this.txtlastName.Size = new System.Drawing.Size(327, 30);
             this.txtlastName.TabIndex = 3;
             this.txtlastName.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // txtgender
-            // 
-            this.txtgender.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtgender.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtgender.Location = new System.Drawing.Point(141, 163);
-            this.txtgender.Margin = new System.Windows.Forms.Padding(4);
-            this.txtgender.Name = "txtgender";
-            this.txtgender.Size = new System.Drawing.Size(325, 30);
-            this.txtgender.TabIndex = 5;
-            // 
-            // txtzip
-            // 
-            this.txtzip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtzip.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtzip.Location = new System.Drawing.Point(141, 429);
-            this.txtzip.Margin = new System.Windows.Forms.Padding(4);
-            this.txtzip.Name = "txtzip";
-            this.txtzip.Size = new System.Drawing.Size(325, 30);
-            this.txtzip.TabIndex = 12;
-            this.txtzip.TextChanged += new System.EventHandler(this.form_TextChanged);
-            // 
-            // txtstate
-            // 
-            this.txtstate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtstate.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstate.Location = new System.Drawing.Point(141, 391);
-            this.txtstate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtstate.Name = "txtstate";
-            this.txtstate.Size = new System.Drawing.Size(325, 30);
-            this.txtstate.TabIndex = 11;
-            this.txtstate.TextChanged += new System.EventHandler(this.form_TextChanged);
-            // 
             // txtcity
             // 
+            this.txtcity.AccessibleDescription = "^(?=.{2,30}$).*([a-zA-Z]+|[a-zA-Z]+(\\s|-)[a-zA-Z])$";
+            this.txtcity.AccessibleName = "Invalid city";
             this.txtcity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtcity.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcity.Location = new System.Drawing.Point(141, 353);
+            this.txtcity.Location = new System.Drawing.Point(150, 353);
             this.txtcity.Margin = new System.Windows.Forms.Padding(4);
             this.txtcity.Name = "txtcity";
-            this.txtcity.Size = new System.Drawing.Size(325, 30);
+            this.txtcity.Size = new System.Drawing.Size(327, 30);
             this.txtcity.TabIndex = 10;
             this.txtcity.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtstreet
             // 
+            this.txtstreet.AccessibleDescription = resources.GetString("txtstreet.AccessibleDescription");
+            this.txtstreet.AccessibleName = "Invalid street address";
             this.txtstreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtstreet.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstreet.Location = new System.Drawing.Point(141, 315);
+            this.txtstreet.Location = new System.Drawing.Point(150, 315);
             this.txtstreet.Margin = new System.Windows.Forms.Padding(4);
             this.txtstreet.Name = "txtstreet";
-            this.txtstreet.Size = new System.Drawing.Size(325, 30);
+            this.txtstreet.Size = new System.Drawing.Size(327, 30);
             this.txtstreet.TabIndex = 9;
             this.txtstreet.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -343,28 +318,35 @@
             this.btnAddPatient.TabIndex = 15;
             this.btnAddPatient.Text = "Add Patient";
             this.btnAddPatient.UseVisualStyleBackColor = true;
+            this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
             // dateDOB
             // 
             this.dateDOB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateDOB.CalendarFont = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateDOB.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateDOB.Location = new System.Drawing.Point(141, 126);
+            this.dateDOB.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateDOB.CustomFormat = "MM/dd/yyyy";
+            this.dateDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dateDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDOB.Location = new System.Drawing.Point(150, 128);
             this.dateDOB.Name = "dateDOB";
-            this.dateDOB.Size = new System.Drawing.Size(325, 30);
+            this.dateDOB.Size = new System.Drawing.Size(327, 26);
             this.dateDOB.TabIndex = 4;
+            this.dateDOB.ValueChanged += new System.EventHandler(this.dateDOB_ValueChanged);
             // 
             // txtInsuranceNum
             // 
+            this.txtInsuranceNum.AccessibleDescription = "^(^$|([\\s\\S]{2,30}))$";
+            this.txtInsuranceNum.AccessibleName = "Invalid";
             this.txtInsuranceNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInsuranceNum.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInsuranceNum.Location = new System.Drawing.Point(141, 467);
+            this.txtInsuranceNum.Location = new System.Drawing.Point(150, 467);
             this.txtInsuranceNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceNum.Name = "txtInsuranceNum";
-            this.txtInsuranceNum.Size = new System.Drawing.Size(325, 30);
+            this.txtInsuranceNum.Size = new System.Drawing.Size(327, 30);
             this.txtInsuranceNum.TabIndex = 13;
+            this.txtInsuranceNum.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label1
             // 
@@ -379,14 +361,17 @@
             // 
             // txtInsuranceCo
             // 
+            this.txtInsuranceCo.AccessibleDescription = "^(^$|([\\s\\S]{2,40}))$";
+            this.txtInsuranceCo.AccessibleName = "Invalid";
             this.txtInsuranceCo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInsuranceCo.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInsuranceCo.Location = new System.Drawing.Point(141, 505);
+            this.txtInsuranceCo.Location = new System.Drawing.Point(150, 505);
             this.txtInsuranceCo.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceCo.Name = "txtInsuranceCo";
-            this.txtInsuranceCo.Size = new System.Drawing.Size(325, 30);
+            this.txtInsuranceCo.Size = new System.Drawing.Size(327, 30);
             this.txtInsuranceCo.TabIndex = 14;
+            this.txtInsuranceCo.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label2
             // 
@@ -405,11 +390,112 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
+            // txtzip
+            // 
+            this.txtzip.AccessibleDescription = "^[0-9]{5}$";
+            this.txtzip.AccessibleName = "Invalid zip code";
+            this.txtzip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtzip.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtzip.Location = new System.Drawing.Point(150, 429);
+            this.txtzip.Margin = new System.Windows.Forms.Padding(4);
+            this.txtzip.Name = "txtzip";
+            this.txtzip.Size = new System.Drawing.Size(327, 30);
+            this.txtzip.TabIndex = 12;
+            this.txtzip.TextChanged += new System.EventHandler(this.form_TextChanged);
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.AccessibleName = "state";
+            this.stateComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.stateComboBox.DropDownHeight = 250;
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stateComboBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.IntegralHeight = false;
+            this.stateComboBox.Items.AddRange(new object[] {
+            "AL - Alabama",
+            "AK - Alaska",
+            "AZ - Arizona",
+            "AR - Arkansas",
+            "CA - California",
+            "CO - Colorado",
+            "CT - Connecticut",
+            "DE - Delaware",
+            "FL - Florida",
+            "GA - Georgia",
+            "HI - Hawaii",
+            "ID - Idaho",
+            "IL - Illinois",
+            "IN - Indiana",
+            "IA - Iowa",
+            "KS - Kansas",
+            "KY - Kentucky",
+            "LA - Louisiana",
+            "ME - Maine",
+            "MD - Maryland",
+            "MA - Massachusetts",
+            "MI - Michigan",
+            "MN - Minnesota",
+            "MS - Mississippi",
+            "MO - Missouri",
+            "MT - Montana",
+            "NE - Nebraska",
+            "NV - Nevada",
+            "NH - New Hampshire",
+            "NJ - New Jersey",
+            "NM - New Mexico",
+            "NY - New York",
+            "NC - North Carolina",
+            "ND - North Dakota",
+            "OH - Ohio",
+            "OK - Oklahoma",
+            "OR - Oregon",
+            "PA - Pennsylvania",
+            "RI - Rhode Island",
+            "SC - South Carolina",
+            "SD - South Dakota",
+            "TN - Tennessee",
+            "TX - Texas",
+            "UT - Utah",
+            "VT - Vermont",
+            "VA - Virginia",
+            "WA - Washington",
+            "WV - West Virginia",
+            "WI - Wisconsin",
+            "WY - Wyoming"});
+            this.stateComboBox.Location = new System.Drawing.Point(150, 390);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(327, 31);
+            this.stateComboBox.TabIndex = 11;
+            this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            // 
+            // genderComboBox
+            // 
+            this.genderComboBox.AccessibleName = "gender";
+            this.genderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderComboBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Items.AddRange(new object[] {
+            "MALE",
+            "FEMALE",
+            "NA"});
+            this.genderComboBox.Location = new System.Drawing.Point(150, 163);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(327, 31);
+            this.genderComboBox.TabIndex = 5;
+            this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 594);
+            this.Controls.Add(this.genderComboBox);
+            this.Controls.Add(this.stateComboBox);
             this.Controls.Add(this.txtInsuranceCo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtInsuranceNum);
@@ -418,9 +504,7 @@
             this.Controls.Add(this.btnAddPatient);
             this.Controls.Add(this.txtstreet);
             this.Controls.Add(this.txtcity);
-            this.Controls.Add(this.txtstate);
             this.Controls.Add(this.txtzip);
-            this.Controls.Add(this.txtgender);
             this.Controls.Add(this.txtlastName);
             this.Controls.Add(this.txtmiddleInitial);
             this.Controls.Add(this.txtemail);
@@ -439,7 +523,10 @@
             this.Controls.Add(this.lbllastName);
             this.Controls.Add(this.lblmiddleInitial);
             this.Controls.Add(this.lblfirstName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewPatient";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "New Patient";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -467,9 +554,6 @@
         private System.Windows.Forms.TextBox txtemail;
         private System.Windows.Forms.TextBox txtmiddleInitial;
         private System.Windows.Forms.TextBox txtlastName;
-        private System.Windows.Forms.TextBox txtgender;
-        private System.Windows.Forms.TextBox txtzip;
-        private System.Windows.Forms.TextBox txtstate;
         private System.Windows.Forms.TextBox txtcity;
         private System.Windows.Forms.TextBox txtstreet;
         private System.Windows.Forms.Button btnAddPatient;
@@ -479,5 +563,8 @@
         private System.Windows.Forms.TextBox txtInsuranceCo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ComboBox genderComboBox;
+        private System.Windows.Forms.ComboBox stateComboBox;
+        private System.Windows.Forms.TextBox txtzip;
     }
 }
