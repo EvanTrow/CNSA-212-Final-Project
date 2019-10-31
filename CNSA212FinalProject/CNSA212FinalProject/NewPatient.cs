@@ -219,7 +219,7 @@ namespace CNSA212FinalProject
                     command.Parameters.AddWithValue("@street", txtstreet.Text);
                     command.Parameters.AddWithValue("@city", txtcity.Text);
                     command.Parameters.AddWithValue("@stateAbbr", stateComboBox.Text.Substring(0, 2).Trim());
-                    command.Parameters.AddWithValue("@zip", txtzip.Text);
+                    command.Parameters.AddWithValue("@zip", int.Parse(txtzip.Text));
                     command.Parameters.AddWithValue("@phone1", txtphone1.Text);
                     command.Parameters.AddWithValue("@phone2", txtphone2.Text);
                     command.Parameters.AddWithValue("@email", txtemail.Text);
@@ -232,20 +232,23 @@ namespace CNSA212FinalProject
                     // Check Error
                     if (result < 0)
                     {
-                        MessageBox.Show("Error inserting data into Database!",
-                                "Error!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1);
-                    } else
-                    {
-
                         MessageBox.Show("Patient Added Sussessfully!",
                                 "Patient Added!",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information,
                                 MessageBoxDefaultButton.Button1);
-                        tabForms.TabPages.RemoveAt(tabIndex);
+                        foreach (Form c in this.MdiChildren)
+                        {
+                            c.Close();
+                        }
+                    } else
+                    {
+
+                        MessageBox.Show("Error inserting data into Database!",
+                                "Error!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error,
+                                MessageBoxDefaultButton.Button1);
                     }
                 }
             }

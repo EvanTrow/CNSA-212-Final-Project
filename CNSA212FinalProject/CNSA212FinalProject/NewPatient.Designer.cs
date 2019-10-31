@@ -341,7 +341,7 @@
             this.txtInsuranceNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInsuranceNum.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInsuranceNum.Location = new System.Drawing.Point(150, 467);
+            this.txtInsuranceNum.Location = new System.Drawing.Point(151, 505);
             this.txtInsuranceNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceNum.Name = "txtInsuranceNum";
             this.txtInsuranceNum.Size = new System.Drawing.Size(327, 30);
@@ -352,7 +352,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 470);
+            this.label1.Location = new System.Drawing.Point(20, 508);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 23);
@@ -366,7 +366,7 @@
             this.txtInsuranceCo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInsuranceCo.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInsuranceCo.Location = new System.Drawing.Point(150, 505);
+            this.txtInsuranceCo.Location = new System.Drawing.Point(149, 467);
             this.txtInsuranceCo.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceCo.Name = "txtInsuranceCo";
             this.txtInsuranceCo.Size = new System.Drawing.Size(327, 30);
@@ -377,7 +377,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 508);
+            this.label2.Location = new System.Drawing.Point(20, 470);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 23);
