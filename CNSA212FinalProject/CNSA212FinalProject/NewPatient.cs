@@ -237,10 +237,9 @@ namespace CNSA212FinalProject
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information,
                                 MessageBoxDefaultButton.Button1);
-                        foreach (Form c in this.MdiChildren)
-                        {
-                            c.Close();
-                        }
+
+                        txtfirstName.Text = txtlastName.Text = txtmiddleInitial.Text = txtstreet.Text = txtcity.Text = txtzip.Text = txtphone1.Text = txtphone2.Text = txtemail.Text = txtInsuranceCo.Text = txtInsuranceNum.Text = "";
+                        stateComboBox.SelectedIndex = genderComboBox.SelectedIndex = -1;
                     } else
                     {
 
