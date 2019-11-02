@@ -12,15 +12,15 @@ namespace CNSA212FinalProject
     {
         TabControl tabForms;
         int tabIndex;
-        public NewPatient(TabControl TabForms, int TabIndex, string fillFromId)
+        public NewPatient(TabControl TabForms, int TabIndex, int fillFromId)
         {
             InitializeComponent();
             tabForms = TabForms;
             tabIndex = TabIndex;
 
-            if (fillFromId != "")
+            if (fillFromId != -1)
             {
-                MessageBox.Show("Need to implement auto fill: "+ fillFromId);
+                autoFillData(fillFromId);
             }
 
             //  get all textboxes in array and send to checker for first launch check
@@ -256,6 +256,51 @@ namespace CNSA212FinalProject
                     }
                 }
             }
+        }
+
+        private void autoFillData(int patientId)
+        {
+            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
+            SqlConnection cnn = new SqlConnection(connetionString);
+            cnn.Open();
+
+            string sql = "SELECT * from Patient WHERE patientID="+ patientId + "";
+            SqlCommand command = new SqlCommand(sql, cnn);
+            SqlDataReader dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                txtfirstName.Text = dataReader["fName"].ToString();
+                txtlastName.Text = dataReader["lName"].ToString();
+                txtmiddleInitial.Text = dataReader["mInit"].ToString().Trim();
+                dateDOB.Value = DateTime.Parse((dataReader["DOB"]).ToString());
+
+                if (dataReader["gender"].ToString() == "M")
+                {
+                    genderComboBox.SelectedIndex = 0;
+                }
+                else if (dataReader["gender"].ToString() == "F")
+                {
+                    genderComboBox.SelectedIndex = 1;
+                }
+                else
+                {
+                    genderComboBox.SelectedIndex = 2;
+                }
+
+                txtstreet.Text = dataReader["street"].ToString();
+                txtcity.Text = dataReader["city"].ToString();
+                stateComboBox.SelectedIndex = int.Parse(stateComboBox.FindString(dataReader["stateAbbr"].ToString()).ToString());
+                txtzip.Text = dataReader["zip"].ToString();
+                txtphone1.Text = dataReader["phone1"].ToString();
+                txtphone2.Text = dataReader["phone2"].ToString();
+                txtemail.Text = dataReader["email"].ToString();
+                txtInsuranceCo.Text = dataReader["InsuranceCo"].ToString();
+                txtInsuranceNum.Text = dataReader["InsuranceNum"].ToString();
+            }
+            cnn.Close();
+
+            btnAddPatient.Visible = false;
         }
     }
 }

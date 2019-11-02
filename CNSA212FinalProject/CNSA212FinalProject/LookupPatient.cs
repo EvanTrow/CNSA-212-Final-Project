@@ -38,18 +38,20 @@ namespace CNSA212FinalProject
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-            foreach(DataGridViewRow row in ((DataGridView)sender).SelectedRows)
+        {            foreach(DataGridViewRow row in ((DataGridView)sender).SelectedRows)
             {
-                MessageBox.Show(dataGridView.Rows[row.Index].Cells[0].Value.ToString());
-
-                Form newForm = new NewPatient(tabForms, Main.tabIndex, dataGridView.Rows[row.Index].Cells[0].Value.ToString());
-                newForm.MdiParent = this.MdiParent;
-                newForm.Show();
-                Main.tabIndex++;
+                try
+                {
+                    Form newForm = new NewPatient(tabForms, Main.tabIndex, int.Parse(dataGridView.Rows[row.Index].Cells[0].Value.ToString()));
+                    newForm.MdiParent = this.MdiParent;
+                    newForm.Show();
+                    Main.tabIndex++;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error");
+                }
             }
-            
         }
     }
 }

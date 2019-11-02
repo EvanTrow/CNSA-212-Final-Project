@@ -65,7 +65,7 @@ namespace CNSA212FinalProject
 
             if (menuTag == "newPatientToolStripMenuItem")
             {
-                newForm = new NewPatient(tabForms, tabIndex, "");
+                newForm = new NewPatient(tabForms, tabIndex, -1);
             }
             else if (menuTag == "newPhysicianToolStripMenuItem")
             {
@@ -87,7 +87,6 @@ namespace CNSA212FinalProject
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string test = Interaction.InputBox("Search for patient", "Lookup Patient", "");
-
             Form newForm = new LookupPatient(tabForms, test.Trim());
             newForm.MdiParent = this;
             newForm.Show();
