@@ -54,7 +54,6 @@ namespace CNSA212FinalProject
                 (tabForms.SelectedTab.Tag as Form).Select();
         }
 
-        public static int tabIndex = 0;
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var menuItem = sender as ToolStripMenuItem;
@@ -65,11 +64,11 @@ namespace CNSA212FinalProject
 
             if (menuTag == "newPatientToolStripMenuItem")
             {
-                newForm = new NewPatient(tabForms, tabIndex, -1);
+                newForm = new NewPatient(-1);
             }
             else if (menuTag == "newPhysicianToolStripMenuItem")
             {
-                newForm = new NewPhysician();
+                newForm = new NewPhysician(-1);
             }
             else if (menuTag == "newPrescriptionToolStripMenuItem")
             {
@@ -81,7 +80,6 @@ namespace CNSA212FinalProject
                 newForm.MdiParent = this;
                 newForm.Show();
             }
-            tabIndex++;
         }
 
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,5 +90,12 @@ namespace CNSA212FinalProject
             newForm.Show();
         }
 
+        private void physicianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string test = Interaction.InputBox("Search for Physician", "Lookup Physician", "");
+            Form newForm = new LookupPhysician(tabForms, test.Trim());
+            newForm.MdiParent = this;
+            newForm.Show();
+        }
     }
 }

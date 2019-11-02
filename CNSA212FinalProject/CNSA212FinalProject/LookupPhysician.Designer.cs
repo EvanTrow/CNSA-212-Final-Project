@@ -1,6 +1,6 @@
 ﻿namespace CNSA212FinalProject
 {
-    partial class LookupPatient
+    partial class LookupPhysician
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.patientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.physicianId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mInit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.street = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,8 +40,9 @@
             this.zip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InsuranceCo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InsuranceNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialty1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialty2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,11 +54,10 @@
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.patientId,
+            this.physicianId,
             this.fName,
             this.mInit,
             this.lName,
-            this.DOB,
             this.gender,
             this.street,
             this.city,
@@ -66,8 +65,9 @@
             this.zip,
             this.phone1,
             this.phone2,
-            this.InsuranceCo,
-            this.InsuranceNum});
+            this.email,
+            this.specialty1,
+            this.specialty2});
             this.dataGridView.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -77,15 +77,15 @@
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(935, 250);
-            this.dataGridView.TabIndex = 0;
+            this.dataGridView.Size = new System.Drawing.Size(800, 450);
+            this.dataGridView.TabIndex = 1;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
-            // patientId
+            // physicianId
             // 
-            this.patientId.HeaderText = "Patient ID";
-            this.patientId.Name = "patientId";
-            this.patientId.ReadOnly = true;
+            this.physicianId.HeaderText = "Physician ID";
+            this.physicianId.Name = "physicianId";
+            this.physicianId.ReadOnly = true;
             // 
             // fName
             // 
@@ -104,12 +104,6 @@
             this.lName.HeaderText = "Last Name";
             this.lName.Name = "lName";
             this.lName.ReadOnly = true;
-            // 
-            // DOB
-            // 
-            this.DOB.HeaderText = "DOB";
-            this.DOB.Name = "DOB";
-            this.DOB.ReadOnly = true;
             // 
             // gender
             // 
@@ -153,26 +147,32 @@
             this.phone2.Name = "phone2";
             this.phone2.ReadOnly = true;
             // 
-            // InsuranceCo
+            // email
             // 
-            this.InsuranceCo.HeaderText = "Insurance Co";
-            this.InsuranceCo.Name = "InsuranceCo";
-            this.InsuranceCo.ReadOnly = true;
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
             // 
-            // InsuranceNum
+            // specialty1
             // 
-            this.InsuranceNum.HeaderText = "Insurance #";
-            this.InsuranceNum.Name = "InsuranceNum";
-            this.InsuranceNum.ReadOnly = true;
+            this.specialty1.HeaderText = "Specialty 1";
+            this.specialty1.Name = "specialty1";
+            this.specialty1.ReadOnly = true;
             // 
-            // LookupPatient
+            // specialty2
+            // 
+            this.specialty2.HeaderText = "Specialty 2";
+            this.specialty2.Name = "specialty2";
+            this.specialty2.ReadOnly = true;
+            // 
+            // LookupPhysician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 250);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView);
-            this.Name = "LookupPatient";
-            this.Text = "LookupPatient";
+            this.Name = "LookupPhysician";
+            this.Text = "LookupPhysician";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -181,11 +181,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patientId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn physicianId;
         private System.Windows.Forms.DataGridViewTextBoxColumn fName;
         private System.Windows.Forms.DataGridViewTextBoxColumn mInit;
         private System.Windows.Forms.DataGridViewTextBoxColumn lName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DOB;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn street;
         private System.Windows.Forms.DataGridViewTextBoxColumn city;
@@ -193,7 +192,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn zip;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone1;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InsuranceCo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InsuranceNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specialty1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specialty2;
     }
 }

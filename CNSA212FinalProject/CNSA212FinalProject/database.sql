@@ -1,7 +1,9 @@
 USE MASTER
 CREATE DATABASE Pharmacy
+GO
 
 USE Pharmacy
+GO
 
 CREATE TABLE Patient(
 patientId		INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_patientId PRIMARY KEY,
@@ -27,17 +29,16 @@ physicianId		INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_physicianId PRIMARY KEY,
 fName			VARCHAR(25) NOT NULL,
 lName			VARCHAR(25) NOT NULL,
 mInit			CHAR(1),
+gender			CHAR(1) NOT NULL CHECK(gender IN('M','F','O')),
 street			VARCHAR(60) NOT NULL,
 city			VARCHAR(30) NOT NULL,
 stateAbbr		CHAR(2) NOT NULL,
 zip				INT NOT NULL,
 phone1			VARCHAR(15) NOT NULL,	
 phone2			VARCHAR(15),
-email1			VARCHAR(100) NOT NULL,
-email2			VARCHAR(100) NOT NULL,
-gender			CHAR(1) NOT NULL CHECK(gender IN('M','F','O')),
-SPECIALTY1		VARCHAR(60),
-SPECIALTY2		VARCHAR(60)
+email			VARCHAR(100) NOT NULL,
+specialty1		VARCHAR(60),
+specialty2		VARCHAR(60)
 )
 
 
@@ -100,3 +101,66 @@ AS
 				END
 	END
 GO
+
+CREATE PROC Add_Physician(
+	@fName			VARCHAR(25),
+	@lName			VARCHAR(25),
+	@mInit			CHAR(1) = NULL,
+	@gender			CHAR(1),
+	@street			VARCHAR(60),
+	@city			VARCHAR(30),
+	@stateAbbr		CHAR(2),
+	@zip			INT,
+	@phone1			VARCHAR(15),
+	@phone2			VARCHAR(15) = NULL,
+	@email			VARCHAR(100),
+	@specialty1		VARCHAR(60) = NULL,
+	@specialty2		VARCHAR(60) = NULL
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			INSERT INTO Physician(fName, lName, mInit, gender,
+				street, city, stateAbbr, zip, phone1,
+				phone2, email, specialty1, specialty2)
+			VALUES (@fName, @lName, @mInit, @gender, @street, 
+				@city, @stateAbbr, @zip, @phone1, @phone2,
+				@email, @specialty1, @specialty2)
+
+				IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to insert record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record added successfully!'
+				END
+	END
+GO
+
+
+CREATE PROCEDURE dbo.sp_FindStringInTable @stringToFind VARCHAR(100), @schema sysname, @table sysname 
+AS
+
+BEGIN TRY
+   DECLARE @sqlCommand varchar(max) = 'SELECT * FROM [' + @schema + '].[' + @table + '] WHERE ' 
+	   
+   SELECT @sqlCommand = @sqlCommand + '[' + COLUMN_NAME + '] LIKE ''' + @stringToFind + ''' OR '
+   FROM INFORMATION_SCHEMA.COLUMNS 
+   WHERE TABLE_SCHEMA = @schema
+   AND TABLE_NAME = @table 
+   AND DATA_TYPE IN ('char','nchar','ntext','nvarchar','text','varchar')
+
+   SET @sqlCommand = left(@sqlCommand,len(@sqlCommand)-3)
+   EXEC (@sqlCommand)
+   PRINT @sqlCommand
+END TRY
+
+BEGIN CATCH 
+   PRINT 'There was an error. Check to make sure object exists.'
+   PRINT error_message()
+END CATCH 

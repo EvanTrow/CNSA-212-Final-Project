@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace CNSA212FinalProject
 {
-    public partial class LookupPatient : Form
+    public partial class LookupPhysician : Form
     {
         TabControl tabForms;
-        public LookupPatient(TabControl TabForms, string search)
+        public LookupPhysician(TabControl TabForms, string search)
         {
             InitializeComponent();
             tabForms = TabForms;
@@ -23,32 +23,32 @@ namespace CNSA212FinalProject
             SqlConnection cnn = new SqlConnection(connetionString);
             cnn.Open();
 
-            string sql = "EXEC sp_FindStringInTable '%" + search + "%', 'dbo', 'Patient'";
+            string sql = "EXEC sp_FindStringInTable '%" + search + "%', 'dbo', 'Physician'";
             SqlCommand command = new SqlCommand(sql, cnn);
             SqlDataReader dataReader = command.ExecuteReader();
 
             while (dataReader.Read())
             {
-                dataGridView.Rows.Add(dataReader["patientID"], dataReader["fName"], dataReader["mInit"], dataReader["lName"], Convert.ToDateTime(dataReader["DOB"]).ToString("MM/dd/yyyy"),
-                    dataReader["gender"], dataReader["street"], dataReader["city"], dataReader["stateAbbr"], dataReader["zip"], 
-                    dataReader["phone1"], dataReader["phone2"], dataReader["InsuranceCo"], dataReader["InsuranceNum"]);
+                dataGridView.Rows.Add(dataReader["physicianID"], dataReader["fName"], dataReader["mInit"], dataReader["lName"],
+                    dataReader["gender"], dataReader["street"], dataReader["city"], dataReader["stateAbbr"], dataReader["zip"],
+                    dataReader["phone1"], dataReader["phone2"], dataReader["email"], dataReader["specialty2"], dataReader["specialty2"]);
             }
             cnn.Close();
-
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {            foreach(DataGridViewRow row in ((DataGridView)sender).SelectedRows)
+        {
+            foreach (DataGridViewRow row in ((DataGridView)sender).SelectedRows)
             {
                 try
                 {
-                    Form newForm = new NewPatient(int.Parse(dataGridView.Rows[row.Index].Cells[0].Value.ToString()));
+                    Form newForm = new NewPhysician(int.Parse(dataGridView.Rows[row.Index].Cells[0].Value.ToString()));
                     newForm.MdiParent = this.MdiParent;
                     newForm.Show();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(""+ex);
+                    MessageBox.Show("" + ex);
                 }
             }
         }

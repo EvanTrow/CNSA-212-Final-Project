@@ -10,18 +10,12 @@ namespace CNSA212FinalProject
 {
     public partial class NewPatient : Form
     {
-        TabControl tabForms;
-        int tabIndex;
-        public NewPatient(TabControl TabForms, int TabIndex, int fillFromId)
+        public int fillFromId;
+        public NewPatient(int FillFromId)
         {
             InitializeComponent();
-            tabForms = TabForms;
-            tabIndex = TabIndex;
 
-            if (fillFromId != -1)
-            {
-                autoFillData(fillFromId);
-            }
+            fillFromId = FillFromId;
 
             //  get all textboxes in array and send to checker for first launch check
             TextBox[] textBoxes = new TextBox[50];
@@ -43,6 +37,12 @@ namespace CNSA212FinalProject
             }
             checkErrors(textBoxes);
             checkErrorsCombo(comboBoxes);
+
+
+            if (fillFromId != -1)
+            {
+                autoFillData(fillFromId);
+            }
 
             btnAddPatient.Enabled = false;
             dateDOB.MaxDate = DateTime.Today;
@@ -128,7 +128,14 @@ namespace CNSA212FinalProject
             textBoxes[0] = ((TextBox)sender);
             checkErrors(textBoxes);
 
-            tabForms.TabPages[tabIndex].Text = Truncate("New Patient: " + txtfirstName.Text + " " + txtlastName.Text, 30);
+
+            if (fillFromId != -1)
+            {
+                this.Text = Truncate("Patient: " + txtfirstName.Text + " " + txtlastName.Text, 30);
+            } else
+            {
+                this.Text = Truncate("New Patient: " + txtfirstName.Text + " " + txtlastName.Text, 30);
+            }
         }
 
         private string Truncate(string value, int maxLength)
@@ -301,6 +308,13 @@ namespace CNSA212FinalProject
             cnn.Close();
 
             btnAddPatient.Visible = false;
+            saveBtn.Visible = true;
+            dataGridView.Visible = true;
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

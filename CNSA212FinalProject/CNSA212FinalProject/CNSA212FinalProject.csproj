@@ -71,6 +71,12 @@
     <Compile Include="LookupPatient.Designer.cs">
       <DependentUpon>LookupPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="LookupPhysician.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookupPhysician.Designer.cs">
+      <DependentUpon>LookupPhysician.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdatePatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LookupPatient.resx">
       <DependentUpon>LookupPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LookupPhysician.resx">
+      <DependentUpon>LookupPhysician.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdatePatient.resx">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
