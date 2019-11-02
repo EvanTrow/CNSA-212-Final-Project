@@ -51,6 +51,7 @@
     <ApplicationIcon>appicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LookupPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LookupPatient.Designer.cs">
+      <DependentUpon>LookupPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdatePatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +109,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LookupPatient.resx">
+      <DependentUpon>LookupPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdatePatient.resx">
       <DependentUpon>UpdatePatient.cs</DependentUpon>
     </EmbeddedResource>

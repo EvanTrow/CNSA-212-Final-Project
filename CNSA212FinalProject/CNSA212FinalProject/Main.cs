@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,7 +54,7 @@ namespace CNSA212FinalProject
                 (tabForms.SelectedTab.Tag as Form).Select();
         }
 
-        int tabIndex = 0;
+        public static int tabIndex = 0;
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var menuItem = sender as ToolStripMenuItem;
@@ -64,7 +65,7 @@ namespace CNSA212FinalProject
 
             if (menuTag == "newPatientToolStripMenuItem")
             {
-                newForm = new NewPatient(tabForms, tabIndex);
+                newForm = new NewPatient(tabForms, tabIndex, "");
             }
             else if (menuTag == "newPhysicianToolStripMenuItem")
             {
@@ -82,5 +83,15 @@ namespace CNSA212FinalProject
             }
             tabIndex++;
         }
+
+        private void patientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string test = Interaction.InputBox("Search for patient", "Lookup Patient", "");
+
+            Form newForm = new LookupPatient(tabForms, test.Trim());
+            newForm.MdiParent = this;
+            newForm.Show();
+        }
+
     }
 }

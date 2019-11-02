@@ -12,11 +12,16 @@ namespace CNSA212FinalProject
     {
         TabControl tabForms;
         int tabIndex;
-        public NewPatient(TabControl TabForms, int TabIndex)
+        public NewPatient(TabControl TabForms, int TabIndex, string fillFromId)
         {
             InitializeComponent();
             tabForms = TabForms;
             tabIndex = TabIndex;
+
+            if (fillFromId != "")
+            {
+                MessageBox.Show("Need to implement auto fill: "+ fillFromId);
+            }
 
             //  get all textboxes in array and send to checker for first launch check
             TextBox[] textBoxes = new TextBox[50];
