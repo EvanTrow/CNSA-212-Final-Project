@@ -82,20 +82,46 @@ namespace CNSA212FinalProject
             }
         }
 
+        LookupPatient lookupPatient;
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string test = Interaction.InputBox("Search for patient", "Lookup Patient", "");
-            Form newForm = new LookupPatient(tabForms, test.Trim());
-            newForm.MdiParent = this;
-            newForm.Show();
+            if (lookupPatient == null)
+            {
+                lookupPatient = new LookupPatient(tabForms, test.Trim());
+                lookupPatient.MdiParent = this;
+                lookupPatient.Show();
+            }
+            else
+            {
+                lookupPatient.Close();
+                lookupPatient = null;
+
+                lookupPatient = new LookupPatient(tabForms, test.Trim());
+                lookupPatient.MdiParent = this;
+                lookupPatient.Show();
+            }
         }
 
+        LookupPhysician lookupPhysician;
         private void physicianToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string test = Interaction.InputBox("Search for Physician", "Lookup Physician", "");
-            Form newForm = new LookupPhysician(tabForms, test.Trim());
-            newForm.MdiParent = this;
-            newForm.Show();
+            string test = Interaction.InputBox("Search for patient", "Lookup Patient", "");
+            if (lookupPhysician == null)
+            {
+                lookupPhysician = new LookupPhysician(tabForms, test.Trim());
+                lookupPhysician.MdiParent = this;
+                lookupPhysician.Show();
+            }
+            else
+            {
+                lookupPhysician.Close();
+                lookupPhysician = null;
+
+                lookupPhysician = new LookupPhysician(tabForms, test.Trim());
+                lookupPhysician.MdiParent = this;
+                lookupPhysician.Show();
+            }
         }
     }
 }
