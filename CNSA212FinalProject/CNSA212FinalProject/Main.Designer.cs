@@ -1,6 +1,6 @@
 ﻿namespace CNSA212FinalProject
 {
-    partial class Home
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tabForms = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +47,7 @@
             this.tabForms.Location = new System.Drawing.Point(0, 26);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(808, 24);
+            this.tabForms.Size = new System.Drawing.Size(703, 24);
             this.tabForms.TabIndex = 1;
             this.tabForms.Visible = false;
             this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
@@ -60,7 +60,7 @@
             this.lookupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(808, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(703, 26);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,7 +78,7 @@
             // 
             this.newPatientToolStripMenuItem.AccessibleName = "";
             this.newPatientToolStripMenuItem.Name = "newPatientToolStripMenuItem";
-            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.newPatientToolStripMenuItem.Tag = "";
             this.newPatientToolStripMenuItem.Text = "Patient";
             this.newPatientToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
@@ -86,14 +86,14 @@
             // newPrescriptionToolStripMenuItem
             // 
             this.newPrescriptionToolStripMenuItem.Name = "newPrescriptionToolStripMenuItem";
-            this.newPrescriptionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPrescriptionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.newPrescriptionToolStripMenuItem.Text = "Prescription";
             this.newPrescriptionToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // newPhysicianToolStripMenuItem
             // 
             this.newPhysicianToolStripMenuItem.Name = "newPhysicianToolStripMenuItem";
-            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.newPhysicianToolStripMenuItem.Text = "Physician";
             this.newPhysicianToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
@@ -120,18 +120,17 @@
             this.physicianToolStripMenuItem.Text = "Physician";
             this.physicianToolStripMenuItem.Click += new System.EventHandler(this.physicianToolStripMenuItem_Click);
             // 
-            // Home
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 427);
+            this.ClientSize = new System.Drawing.Size(703, 433);
             this.Controls.Add(this.tabForms);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Home";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "Main";
             this.Text = "Louis’ Pharmacy";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MdiChildActivate += new System.EventHandler(this.Main_MdiChildActivate);

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CNSA212FinalProject
 {
-    public partial class Home : Form
+    public partial class Main : Form
     {
-        public Home()
+        public Main()
         {
             InitializeComponent();
         }

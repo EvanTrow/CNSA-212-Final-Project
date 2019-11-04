@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FireSharp.Config;
-using FireSharp.Response;
-using FireSharp.Interfaces;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 
@@ -45,10 +42,10 @@ namespace CNSA212FinalProject
                         {
                             this.Hide();
                             SplashScreen.Hide();
-                            Home home = new Home();
-                            home.Closed += (s, args) => this.Close();
-                            home.Closed += (s, args) => SplashScreen.Close();
-                            home.Show();
+                            Main main = new Main();
+                            main.Closed += (s, args) => this.Close();
+                            main.Closed += (s, args) => SplashScreen.Close();
+                            main.Show();
                         }
                         else
                         {
