@@ -5,6 +5,13 @@ GO
 USE Pharmacy
 GO
 
+CREATE TABLE Users(
+userId		INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_userId PRIMARY KEY,
+username			VARCHAR(25) NOT NULL,
+userpass			VARCHAR(250) NOT NULL,
+)
+INSERT INTO Users(username, userpass) VALUES ('evan', 'NYHdBrLO6VD5qevTj3DQGcdUA5bdyadHGEaPotoODfw=')
+
 CREATE TABLE Patient(
 patientId		INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_patientId PRIMARY KEY,
 fName			VARCHAR(25) NOT NULL,
