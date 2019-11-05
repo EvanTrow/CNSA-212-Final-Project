@@ -310,11 +310,20 @@ namespace CNSA212FinalProject
             btnAddPatient.Visible = false;
             saveBtn.Visible = true;
             dataGridView.Visible = true;
+            addPrescriptionBtn.Visible = true;
+            PrescriptionsLbl.Visible = true;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addPrescriptionBtn_Click(object sender, EventArgs e)
+        {
+            NewPrescription newPrescription = new NewPrescription(fillFromId);
+            newPrescription.MdiParent = this.MdiParent;
+            newPrescription.Show();
         }
     }
 }

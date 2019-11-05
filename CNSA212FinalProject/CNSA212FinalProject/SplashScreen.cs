@@ -25,7 +25,7 @@ namespace CNSA212FinalProject
         string[] loading = new string[] { "Connecting.", "Connecting..", "Connecting...", 
                                             "Connecting.", "Connecting..", "Connecting...", 
                                             "Loading Resourses...", "Loading Physicans...", 
-                                            "Loading Perscription...", "Loading Refills...", 
+                                            "Loading Prescription...", "Loading Refills...", 
                                             "Loading Patients...", "Loading Database Structure...", 
                                             "Initializing Forms...", "Launching", "Launching", "" };
 

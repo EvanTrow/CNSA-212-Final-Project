@@ -33,7 +33,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.formsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newPrescriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPhysicianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lookupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +67,6 @@
             // 
             this.formsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newPatientToolStripMenuItem,
-            this.newPrescriptionToolStripMenuItem,
             this.newPhysicianToolStripMenuItem});
             this.formsToolStripMenuItem.Name = "formsToolStripMenuItem";
             this.formsToolStripMenuItem.Size = new System.Drawing.Size(47, 22);
@@ -78,22 +76,15 @@
             // 
             this.newPatientToolStripMenuItem.AccessibleName = "";
             this.newPatientToolStripMenuItem.Name = "newPatientToolStripMenuItem";
-            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newPatientToolStripMenuItem.Tag = "";
             this.newPatientToolStripMenuItem.Text = "Patient";
             this.newPatientToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
-            // newPrescriptionToolStripMenuItem
-            // 
-            this.newPrescriptionToolStripMenuItem.Name = "newPrescriptionToolStripMenuItem";
-            this.newPrescriptionToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.newPrescriptionToolStripMenuItem.Text = "Prescription";
-            this.newPrescriptionToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
-            // 
             // newPhysicianToolStripMenuItem
             // 
             this.newPhysicianToolStripMenuItem.Name = "newPhysicianToolStripMenuItem";
-            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newPhysicianToolStripMenuItem.Text = "Physician";
             this.newPhysicianToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
@@ -146,7 +137,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem formsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPatientToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newPrescriptionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPhysicianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lookupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientToolStripMenuItem;

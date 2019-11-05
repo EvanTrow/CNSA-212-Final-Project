@@ -31,7 +31,7 @@ namespace CNSA212FinalProject
             {
                 dataGridView.Rows.Add(dataReader["physicianID"], dataReader["fName"], dataReader["mInit"], dataReader["lName"],
                     dataReader["gender"], dataReader["street"], dataReader["city"], dataReader["stateAbbr"], dataReader["zip"],
-                    dataReader["phone1"], dataReader["phone2"], dataReader["email"], dataReader["specialty2"], dataReader["specialty2"]);
+                    dataReader["phone1"], dataReader["phone2"], dataReader["email"], dataReader["specialty1"], dataReader["specialty2"]);
             }
             cnn.Close();
         }

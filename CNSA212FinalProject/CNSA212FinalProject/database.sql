@@ -49,13 +49,13 @@ specialty2		VARCHAR(60)
 )
 
 
-CREATE TABLE Perscription(
-perscriptionId	INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_perscriptionId PRIMARY KEY,
+CREATE TABLE Prescription(
+prescriptionId	INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_prescriptionId PRIMARY KEY,
 patientId		INT NOT NULL FOREIGN KEY (patientId) REFERENCES Patient(patientId),
 physicianId		INT NOT NULL FOREIGN KEY (physicianId) REFERENCES Physician(physicianId),
 medName			VARCHAR(40) NOT NULL,					-- drug name
 medType			VARCHAR(15) NOT NULL,					-- drug type
-dispense		VARCHAR(15) NOT NULL,					-- how much given out each time
+dispense		INT NOT NULL,							-- how much given out each time
 intake			VARCHAR(125) NOT NULL,					-- how to drug
 medDosage		VARCHAR(15) NOT NULL,					-- how many each time taken
 freqNumber		INT NOT NULL,							-- how often number
@@ -65,7 +65,7 @@ maxRefills		INT NOT NULL							-- max refill times
 
 CREATE TABLE Fill(
 refillId		INT NOT NULL IDENTITY (1,1) CONSTRAINT PK_refillId PRIMARY KEY,
-perscriptionId	INT NOT NULL FOREIGN KEY (perscriptionId) REFERENCES Perscription(perscriptionId),
+prescriptionId	INT NOT NULL FOREIGN KEY (prescriptionId) REFERENCES Prescription(prescriptionId),
 refillsUsed		INT NOT NULL,
 refillDate		DATETIME NOT NULL DEFAULT (GETDATE())
 )
@@ -150,6 +150,44 @@ AS
 GO
 
 
+CREATE PROC Add_Prescription(
+	@patientId		INT,
+	@physicianId	INT,
+	@medName		VARCHAR(40),
+	@medType		VARCHAR(15),
+	@dispense		INT,
+	@intake			VARCHAR(125),
+	@medDosage		VARCHAR(15),
+	@freqNumber		INT,
+	@freqInterval	VARCHAR(20),
+	@maxRefills		INT
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			INSERT INTO Prescription(patientId, physicianId,
+				medName, medType, dispense, intake, medDosage,
+				freqNumber, freqInterval, maxRefills)
+			VALUES (@patientId, @physicianId, @medName, @medType,
+				@dispense, @intake, @medDosage, @freqNumber,
+				@freqInterval, @maxRefills)
+
+				IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to insert record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record added successfully!'
+				END
+	END
+GO
+
+
 CREATE PROCEDURE dbo.sp_FindStringInTable @stringToFind VARCHAR(100), @schema sysname, @table sysname 
 AS
 
@@ -171,3 +209,5 @@ BEGIN CATCH
    PRINT 'There was an error. Check to make sure object exists.'
    PRINT error_message()
 END CATCH 
+
+

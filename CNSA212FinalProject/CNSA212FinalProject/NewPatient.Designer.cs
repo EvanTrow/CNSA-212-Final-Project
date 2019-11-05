@@ -69,7 +69,8 @@
             this.freqNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.freqInterval = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxRefills = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
+            this.PrescriptionsLbl = new System.Windows.Forms.Label();
+            this.addPrescriptionBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -352,10 +353,10 @@
             this.txtInsuranceNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtInsuranceNum.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInsuranceNum.Location = new System.Drawing.Point(151, 505);
+            this.txtInsuranceNum.Location = new System.Drawing.Point(149, 505);
             this.txtInsuranceNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceNum.Name = "txtInsuranceNum";
-            this.txtInsuranceNum.Size = new System.Drawing.Size(617, 30);
+            this.txtInsuranceNum.Size = new System.Drawing.Size(619, 30);
             this.txtInsuranceNum.TabIndex = 13;
             this.txtInsuranceNum.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -380,7 +381,7 @@
             this.txtInsuranceCo.Location = new System.Drawing.Point(149, 467);
             this.txtInsuranceCo.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceCo.Name = "txtInsuranceCo";
-            this.txtInsuranceCo.Size = new System.Drawing.Size(617, 30);
+            this.txtInsuranceCo.Size = new System.Drawing.Size(619, 30);
             this.txtInsuranceCo.TabIndex = 14;
             this.txtInsuranceCo.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -531,12 +532,14 @@
             this.freqInterval,
             this.maxRefills});
             this.dataGridView.Location = new System.Drawing.Point(12, 585);
+            this.dataGridView.MinimumSize = new System.Drawing.Size(0, 140);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(754, 82);
+            this.dataGridView.Size = new System.Drawing.Size(754, 146);
             this.dataGridView.TabIndex = 34;
             this.dataGridView.Visible = false;
             // 
@@ -545,61 +548,83 @@
             this.medName.HeaderText = "Medicine";
             this.medName.Name = "medName";
             this.medName.ReadOnly = true;
+            this.medName.Width = 107;
             // 
             // medType
             // 
             this.medType.HeaderText = "Type";
             this.medType.Name = "medType";
             this.medType.ReadOnly = true;
+            this.medType.Width = 108;
             // 
             // intake
             // 
             this.intake.HeaderText = "Intake";
             this.intake.Name = "intake";
             this.intake.ReadOnly = true;
+            this.intake.Width = 107;
             // 
             // medDosage
             // 
             this.medDosage.HeaderText = "Dosage";
             this.medDosage.Name = "medDosage";
             this.medDosage.ReadOnly = true;
+            this.medDosage.Width = 107;
             // 
             // freqNumber
             // 
             this.freqNumber.HeaderText = "Frequency";
             this.freqNumber.Name = "freqNumber";
             this.freqNumber.ReadOnly = true;
+            this.freqNumber.Width = 107;
             // 
             // freqInterval
             // 
             this.freqInterval.HeaderText = "Interval";
             this.freqInterval.Name = "freqInterval";
             this.freqInterval.ReadOnly = true;
+            this.freqInterval.Width = 108;
             // 
             // maxRefills
             // 
             this.maxRefills.HeaderText = "Refills";
             this.maxRefills.Name = "maxRefills";
             this.maxRefills.ReadOnly = true;
+            this.maxRefills.Width = 107;
             // 
-            // label3
+            // PrescriptionsLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 559);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 23);
-            this.label3.TabIndex = 35;
-            this.label3.Text = "Perscriptions:";
+            this.PrescriptionsLbl.AutoSize = true;
+            this.PrescriptionsLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrescriptionsLbl.Location = new System.Drawing.Point(11, 559);
+            this.PrescriptionsLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PrescriptionsLbl.Name = "PrescriptionsLbl";
+            this.PrescriptionsLbl.Size = new System.Drawing.Size(111, 23);
+            this.PrescriptionsLbl.TabIndex = 35;
+            this.PrescriptionsLbl.Text = "Prescriptions:";
+            this.PrescriptionsLbl.Visible = false;
+            // 
+            // addPrescriptionBtn
+            // 
+            this.addPrescriptionBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPrescriptionBtn.Location = new System.Drawing.Point(126, 541);
+            this.addPrescriptionBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.addPrescriptionBtn.Name = "addPrescriptionBtn";
+            this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
+            this.addPrescriptionBtn.TabIndex = 36;
+            this.addPrescriptionBtn.Text = "Add Prescription";
+            this.addPrescriptionBtn.UseVisualStyleBackColor = true;
+            this.addPrescriptionBtn.Visible = false;
+            this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
             // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(779, 678);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(779, 742);
+            this.Controls.Add(this.addPrescriptionBtn);
+            this.Controls.Add(this.PrescriptionsLbl);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.genderComboBox);
             this.Controls.Add(this.stateComboBox);
@@ -684,6 +709,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn freqNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn freqInterval;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxRefills;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button addPrescriptionBtn;
+        private System.Windows.Forms.Label PrescriptionsLbl;
     }
 }

@@ -28,252 +28,327 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPrescription));
-            this.txtpatientId = new System.Windows.Forms.TextBox();
-            this.lblPatientId = new System.Windows.Forms.Label();
-            this.txtmedName = new System.Windows.Forms.TextBox();
-            this.txtperscriptionRefills = new System.Windows.Forms.TextBox();
-            this.txtdosage = new System.Windows.Forms.TextBox();
-            this.txtintake = new System.Windows.Forms.TextBox();
-            this.txtfrequency = new System.Windows.Forms.TextBox();
-            this.lblintake = new System.Windows.Forms.Label();
-            this.lblfrequency = new System.Windows.Forms.Label();
-            this.lbldosage = new System.Windows.Forms.Label();
-            this.lblmedName = new System.Windows.Forms.Label();
-            this.lblperscriptionRefills = new System.Windows.Forms.Label();
-            this.txtphysicianId = new System.Windows.Forms.TextBox();
-            this.lblPhysicianId = new System.Windows.Forms.Label();
-            this.txtInterval = new System.Windows.Forms.TextBox();
-            this.lblInterval = new System.Windows.Forms.Label();
-            this.btnAddPrescription = new System.Windows.Forms.Button();
+            this.lblfirstName = new System.Windows.Forms.Label();
+            this.medNameTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.medTypeTxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dispenseTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.intakeTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.medDosageTxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.freqNumberTxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.freqIntervalTxt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.maxRefillsTxt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.physicianComboBox = new System.Windows.Forms.ComboBox();
+            this.addPrescriptionBtn = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtpatientId
+            // lblfirstName
             // 
-            this.txtpatientId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lblfirstName.AutoSize = true;
+            this.lblfirstName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfirstName.Location = new System.Drawing.Point(11, 9);
+            this.lblfirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblfirstName.Name = "lblfirstName";
+            this.lblfirstName.Size = new System.Drawing.Size(81, 23);
+            this.lblfirstName.TabIndex = 35;
+            this.lblfirstName.Text = "Physician:";
+            // 
+            // medNameTxt
+            // 
+            this.medNameTxt.AccessibleDescription = "^([\\s\\S]{2,40})$";
+            this.medNameTxt.AccessibleName = "2-40 characters";
+            this.medNameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtpatientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpatientId.Location = new System.Drawing.Point(222, 97);
-            this.txtpatientId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtpatientId.Name = "txtpatientId";
-            this.txtpatientId.Size = new System.Drawing.Size(1058, 35);
-            this.txtpatientId.TabIndex = 47;
+            this.medNameTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medNameTxt.Location = new System.Drawing.Point(123, 44);
+            this.medNameTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.medNameTxt.Name = "medNameTxt";
+            this.medNameTxt.Size = new System.Drawing.Size(647, 30);
+            this.medNameTxt.TabIndex = 2;
+            this.medNameTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // lblPatientId
+            // label1
             // 
-            this.lblPatientId.AutoSize = true;
-            this.lblPatientId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientId.Location = new System.Drawing.Point(42, 102);
-            this.lblPatientId.Name = "lblPatientId";
-            this.lblPatientId.Size = new System.Drawing.Size(122, 29);
-            this.lblPatientId.TabIndex = 46;
-            this.lblPatientId.Text = "Patient ID:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(11, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 23);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Medicine:";
             // 
-            // txtmedName
+            // medTypeTxt
             // 
-            this.txtmedName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.medTypeTxt.AccessibleDescription = "^([\\s\\S]{2,15})$";
+            this.medTypeTxt.AccessibleName = "2-15 characters";
+            this.medTypeTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtmedName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmedName.Location = new System.Drawing.Point(251, 205);
-            this.txtmedName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtmedName.Name = "txtmedName";
-            this.txtmedName.Size = new System.Drawing.Size(1027, 35);
-            this.txtmedName.TabIndex = 44;
+            this.medTypeTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medTypeTxt.Location = new System.Drawing.Point(123, 82);
+            this.medTypeTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.medTypeTxt.Name = "medTypeTxt";
+            this.medTypeTxt.Size = new System.Drawing.Size(647, 30);
+            this.medTypeTxt.TabIndex = 3;
+            this.medTypeTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // txtperscriptionRefills
+            // label2
             // 
-            this.txtperscriptionRefills.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 85);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 23);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Type:";
+            // 
+            // dispenseTxt
+            // 
+            this.dispenseTxt.AccessibleDescription = "^[0-9]{1,10}$";
+            this.dispenseTxt.AccessibleName = "Numeric only";
+            this.dispenseTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtperscriptionRefills.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtperscriptionRefills.Location = new System.Drawing.Point(267, 457);
-            this.txtperscriptionRefills.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtperscriptionRefills.Name = "txtperscriptionRefills";
-            this.txtperscriptionRefills.Size = new System.Drawing.Size(1014, 35);
-            this.txtperscriptionRefills.TabIndex = 43;
+            this.dispenseTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dispenseTxt.Location = new System.Drawing.Point(123, 120);
+            this.dispenseTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.dispenseTxt.Name = "dispenseTxt";
+            this.dispenseTxt.Size = new System.Drawing.Size(647, 30);
+            this.dispenseTxt.TabIndex = 4;
+            this.dispenseTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // txtdosage
+            // label3
             // 
-            this.txtdosage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(11, 123);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 23);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Dispense:";
+            // 
+            // intakeTxt
+            // 
+            this.intakeTxt.AccessibleDescription = "^([\\s\\S]{2,125})$";
+            this.intakeTxt.AccessibleName = "2-125 characters";
+            this.intakeTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtdosage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdosage.Location = new System.Drawing.Point(220, 299);
-            this.txtdosage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtdosage.Name = "txtdosage";
-            this.txtdosage.Size = new System.Drawing.Size(1058, 35);
-            this.txtdosage.TabIndex = 41;
+            this.intakeTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intakeTxt.Location = new System.Drawing.Point(123, 158);
+            this.intakeTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.intakeTxt.Name = "intakeTxt";
+            this.intakeTxt.Size = new System.Drawing.Size(647, 30);
+            this.intakeTxt.TabIndex = 5;
+            this.intakeTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // txtintake
+            // label4
             // 
-            this.txtintake.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(11, 161);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 23);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Intake:";
+            // 
+            // medDosageTxt
+            // 
+            this.medDosageTxt.AccessibleDescription = "^([\\s\\S]{2,15})$";
+            this.medDosageTxt.AccessibleName = "2-15 characters";
+            this.medDosageTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtintake.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtintake.Location = new System.Drawing.Point(220, 252);
-            this.txtintake.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtintake.Name = "txtintake";
-            this.txtintake.Size = new System.Drawing.Size(1058, 35);
-            this.txtintake.TabIndex = 40;
+            this.medDosageTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medDosageTxt.Location = new System.Drawing.Point(123, 196);
+            this.medDosageTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.medDosageTxt.Name = "medDosageTxt";
+            this.medDosageTxt.Size = new System.Drawing.Size(647, 30);
+            this.medDosageTxt.TabIndex = 6;
+            this.medDosageTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // txtfrequency
+            // label5
             // 
-            this.txtfrequency.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(11, 199);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 23);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "Dosage:";
+            // 
+            // freqNumberTxt
+            // 
+            this.freqNumberTxt.AccessibleDescription = "^[0-9]{1,10}$";
+            this.freqNumberTxt.AccessibleName = "Numeric only";
+            this.freqNumberTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtfrequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfrequency.Location = new System.Drawing.Point(219, 359);
-            this.txtfrequency.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtfrequency.Name = "txtfrequency";
-            this.txtfrequency.Size = new System.Drawing.Size(1058, 35);
-            this.txtfrequency.TabIndex = 38;
+            this.freqNumberTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.freqNumberTxt.Location = new System.Drawing.Point(123, 234);
+            this.freqNumberTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.freqNumberTxt.Name = "freqNumberTxt";
+            this.freqNumberTxt.Size = new System.Drawing.Size(647, 30);
+            this.freqNumberTxt.TabIndex = 7;
+            this.freqNumberTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // lblintake
+            // label6
             // 
-            this.lblintake.AutoSize = true;
-            this.lblintake.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblintake.Location = new System.Drawing.Point(42, 257);
-            this.lblintake.Name = "lblintake";
-            this.lblintake.Size = new System.Drawing.Size(83, 29);
-            this.lblintake.TabIndex = 36;
-            this.lblintake.Text = "Intake:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 237);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 23);
+            this.label6.TabIndex = 47;
+            this.label6.Text = "Frequency:";
             // 
-            // lblfrequency
+            // freqIntervalTxt
             // 
-            this.lblfrequency.AutoSize = true;
-            this.lblfrequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfrequency.Location = new System.Drawing.Point(39, 364);
-            this.lblfrequency.Name = "lblfrequency";
-            this.lblfrequency.Size = new System.Drawing.Size(125, 29);
-            this.lblfrequency.TabIndex = 35;
-            this.lblfrequency.Text = "Fequency:";
-            // 
-            // lbldosage
-            // 
-            this.lbldosage.AutoSize = true;
-            this.lbldosage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldosage.Location = new System.Drawing.Point(40, 303);
-            this.lbldosage.Name = "lbldosage";
-            this.lbldosage.Size = new System.Drawing.Size(103, 29);
-            this.lbldosage.TabIndex = 34;
-            this.lbldosage.Text = "Dosage:";
-            // 
-            // lblmedName
-            // 
-            this.lblmedName.AutoSize = true;
-            this.lblmedName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmedName.Location = new System.Drawing.Point(39, 210);
-            this.lblmedName.Name = "lblmedName";
-            this.lblmedName.Size = new System.Drawing.Size(208, 29);
-            this.lblmedName.TabIndex = 31;
-            this.lblmedName.Text = "Medication Name:";
-            // 
-            // lblperscriptionRefills
-            // 
-            this.lblperscriptionRefills.AutoSize = true;
-            this.lblperscriptionRefills.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblperscriptionRefills.Location = new System.Drawing.Point(42, 462);
-            this.lblperscriptionRefills.Name = "lblperscriptionRefills";
-            this.lblperscriptionRefills.Size = new System.Drawing.Size(221, 29);
-            this.lblperscriptionRefills.TabIndex = 30;
-            this.lblperscriptionRefills.Text = "Perscription Refills:";
-            // 
-            // txtphysicianId
-            // 
-            this.txtphysicianId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.freqIntervalTxt.AccessibleDescription = "^([\\s\\S]{2,20})$";
+            this.freqIntervalTxt.AccessibleName = "2-20 characters";
+            this.freqIntervalTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtphysicianId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtphysicianId.Location = new System.Drawing.Point(220, 158);
-            this.txtphysicianId.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.txtphysicianId.Name = "txtphysicianId";
-            this.txtphysicianId.Size = new System.Drawing.Size(1060, 35);
-            this.txtphysicianId.TabIndex = 55;
+            this.freqIntervalTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.freqIntervalTxt.Location = new System.Drawing.Point(123, 272);
+            this.freqIntervalTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.freqIntervalTxt.Name = "freqIntervalTxt";
+            this.freqIntervalTxt.Size = new System.Drawing.Size(647, 30);
+            this.freqIntervalTxt.TabIndex = 8;
+            this.freqIntervalTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // lblPhysicianId
+            // label7
             // 
-            this.lblPhysicianId.AutoSize = true;
-            this.lblPhysicianId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhysicianId.Location = new System.Drawing.Point(40, 163);
-            this.lblPhysicianId.Name = "lblPhysicianId";
-            this.lblPhysicianId.Size = new System.Drawing.Size(150, 29);
-            this.lblPhysicianId.TabIndex = 54;
-            this.lblPhysicianId.Text = "Physician ID:";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(11, 275);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 23);
+            this.label7.TabIndex = 49;
+            this.label7.Text = "Interval:";
             // 
-            // txtInterval
+            // maxRefillsTxt
             // 
-            this.txtInterval.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.maxRefillsTxt.AccessibleDescription = "^[0-9]{1,10}$";
+            this.maxRefillsTxt.AccessibleName = "Numeric only";
+            this.maxRefillsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInterval.Location = new System.Drawing.Point(222, 406);
-            this.txtInterval.Margin = new System.Windows.Forms.Padding(6);
-            this.txtInterval.Name = "txtInterval";
-            this.txtInterval.Size = new System.Drawing.Size(1058, 35);
-            this.txtInterval.TabIndex = 57;
+            this.maxRefillsTxt.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxRefillsTxt.Location = new System.Drawing.Point(123, 310);
+            this.maxRefillsTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.maxRefillsTxt.Name = "maxRefillsTxt";
+            this.maxRefillsTxt.Size = new System.Drawing.Size(647, 30);
+            this.maxRefillsTxt.TabIndex = 9;
+            this.maxRefillsTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
-            // lblInterval
+            // label8
             // 
-            this.lblInterval.AutoSize = true;
-            this.lblInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInterval.Location = new System.Drawing.Point(42, 411);
-            this.lblInterval.Name = "lblInterval";
-            this.lblInterval.Size = new System.Drawing.Size(96, 29);
-            this.lblInterval.TabIndex = 56;
-            this.lblInterval.Text = "Interval:";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(11, 313);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(101, 23);
+            this.label8.TabIndex = 51;
+            this.label8.Text = "Max Refills:";
             // 
-            // btnAddPrescription
+            // physicianComboBox
             // 
-            this.btnAddPrescription.Location = new System.Drawing.Point(1072, 541);
-            this.btnAddPrescription.Name = "btnAddPrescription";
-            this.btnAddPrescription.Size = new System.Drawing.Size(185, 33);
-            this.btnAddPrescription.TabIndex = 58;
-            this.btnAddPrescription.Text = "Add Prescription";
-            this.btnAddPrescription.UseVisualStyleBackColor = true;
-            this.btnAddPrescription.Click += new System.EventHandler(this.btnAddPrescription_Click);
+            this.physicianComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.physicianComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.physicianComboBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.physicianComboBox.FormattingEnabled = true;
+            this.physicianComboBox.Location = new System.Drawing.Point(123, 6);
+            this.physicianComboBox.Name = "physicianComboBox";
+            this.physicianComboBox.Size = new System.Drawing.Size(648, 31);
+            this.physicianComboBox.TabIndex = 1;
+            this.physicianComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            // 
+            // addPrescriptionBtn
+            // 
+            this.addPrescriptionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addPrescriptionBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPrescriptionBtn.Location = new System.Drawing.Point(619, 346);
+            this.addPrescriptionBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.addPrescriptionBtn.Name = "addPrescriptionBtn";
+            this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
+            this.addPrescriptionBtn.TabIndex = 53;
+            this.addPrescriptionBtn.Text = "Add Prescription";
+            this.addPrescriptionBtn.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // NewPrescription
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2208, 1055);
-            this.Controls.Add(this.btnAddPrescription);
-            this.Controls.Add(this.txtInterval);
-            this.Controls.Add(this.lblInterval);
-            this.Controls.Add(this.txtphysicianId);
-            this.Controls.Add(this.lblPhysicianId);
-            this.Controls.Add(this.txtpatientId);
-            this.Controls.Add(this.lblPatientId);
-            this.Controls.Add(this.txtmedName);
-            this.Controls.Add(this.txtperscriptionRefills);
-            this.Controls.Add(this.txtdosage);
-            this.Controls.Add(this.txtintake);
-            this.Controls.Add(this.txtfrequency);
-            this.Controls.Add(this.lblintake);
-            this.Controls.Add(this.lblfrequency);
-            this.Controls.Add(this.lbldosage);
-            this.Controls.Add(this.lblmedName);
-            this.Controls.Add(this.lblperscriptionRefills);
+            this.ClientSize = new System.Drawing.Size(783, 436);
+            this.Controls.Add(this.addPrescriptionBtn);
+            this.Controls.Add(this.physicianComboBox);
+            this.Controls.Add(this.maxRefillsTxt);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.freqIntervalTxt);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.freqNumberTxt);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.medDosageTxt);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.intakeTxt);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dispenseTxt);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.medTypeTxt);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.medNameTxt);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblfirstName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewPrescription";
             this.Text = "New Prescription";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtpatientId;
-        private System.Windows.Forms.Label lblPatientId;
-        private System.Windows.Forms.TextBox txtmedName;
-        private System.Windows.Forms.TextBox txtperscriptionRefills;
-        private System.Windows.Forms.TextBox txtdosage;
-        private System.Windows.Forms.TextBox txtintake;
-        private System.Windows.Forms.TextBox txtfrequency;
-        private System.Windows.Forms.Label lblintake;
-        private System.Windows.Forms.Label lblfrequency;
-        private System.Windows.Forms.Label lbldosage;
-        private System.Windows.Forms.Label lblmedName;
-        private System.Windows.Forms.Label lblperscriptionRefills;
-        private System.Windows.Forms.TextBox txtphysicianId;
-        private System.Windows.Forms.Label lblPhysicianId;
-        private System.Windows.Forms.TextBox txtInterval;
-        private System.Windows.Forms.Label lblInterval;
-        private System.Windows.Forms.Button btnAddPrescription;
+        private System.Windows.Forms.Label lblfirstName;
+        private System.Windows.Forms.TextBox medNameTxt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox medTypeTxt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox dispenseTxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox intakeTxt;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox medDosageTxt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox freqIntervalTxt;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox maxRefillsTxt;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox physicianComboBox;
+        private System.Windows.Forms.TextBox freqNumberTxt;
+        private System.Windows.Forms.Button addPrescriptionBtn;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -70,10 +70,6 @@ namespace CNSA212FinalProject
             {
                 newForm = new NewPhysician(-1);
             }
-            else if (menuTag == "newPrescriptionToolStripMenuItem")
-            {
-                newForm = new NewPrescription();
-            }
 
             if (newForm != null)
             {

@@ -23,6 +23,7 @@ namespace CNSA212FinalProject
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            loginBtn.Enabled = false;
             try
             {
                 string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
@@ -51,15 +52,16 @@ namespace CNSA212FinalProject
                         {
                             errorLbl.Visible = true;
                             errorLbl.Text = "Invalid Login";
+                            loginBtn.Enabled = true;
                         }
                     }
                 } else
                 {
                     errorLbl.Visible = true;
                     errorLbl.Text = "Invalid Login";
+                    loginBtn.Enabled = true;
                 }
                 cnn.Close();
-            
             }
             catch (Exception ex)
             {
@@ -67,8 +69,19 @@ namespace CNSA212FinalProject
             }
         }
 
+        private void usernameTxt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginBtn.PerformClick();
+            }
+        }
         private void passwordTxt_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginBtn.PerformClick();
+            }
             if (e.Control && e.KeyCode == Keys.N)
             {
                 MessageBox.Show("Encripted: " + EncryptPassword(passwordTxt.Text));
@@ -99,7 +112,5 @@ namespace CNSA212FinalProject
                 return sha256.ComputeHash(combinedHash);
             }
         }
-
-
     }
 }
