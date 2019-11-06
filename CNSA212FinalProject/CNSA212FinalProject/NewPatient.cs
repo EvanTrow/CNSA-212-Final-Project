@@ -136,7 +136,7 @@ namespace CNSA212FinalProject
                 this.Text = Truncate("Patient: " + txtfirstName.Text + " " + txtlastName.Text, 30);
             } else
             {
-                this.Text = Truncate("New Patient: " + txtfirstName.Text + " " + txtlastName.Text, 30);
+                this.Text = Truncate("New Patient", 30);
             }
         }
 
@@ -315,6 +315,8 @@ namespace CNSA212FinalProject
             addPrescriptionBtn.Visible = true;
             PrescriptionsLbl.Visible = true;
 
+            this.MinimumSize = new System.Drawing.Size(459, 775);
+
             // get prescriptions
 
 
@@ -347,7 +349,7 @@ namespace CNSA212FinalProject
 
         private void addPrescriptionBtn_Click(object sender, EventArgs e)
         {
-            NewPrescription newPrescription = new NewPrescription(fillFromId);
+            NewPrescription newPrescription = new NewPrescription(fillFromId, -1);
             newPrescription.MdiParent = this.MdiParent;
             newPrescription.Show();
         }
@@ -355,13 +357,30 @@ namespace CNSA212FinalProject
         private void NewPatient_Activated(object sender, EventArgs e)
         {
             
-            if (alreadyActive)
+            if (alreadyActive && fillFromId != -1)
             {
                 dataGridView.Rows.Clear();
                 autoFillData(fillFromId);
             }
 
             alreadyActive = true;
+        }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in ((DataGridView)sender).SelectedRows)
+            {
+                try
+                {
+                    NewPrescription newPrescription = new NewPrescription(fillFromId, int.Parse(dataGridView.Rows[row.Index].Cells[0].Value.ToString()));
+                    newPrescription.MdiParent = this.MdiParent;
+                    newPrescription.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex);
+                }
+            }
         }
     }
 }

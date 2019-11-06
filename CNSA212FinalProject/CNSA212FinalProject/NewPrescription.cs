@@ -15,12 +15,14 @@ namespace CNSA212FinalProject
     public partial class NewPrescription : Form
     {
         int PatientID;
-        public NewPrescription(int patientID)
+        int PrescriptionID;
+        public NewPrescription(int patientID, int prescriptionID)
         {
             InitializeComponent();
             getPhysicansCombo();
 
             PatientID = patientID;
+            PrescriptionID = prescriptionID;
 
 
             //  get all textboxes in array and send to checker for first launch check
@@ -45,10 +47,10 @@ namespace CNSA212FinalProject
             checkErrorsCombo(comboBoxes);
 
 
-/*            if (fillFromId != -1)
+            if (PrescriptionID != -1)
             {
-                autoFillData(fillFromId);
-            }*/
+                autoFillData(PrescriptionID);
+            }
 
             addPrescriptionBtn.Enabled = false;
         }
@@ -133,15 +135,32 @@ namespace CNSA212FinalProject
             textBoxes[0] = ((TextBox)sender);
             checkErrors(textBoxes);
 
-/*
-            if (fillFromId != -1)
+
+            if (PrescriptionID != -1)
             {
-                this.Text = Truncate("Physician: " + txtfirstName.Text + " " + txtlastName.Text, 30);
+                this.Text = Truncate("Prescription: "+ PrescriptionID, 30);
             }
             else
             {
-                this.Text = Truncate("New Physician: " + txtfirstName.Text + " " + txtlastName.Text, 30);
-            }*/
+                this.Text = Truncate("New Prescription", 30);
+            }
+        }
+        private string Truncate(string value, int maxLength)
+        {
+            string returnStirng = value;
+            if (string.IsNullOrEmpty(value))
+            {
+                returnStirng = value;
+            }
+            else
+            {
+                returnStirng = value.Length <= maxLength ? value : value.Substring(0, maxLength);
+            }
+            if (value.Length >= maxLength)
+            {
+                returnStirng += "...";
+            }
+            return returnStirng;
         }
 
 
@@ -218,7 +237,7 @@ namespace CNSA212FinalProject
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                String query = "EXEC Add_Prescription @patientId, @physicianId, @medName, @medType,  @dispense, @intake, @medDosage, @freqNumber, @freqInterval, @maxRefills";
+                String query = "EXEC Add_Prescription @patientId, @physicianId, @medName, @medType,  @dispense, @intake, @medDosage, @freqNumber, @freqInterval, @maxRefills, @fillOnCreate";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -232,10 +251,16 @@ namespace CNSA212FinalProject
                     command.Parameters.AddWithValue("@freqNumber", freqNumberTxt.Text);
                     command.Parameters.AddWithValue("@freqInterval", freqIntervalTxt.Text);
                     command.Parameters.AddWithValue("@maxRefills", maxRefillsTxt.Text);
+                    if (fillOnCreateCheckBox.Checked)
+                    {
+                        command.Parameters.AddWithValue("@fillOnCreate", 1);
+                    } else
+                    {
+                        command.Parameters.AddWithValue("@fillOnCreate", 0);
+                    }
 
                     connection.Open();
                     int result = command.ExecuteNonQuery();
-
 
                     // Check Error
                     if (result < 0)
@@ -260,17 +285,59 @@ namespace CNSA212FinalProject
                     }
                 }
             }
+        }
+        private void autoFillData(int prescriptionID)
+        {
+            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
+            SqlConnection cnn = new SqlConnection(connetionString);
+            cnn.Open();
 
-            if (fillOnCreateCheckBox.Checked)
+            string sql = "SELECT fName, lName, Prescription.medName, Prescription.medType, " +
+                            "Prescription.dispense, Prescription.intake, Prescription.medDosage, Prescription.freqNumber, " +
+                            "Prescription.freqInterval, Prescription.maxRefills FROM Prescription " +
+                            "INNER JOIN Physician ON Prescription.physicianId = Physician.physicianId " +
+                            "WHERE prescriptionId =" + prescriptionID;
+            SqlCommand command = new SqlCommand(sql, cnn);
+            SqlDataReader dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
             {
+                physicianComboBox.Text = "Dr. " + dataReader["fName"].ToString() + " " + dataReader["lName"].ToString();
+                medNameTxt.Text = dataReader["medName"].ToString();
+                medTypeTxt.Text = dataReader["medType"].ToString();
+                dispenseTxt.Text = dataReader["dispense"].ToString();
+                intakeTxt.Text = dataReader["intake"].ToString();
+                medDosageTxt.Text = dataReader["medDosage"].ToString();
+                freqNumberTxt.Text = dataReader["freqNumber"].ToString();
+                freqIntervalTxt.Text = dataReader["freqInterval"].ToString();
+                maxRefillsTxt.Text = dataReader["maxRefills"].ToString();
+
+            }
+            cnn.Close();
+
+            addPrescriptionBtn.Visible = false;
+            fillOnCreateCheckBox.Visible = false;
+            refillBtn.Visible = true;
+            saveBtn.Visible = true;
+        }
+
+        private void refillBtn_Click(object sender, EventArgs e)
+        {
+            DatePicker datePicker = new DatePicker();
+            DialogResult result = datePicker.ShowDialog();
+            datePicker.Hide();
+
+           /* if (result == DialogResult.OK)
+            {
+                MessageBox.Show(datePicker.date);
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     String query = "EXEC Fill_Prescription @prescriptionId, @refillDate";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@prescriptionId", PatientID); 
-                        command.Parameters.AddWithValue("@refillDate", DateTime.Now.ToString("M/d/yyyy"));
+                        command.Parameters.AddWithValue("@prescriptionId", PatientID);
+                        command.Parameters.AddWithValue("@refillDate", datePicker.date);
 
                         connection.Open();
                         int result = command.ExecuteNonQuery();
@@ -299,7 +366,9 @@ namespace CNSA212FinalProject
                         }
                     }
                 }
-            }
+            }*/
+
+            datePicker.Dispose();
         }
     }
     public class ComboboxItem

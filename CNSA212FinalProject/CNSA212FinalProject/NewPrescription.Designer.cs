@@ -51,6 +51,8 @@
             this.addPrescriptionBtn = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fillOnCreateCheckBox = new System.Windows.Forms.CheckBox();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.refillBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -300,6 +302,7 @@
             // 
             // fillOnCreateCheckBox
             // 
+            this.fillOnCreateCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fillOnCreateCheckBox.AutoSize = true;
             this.fillOnCreateCheckBox.Checked = true;
             this.fillOnCreateCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -311,11 +314,38 @@
             this.fillOnCreateCheckBox.Text = "Fill On Create";
             this.fillOnCreateCheckBox.UseVisualStyleBackColor = true;
             // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.Location = new System.Drawing.Point(619, 346);
+            this.saveBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(153, 39);
+            this.saveBtn.TabIndex = 55;
+            this.saveBtn.Text = "Save Changes";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Visible = false;
+            // 
+            // refillBtn
+            // 
+            this.refillBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refillBtn.Location = new System.Drawing.Point(11, 346);
+            this.refillBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.refillBtn.Name = "refillBtn";
+            this.refillBtn.Size = new System.Drawing.Size(162, 39);
+            this.refillBtn.TabIndex = 56;
+            this.refillBtn.Text = "Refill Prescription";
+            this.refillBtn.UseVisualStyleBackColor = true;
+            this.refillBtn.Visible = false;
+            this.refillBtn.Click += new System.EventHandler(this.refillBtn_Click);
+            // 
             // NewPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 436);
+            this.Controls.Add(this.refillBtn);
             this.Controls.Add(this.fillOnCreateCheckBox);
             this.Controls.Add(this.addPrescriptionBtn);
             this.Controls.Add(this.physicianComboBox);
@@ -336,6 +366,7 @@
             this.Controls.Add(this.medNameTxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblfirstName);
+            this.Controls.Add(this.saveBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewPrescription";
@@ -369,5 +400,7 @@
         private System.Windows.Forms.Button addPrescriptionBtn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox fillOnCreateCheckBox;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button refillBtn;
     }
 }

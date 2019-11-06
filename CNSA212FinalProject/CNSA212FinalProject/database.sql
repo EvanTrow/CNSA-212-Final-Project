@@ -10,10 +10,8 @@ userId		INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_userId PRIMARY KEY,
 username			VARCHAR(25) NOT NULL,
 userpass			VARCHAR(250) NOT NULL,
 )
-INSERT INTO Users(username, userpass) VALUES ('evan', 'NYHdBrLO6VD5qevTj3DQGcdUA5bdyadHGEaPotoODfw=')
+INSERT INTO Users(username, userpass) VALUES ('evan', 'npoIpHovBcpC4feCjdzl8X//SJN/sh51E1IIe5LKwK0=')
 INSERT INTO Users(username, userpass) VALUES ('cnsa', '42M+Mva/tT0OY6G9p0r65xWjKXYWA1Ob6/+WZ0tzyKo=')
-
-select * from Users
 
 CREATE TABLE Patient(
 patientId		INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_patientId PRIMARY KEY,
@@ -69,7 +67,7 @@ maxRefills		INT NOT NULL							-- max refill times
 CREATE TABLE Fill(
 refillId		INT NOT NULL IDENTITY (1,1) CONSTRAINT PK_refillId PRIMARY KEY,
 prescriptionId	INT NOT NULL FOREIGN KEY (prescriptionId) REFERENCES Prescription(prescriptionId),
-refillDate		DATETIME NOT NULL DEFAULT (GETDATE())
+refillDate		DATE NOT NULL DEFAULT (GETDATE())
 )
 
 --Add Patient
@@ -151,46 +149,9 @@ AS
 GO
 
 
-CREATE PROC Add_Prescription(
-	@patientId		INT,
-	@physicianId	INT,
-	@medName		VARCHAR(40),
-	@medType		VARCHAR(15),
-	@dispense		INT,
-	@intake			VARCHAR(125),
-	@medDosage		VARCHAR(15),
-	@freqNumber		INT,
-	@freqInterval	VARCHAR(20),
-	@maxRefills		INT
-)
-AS
-	BEGIN
-	SET NOCOUNT ON;
-		BEGIN TRANSACTION
-			INSERT INTO Prescription(patientId, physicianId,
-				medName, medType, dispense, intake, medDosage,
-				freqNumber, freqInterval, maxRefills)
-			VALUES (@patientId, @physicianId, @medName, @medType,
-				@dispense, @intake, @medDosage, @freqNumber,
-				@freqInterval, @maxRefills)
-
-				IF @@ERROR <> 0
-				BEGIN
-					ROLLBACK TRANSACTION
-					RAISERROR ('Unable to insert record.',16,1)
-					RETURN -1
-				END
-			ELSE
-				BEGIN
-					COMMIT TRANSACTION
-					PRINT 'Record added successfully!'
-				END
-	END
-GO
-
 CREATE PROC Fill_Prescription(
 	@prescriptionId		INT,
-	@refillDate			DATETIME
+	@refillDate			DATE
 )
 AS
 	BEGIN
@@ -240,14 +201,66 @@ AS
 	END
 GO
 
-EXEC Fill_Prescription @prescriptionId = 1, @refillDate = "11/5/2019"
+CREATE PROC Add_Prescription(
+	@patientId		INT,
+	@physicianId	INT,
+	@medName		VARCHAR(40),
+	@medType		VARCHAR(15),
+	@dispense		INT,
+	@intake			VARCHAR(125),
+	@medDosage		VARCHAR(15),
+	@freqNumber		INT,
+	@freqInterval	VARCHAR(20),
+	@maxRefills		INT,
+	@fillOnCreate	BIT
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
 
-INSERT INTO Fill(prescriptionId, refillDate) VALUES (1, "11/5/2019")
+            DECLARE @prescriptionId INT
+            DECLARE @tmpDate DATE
+            declare @prescription table (prescriptionId int)
 
+
+			INSERT INTO Prescription(patientId, physicianId,
+				medName, medType, dispense, intake, medDosage,
+				freqNumber, freqInterval, maxRefills)
+            OUTPUT INSERTED.prescriptionId into @prescription
+			VALUES (@patientId, @physicianId, @medName, @medType,
+				@dispense, @intake, @medDosage, @freqNumber,
+				@freqInterval, @maxRefills)
+
+
+            SET @tmpDate = GETDATE()
+            
+            SET @prescriptionId =
+            (
+                SELECT prescriptionId from @prescription
+            )
+
+            IF @fillOnCreate = 1
+			BEGIN
+                EXEC Fill_Prescription @prescriptionId, @tmpDate
+			END
+
+            IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to insert record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record added successfully!'
+				END
+	END
+GO
 
 CREATE PROCEDURE dbo.sp_FindStringInTable @stringToFind VARCHAR(100), @schema sysname, @table sysname 
 AS
-
 BEGIN TRY
    DECLARE @sqlCommand varchar(max) = 'SELECT * FROM [' + @schema + '].[' + @table + '] WHERE ' 
 	   
@@ -261,7 +274,6 @@ BEGIN TRY
    EXEC (@sqlCommand)
    PRINT @sqlCommand
 END TRY
-
 BEGIN CATCH 
    PRINT 'There was an error. Check to make sure object exists.'
    PRINT error_message()

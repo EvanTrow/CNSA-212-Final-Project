@@ -62,8 +62,6 @@
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.PrescriptionsLbl = new System.Windows.Forms.Label();
-            this.addPrescriptionBtn = new System.Windows.Forms.Button();
             this.prescriptionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.physician = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +72,8 @@
             this.freqNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.freqInterval = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxRefills = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrescriptionsLbl = new System.Windows.Forms.Label();
+            this.addPrescriptionBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -523,7 +523,8 @@
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -543,36 +544,11 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(754, 146);
+            this.dataGridView.Size = new System.Drawing.Size(754, 140);
             this.dataGridView.TabIndex = 34;
             this.dataGridView.Visible = false;
-            // 
-            // PrescriptionsLbl
-            // 
-            this.PrescriptionsLbl.AutoSize = true;
-            this.PrescriptionsLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrescriptionsLbl.Location = new System.Drawing.Point(11, 559);
-            this.PrescriptionsLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.PrescriptionsLbl.Name = "PrescriptionsLbl";
-            this.PrescriptionsLbl.Size = new System.Drawing.Size(111, 23);
-            this.PrescriptionsLbl.TabIndex = 35;
-            this.PrescriptionsLbl.Text = "Prescriptions:";
-            this.PrescriptionsLbl.Visible = false;
-            // 
-            // addPrescriptionBtn
-            // 
-            this.addPrescriptionBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPrescriptionBtn.Location = new System.Drawing.Point(126, 541);
-            this.addPrescriptionBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.addPrescriptionBtn.Name = "addPrescriptionBtn";
-            this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
-            this.addPrescriptionBtn.TabIndex = 36;
-            this.addPrescriptionBtn.Text = "Add Prescription";
-            this.addPrescriptionBtn.UseVisualStyleBackColor = true;
-            this.addPrescriptionBtn.Visible = false;
-            this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
+            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
             // prescriptionId
             // 
@@ -641,12 +617,37 @@
             this.maxRefills.ReadOnly = true;
             this.maxRefills.Width = 107;
             // 
+            // PrescriptionsLbl
+            // 
+            this.PrescriptionsLbl.AutoSize = true;
+            this.PrescriptionsLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrescriptionsLbl.Location = new System.Drawing.Point(11, 559);
+            this.PrescriptionsLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PrescriptionsLbl.Name = "PrescriptionsLbl";
+            this.PrescriptionsLbl.Size = new System.Drawing.Size(111, 23);
+            this.PrescriptionsLbl.TabIndex = 35;
+            this.PrescriptionsLbl.Text = "Prescriptions:";
+            this.PrescriptionsLbl.Visible = false;
+            // 
+            // addPrescriptionBtn
+            // 
+            this.addPrescriptionBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPrescriptionBtn.Location = new System.Drawing.Point(126, 541);
+            this.addPrescriptionBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.addPrescriptionBtn.Name = "addPrescriptionBtn";
+            this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
+            this.addPrescriptionBtn.TabIndex = 36;
+            this.addPrescriptionBtn.Text = "Add Prescription";
+            this.addPrescriptionBtn.UseVisualStyleBackColor = true;
+            this.addPrescriptionBtn.Visible = false;
+            this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
+            // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(779, 742);
+            this.ClientSize = new System.Drawing.Size(779, 736);
             this.Controls.Add(this.addPrescriptionBtn);
             this.Controls.Add(this.PrescriptionsLbl);
             this.Controls.Add(this.dataGridView);
