@@ -14,10 +14,13 @@ namespace CNSA212FinalProject
 {
     public partial class NewPrescription : Form
     {
+        int PatientID;
         public NewPrescription(int patientID)
         {
             InitializeComponent();
-            getPhysicansCombo(); 
+            getPhysicansCombo();
+
+            PatientID = patientID;
 
 
             //  get all textboxes in array and send to checker for first launch check
@@ -188,15 +191,6 @@ namespace CNSA212FinalProject
             }
         }
 
-
-
-
-
-
-
-
-
-
         private void getPhysicansCombo()
         {
             string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
@@ -217,6 +211,95 @@ namespace CNSA212FinalProject
             }
             cnn.Close();
 
+        }
+
+        string _connectionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
+        private void addPrescriptionBtn_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "EXEC Add_Prescription @patientId, @physicianId, @medName, @medType,  @dispense, @intake, @medDosage, @freqNumber, @freqInterval, @maxRefills";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@patientId", PatientID);
+                    command.Parameters.AddWithValue("@physicianId", (physicianComboBox.SelectedItem as ComboboxItem).Value.ToString());
+                    command.Parameters.AddWithValue("@medName", medNameTxt.Text);
+                    command.Parameters.AddWithValue("@medType", medTypeTxt.Text);
+                    command.Parameters.AddWithValue("@dispense", dispenseTxt.Text);
+                    command.Parameters.AddWithValue("@intake", intakeTxt.Text);
+                    command.Parameters.AddWithValue("@medDosage", medDosageTxt.Text);
+                    command.Parameters.AddWithValue("@freqNumber", freqNumberTxt.Text);
+                    command.Parameters.AddWithValue("@freqInterval", freqIntervalTxt.Text);
+                    command.Parameters.AddWithValue("@maxRefills", maxRefillsTxt.Text);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+
+                    // Check Error
+                    if (result < 0)
+                    {
+                        MessageBox.Show("Prescription Added Sussessfully!",
+                                "Prescription Added!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1);
+
+                        medNameTxt.Text = medTypeTxt.Text = dispenseTxt.Text = intakeTxt.Text = medDosageTxt.Text = freqNumberTxt.Text = freqIntervalTxt.Text = maxRefillsTxt.Text = "";
+                        physicianComboBox.SelectedIndex = -1;
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Error inserting data into Database!",
+                                "Error!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error,
+                                MessageBoxDefaultButton.Button1);
+                    }
+                }
+            }
+
+            if (fillOnCreateCheckBox.Checked)
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    String query = "EXEC Fill_Prescription @prescriptionId, @refillDate";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@prescriptionId", PatientID); 
+                        command.Parameters.AddWithValue("@refillDate", DateTime.Now.ToString("M/d/yyyy"));
+
+                        connection.Open();
+                        int result = command.ExecuteNonQuery();
+
+
+                        // Check Error
+                        if (result < 0)
+                        {
+                            MessageBox.Show("Prescription filled Sussessfully!",
+                                    "Prescription Filled!",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information,
+                                    MessageBoxDefaultButton.Button1);
+
+                            medNameTxt.Text = medTypeTxt.Text = dispenseTxt.Text = intakeTxt.Text = medDosageTxt.Text = freqNumberTxt.Text = freqIntervalTxt.Text = maxRefillsTxt.Text = "";
+                            physicianComboBox.SelectedIndex = -1;
+                        }
+                        else
+                        {
+
+                            MessageBox.Show("Error inserting data into Database!",
+                                    "Error!",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error,
+                                    MessageBoxDefaultButton.Button1);
+                        }
+                    }
+                }
+            }
         }
     }
     public class ComboboxItem

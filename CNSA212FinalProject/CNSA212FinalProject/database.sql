@@ -11,6 +11,9 @@ username			VARCHAR(25) NOT NULL,
 userpass			VARCHAR(250) NOT NULL,
 )
 INSERT INTO Users(username, userpass) VALUES ('evan', 'NYHdBrLO6VD5qevTj3DQGcdUA5bdyadHGEaPotoODfw=')
+INSERT INTO Users(username, userpass) VALUES ('cnsa', '42M+Mva/tT0OY6G9p0r65xWjKXYWA1Ob6/+WZ0tzyKo=')
+
+select * from Users
 
 CREATE TABLE Patient(
 patientId		INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_patientId PRIMARY KEY,
@@ -66,10 +69,8 @@ maxRefills		INT NOT NULL							-- max refill times
 CREATE TABLE Fill(
 refillId		INT NOT NULL IDENTITY (1,1) CONSTRAINT PK_refillId PRIMARY KEY,
 prescriptionId	INT NOT NULL FOREIGN KEY (prescriptionId) REFERENCES Prescription(prescriptionId),
-refillsUsed		INT NOT NULL,
 refillDate		DATETIME NOT NULL DEFAULT (GETDATE())
 )
-
 
 --Add Patient
 CREATE PROC Add_Patient(
@@ -186,6 +187,62 @@ AS
 				END
 	END
 GO
+
+CREATE PROC Fill_Prescription(
+	@prescriptionId		INT,
+	@refillDate			DATETIME
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+
+			DECLARE @maxRefills INT;
+			DECLARE @refillsUsed INT;
+			
+			SET @refillsUsed = 
+			(
+				SELECT COUNT(*) 
+				FROM Fill 
+				WHERE prescriptionId = @prescriptionId
+			)
+
+			SET @maxRefills = 
+			(
+				SELECT maxRefills
+				FROM Prescription 
+				WHERE prescriptionId = @prescriptionId
+			)
+
+			IF @refillsUsed >= @maxRefills
+			BEGIN
+				ROLLBACK TRANSACTION
+				RAISERROR ('Error: Refill limit reached.',16,1)
+				RETURN -1
+			END
+			ELSE
+			BEGIN
+				INSERT INTO Fill(prescriptionId, refillDate)
+				VALUES (@prescriptionId, @refillDate)
+			END
+
+			IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to insert record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record added successfully!'
+				END
+	END
+GO
+
+EXEC Fill_Prescription @prescriptionId = 1, @refillDate = "11/5/2019"
+
+INSERT INTO Fill(prescriptionId, refillDate) VALUES (1, "11/5/2019")
 
 
 CREATE PROCEDURE dbo.sp_FindStringInTable @stringToFind VARCHAR(100), @schema sysname, @table sysname 

@@ -10,6 +10,8 @@ namespace CNSA212FinalProject
 {
     public partial class NewPatient : Form
     {
+
+        public bool alreadyActive = false;
         public int fillFromId;
         public NewPatient(int FillFromId)
         {
@@ -312,6 +314,30 @@ namespace CNSA212FinalProject
             dataGridView.Visible = true;
             addPrescriptionBtn.Visible = true;
             PrescriptionsLbl.Visible = true;
+
+            // get prescriptions
+
+
+            cnn = new SqlConnection(connetionString);
+            cnn.Open();
+
+            sql = "SELECT Prescription.prescriptionId, fName, lName, Prescription.medName, Prescription.medType, "+
+                    "Prescription.dispense, Prescription.intake, Prescription.medDosage, Prescription.freqNumber, "+
+                    "Prescription.freqInterval, Prescription.maxRefills, (SELECT COUNT(*) FROM Fill WHERE Fill.prescriptionId = Prescription.prescriptionId) as refillsUsed FROM Prescription "+
+                    "INNER JOIN Physician ON Prescription.physicianId = Physician.physicianId "+
+                    "WHERE patientId = "+fillFromId;
+            command = new SqlCommand(sql, cnn);
+            dataReader = command.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                dataGridView.Rows.Add(dataReader["prescriptionId"], "Dr. " + dataReader["fName"] + " " + dataReader["lName"], dataReader["medName"], dataReader["medType"],
+                                        dataReader["dispense"], dataReader["intake"], dataReader["medDosage"],
+                                        dataReader["freqNumber"], dataReader["freqInterval"], dataReader["refillsUsed"] + "/" + dataReader["maxRefills"]);
+            }
+            cnn.Close();
+
+
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -324,6 +350,18 @@ namespace CNSA212FinalProject
             NewPrescription newPrescription = new NewPrescription(fillFromId);
             newPrescription.MdiParent = this.MdiParent;
             newPrescription.Show();
+        }
+
+        private void NewPatient_Activated(object sender, EventArgs e)
+        {
+            
+            if (alreadyActive)
+            {
+                dataGridView.Rows.Clear();
+                autoFillData(fillFromId);
+            }
+
+            alreadyActive = true;
         }
     }
 }

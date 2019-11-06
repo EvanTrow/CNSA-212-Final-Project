@@ -172,6 +172,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView);
             this.Name = "LookupPhysician";
+            this.ShowIcon = false;
             this.Text = "Physician Lookup";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

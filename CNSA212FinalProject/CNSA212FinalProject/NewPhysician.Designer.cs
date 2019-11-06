@@ -513,6 +513,7 @@
             this.Controls.Add(this.saveBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewPhysician";
+            this.ShowIcon = false;
             this.Text = "New Physician";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

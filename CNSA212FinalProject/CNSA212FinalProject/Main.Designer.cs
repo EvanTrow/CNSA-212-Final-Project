@@ -76,7 +76,7 @@
             // 
             this.newPatientToolStripMenuItem.AccessibleName = "";
             this.newPatientToolStripMenuItem.Name = "newPatientToolStripMenuItem";
-            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newPatientToolStripMenuItem.Tag = "";
             this.newPatientToolStripMenuItem.Text = "Patient";
             this.newPatientToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
@@ -84,7 +84,7 @@
             // newPhysicianToolStripMenuItem
             // 
             this.newPhysicianToolStripMenuItem.Name = "newPhysicianToolStripMenuItem";
-            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newPhysicianToolStripMenuItem.Text = "Physician";
             this.newPhysicianToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 

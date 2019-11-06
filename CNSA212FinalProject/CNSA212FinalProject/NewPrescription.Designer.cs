@@ -50,6 +50,7 @@
             this.physicianComboBox = new System.Windows.Forms.ComboBox();
             this.addPrescriptionBtn = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.fillOnCreateCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -266,6 +267,7 @@
             // 
             // physicianComboBox
             // 
+            this.physicianComboBox.AccessibleName = "Select a Physician";
             this.physicianComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.physicianComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -288,6 +290,7 @@
             this.addPrescriptionBtn.TabIndex = 53;
             this.addPrescriptionBtn.Text = "Add Prescription";
             this.addPrescriptionBtn.UseVisualStyleBackColor = true;
+            this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
             // 
             // errorProvider1
             // 
@@ -295,11 +298,25 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
+            // fillOnCreateCheckBox
+            // 
+            this.fillOnCreateCheckBox.AutoSize = true;
+            this.fillOnCreateCheckBox.Checked = true;
+            this.fillOnCreateCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.fillOnCreateCheckBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fillOnCreateCheckBox.Location = new System.Drawing.Point(469, 353);
+            this.fillOnCreateCheckBox.Name = "fillOnCreateCheckBox";
+            this.fillOnCreateCheckBox.Size = new System.Drawing.Size(134, 27);
+            this.fillOnCreateCheckBox.TabIndex = 54;
+            this.fillOnCreateCheckBox.Text = "Fill On Create";
+            this.fillOnCreateCheckBox.UseVisualStyleBackColor = true;
+            // 
             // NewPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 436);
+            this.Controls.Add(this.fillOnCreateCheckBox);
             this.Controls.Add(this.addPrescriptionBtn);
             this.Controls.Add(this.physicianComboBox);
             this.Controls.Add(this.maxRefillsTxt);
@@ -322,6 +339,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewPrescription";
+            this.ShowIcon = false;
             this.Text = "New Prescription";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -350,5 +368,6 @@
         private System.Windows.Forms.TextBox freqNumberTxt;
         private System.Windows.Forms.Button addPrescriptionBtn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckBox fillOnCreateCheckBox;
     }
 }
