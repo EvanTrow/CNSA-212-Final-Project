@@ -58,7 +58,7 @@ namespace CNSA212FinalProject
                 {
                     return "";
                 }
-                return ((AssemblyDescriptionAttribute)attributes[0]).Description;
+                return "Louis' Pharmacy was established in 1953 in Philadelphia. The story starts when a young man named Evan meets two other gentalmen named George and Noah. They started this company in hopes to help the community and provide the best drugs in PA. From all of us here at Louis' Pharmacy thank you and remember; Our Drugs, your needs.";
             }
         }
 
@@ -97,7 +97,7 @@ namespace CNSA212FinalProject
                 {
                     return "";
                 }
-                return "Louis' Pharmacy";
+                return "History of Louis' Pharmacy";
             }
         }
         #endregion
