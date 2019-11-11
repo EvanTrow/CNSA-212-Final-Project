@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.submitBtn = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -52,6 +54,7 @@
             this.submitBtn.Size = new System.Drawing.Size(84, 35);
             this.submitBtn.TabIndex = 2;
             this.submitBtn.Text = "Submit";
+            this.toolTip1.SetToolTip(this.submitBtn, "Click to submit");
             this.submitBtn.UseVisualStyleBackColor = true;
             this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
@@ -67,6 +70,7 @@
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(271, 26);
             this.dateTimePicker.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.dateTimePicker, "Select date");
             // 
             // DatePicker
             // 
@@ -92,5 +96,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button submitBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

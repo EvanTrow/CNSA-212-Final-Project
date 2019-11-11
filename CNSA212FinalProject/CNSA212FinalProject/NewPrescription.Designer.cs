@@ -54,6 +54,7 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.refillBtn = new System.Windows.Forms.Button();
             this.refillsLbl = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +81,7 @@
             this.medNameTxt.Name = "medNameTxt";
             this.medNameTxt.Size = new System.Drawing.Size(647, 30);
             this.medNameTxt.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.medNameTxt, "Enter Medicine");
             this.medNameTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label1
@@ -105,6 +107,7 @@
             this.medTypeTxt.Name = "medTypeTxt";
             this.medTypeTxt.Size = new System.Drawing.Size(647, 30);
             this.medTypeTxt.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.medTypeTxt, "Enter the type");
             this.medTypeTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label2
@@ -130,6 +133,7 @@
             this.dispenseTxt.Name = "dispenseTxt";
             this.dispenseTxt.Size = new System.Drawing.Size(647, 30);
             this.dispenseTxt.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.dispenseTxt, "Enter the Dispense");
             this.dispenseTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label3
@@ -155,6 +159,7 @@
             this.intakeTxt.Name = "intakeTxt";
             this.intakeTxt.Size = new System.Drawing.Size(647, 30);
             this.intakeTxt.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.intakeTxt, "Enter the Intake");
             this.intakeTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label4
@@ -180,6 +185,7 @@
             this.medDosageTxt.Name = "medDosageTxt";
             this.medDosageTxt.Size = new System.Drawing.Size(647, 30);
             this.medDosageTxt.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.medDosageTxt, "Enter the Dosage");
             this.medDosageTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label5
@@ -205,6 +211,7 @@
             this.freqNumberTxt.Name = "freqNumberTxt";
             this.freqNumberTxt.Size = new System.Drawing.Size(647, 30);
             this.freqNumberTxt.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.freqNumberTxt, "Enter the Frequency");
             this.freqNumberTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label6
@@ -230,6 +237,7 @@
             this.freqIntervalTxt.Name = "freqIntervalTxt";
             this.freqIntervalTxt.Size = new System.Drawing.Size(647, 30);
             this.freqIntervalTxt.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.freqIntervalTxt, "Enter the Interval");
             this.freqIntervalTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label7
@@ -255,6 +263,7 @@
             this.maxRefillsTxt.Name = "maxRefillsTxt";
             this.maxRefillsTxt.Size = new System.Drawing.Size(647, 30);
             this.maxRefillsTxt.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.maxRefillsTxt, "Enter Refill max");
             this.maxRefillsTxt.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label8
@@ -280,6 +289,7 @@
             this.physicianComboBox.Name = "physicianComboBox";
             this.physicianComboBox.Size = new System.Drawing.Size(648, 31);
             this.physicianComboBox.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.physicianComboBox, "Physcician\'s  ID");
             this.physicianComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
             // addPrescriptionBtn
@@ -292,6 +302,7 @@
             this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
             this.addPrescriptionBtn.TabIndex = 53;
             this.addPrescriptionBtn.Text = "Add Prescription";
+            this.toolTip1.SetToolTip(this.addPrescriptionBtn, "Click to Add Prescription");
             this.addPrescriptionBtn.UseVisualStyleBackColor = true;
             this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
             // 
@@ -313,6 +324,7 @@
             this.fillOnCreateCheckBox.Size = new System.Drawing.Size(134, 27);
             this.fillOnCreateCheckBox.TabIndex = 54;
             this.fillOnCreateCheckBox.Text = "Fill On Create";
+            this.toolTip1.SetToolTip(this.fillOnCreateCheckBox, "Check to Fill on Create");
             this.fillOnCreateCheckBox.UseVisualStyleBackColor = true;
             // 
             // saveBtn
@@ -337,6 +349,7 @@
             this.refillBtn.Size = new System.Drawing.Size(162, 39);
             this.refillBtn.TabIndex = 56;
             this.refillBtn.Text = "Refill Prescription";
+            this.toolTip1.SetToolTip(this.refillBtn, "Click to Refill");
             this.refillBtn.UseVisualStyleBackColor = true;
             this.refillBtn.Visible = false;
             this.refillBtn.Click += new System.EventHandler(this.refillBtn_Click);
@@ -416,5 +429,6 @@
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button refillBtn;
         private System.Windows.Forms.Label refillsLbl;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

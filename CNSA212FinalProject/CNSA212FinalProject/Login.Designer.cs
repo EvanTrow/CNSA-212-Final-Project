@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.usernameTxt = new System.Windows.Forms.TextBox();
             this.passwordTxt = new System.Windows.Forms.TextBox();
@@ -35,6 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.errorLbl = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // usernameTxt
@@ -46,6 +50,7 @@
             this.usernameTxt.Name = "usernameTxt";
             this.usernameTxt.Size = new System.Drawing.Size(278, 30);
             this.usernameTxt.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.usernameTxt, "Enter Username");
             this.usernameTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTxt_KeyDown);
             // 
             // passwordTxt
@@ -58,6 +63,7 @@
             this.passwordTxt.PasswordChar = '*';
             this.passwordTxt.Size = new System.Drawing.Size(278, 30);
             this.passwordTxt.TabIndex = 1;
+            this.toolTip2.SetToolTip(this.passwordTxt, "Enter Password");
             this.passwordTxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxt_KeyDown);
             // 
             // loginBtn
@@ -69,6 +75,7 @@
             this.loginBtn.Size = new System.Drawing.Size(110, 33);
             this.loginBtn.TabIndex = 2;
             this.loginBtn.Text = "Login";
+            this.toolTip3.SetToolTip(this.loginBtn, "Click To login");
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
@@ -140,5 +147,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label errorLbl;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
     }
 }

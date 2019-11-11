@@ -74,6 +74,7 @@
             this.maxRefills = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrescriptionsLbl = new System.Windows.Forms.Label();
             this.addPrescriptionBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -222,6 +223,7 @@
             this.txtfirstName.Name = "txtfirstName";
             this.txtfirstName.Size = new System.Drawing.Size(574, 30);
             this.txtfirstName.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtfirstName, "Enter Patient First Name");
             this.txtfirstName.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtphone2
@@ -236,6 +238,7 @@
             this.txtphone2.Name = "txtphone2";
             this.txtphone2.Size = new System.Drawing.Size(574, 30);
             this.txtphone2.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtphone2, "Enter phone number");
             this.txtphone2.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtphone1
@@ -250,6 +253,7 @@
             this.txtphone1.Name = "txtphone1";
             this.txtphone1.Size = new System.Drawing.Size(574, 30);
             this.txtphone1.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtphone1, "Enter phone number");
             this.txtphone1.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtemail
@@ -264,6 +268,7 @@
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(574, 30);
             this.txtemail.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtemail, "Enter email");
             this.txtemail.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtmiddleInitial
@@ -278,6 +283,7 @@
             this.txtmiddleInitial.Name = "txtmiddleInitial";
             this.txtmiddleInitial.Size = new System.Drawing.Size(574, 30);
             this.txtmiddleInitial.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtmiddleInitial, "Enter Patient Middle Initial");
             this.txtmiddleInitial.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtlastName
@@ -292,6 +298,7 @@
             this.txtlastName.Name = "txtlastName";
             this.txtlastName.Size = new System.Drawing.Size(574, 30);
             this.txtlastName.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtlastName, "Enter Patient Lastname");
             this.txtlastName.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtcity
@@ -306,6 +313,7 @@
             this.txtcity.Name = "txtcity";
             this.txtcity.Size = new System.Drawing.Size(574, 30);
             this.txtcity.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.txtcity, "Enter City");
             this.txtcity.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // txtstreet
@@ -320,6 +328,7 @@
             this.txtstreet.Name = "txtstreet";
             this.txtstreet.Size = new System.Drawing.Size(574, 30);
             this.txtstreet.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.txtstreet, "Enter street address");
             this.txtstreet.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // btnAddPatient
@@ -332,6 +341,7 @@
             this.btnAddPatient.Size = new System.Drawing.Size(121, 39);
             this.btnAddPatient.TabIndex = 15;
             this.btnAddPatient.Text = "Add Patient";
+            this.toolTip1.SetToolTip(this.btnAddPatient, "Click to add Patient");
             this.btnAddPatient.UseVisualStyleBackColor = true;
             this.btnAddPatient.Click += new System.EventHandler(this.btnAddPatient_Click);
             // 
@@ -347,6 +357,7 @@
             this.dateDOB.Name = "dateDOB";
             this.dateDOB.Size = new System.Drawing.Size(574, 26);
             this.dateDOB.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.dateDOB, "Select Birth Date");
             this.dateDOB.ValueChanged += new System.EventHandler(this.dateDOB_ValueChanged);
             // 
             // txtInsuranceNum
@@ -361,6 +372,7 @@
             this.txtInsuranceNum.Name = "txtInsuranceNum";
             this.txtInsuranceNum.Size = new System.Drawing.Size(576, 30);
             this.txtInsuranceNum.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.txtInsuranceNum, "Enter Insurance number");
             this.txtInsuranceNum.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label1
@@ -386,6 +398,7 @@
             this.txtInsuranceCo.Name = "txtInsuranceCo";
             this.txtInsuranceCo.Size = new System.Drawing.Size(576, 30);
             this.txtInsuranceCo.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.txtInsuranceCo, "Enter Insurance company");
             this.txtInsuranceCo.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label2
@@ -417,6 +430,7 @@
             this.txtzip.Name = "txtzip";
             this.txtzip.Size = new System.Drawing.Size(574, 30);
             this.txtzip.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.txtzip, "Enter zip");
             this.txtzip.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // stateComboBox
@@ -484,6 +498,7 @@
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(574, 31);
             this.stateComboBox.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.stateComboBox, "Enter State");
             this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
             // genderComboBox
@@ -502,6 +517,7 @@
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(574, 31);
             this.genderComboBox.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.genderComboBox, "Select Gender");
             this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
             // saveBtn
@@ -637,6 +653,7 @@
             this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
             this.addPrescriptionBtn.TabIndex = 36;
             this.addPrescriptionBtn.Text = "Add Prescription";
+            this.toolTip1.SetToolTip(this.addPrescriptionBtn, "Click to add Prescription");
             this.addPrescriptionBtn.UseVisualStyleBackColor = true;
             this.addPrescriptionBtn.Visible = false;
             this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
@@ -739,5 +756,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn freqNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn freqInterval;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxRefills;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

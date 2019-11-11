@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tabForms = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -37,6 +38,7 @@
             this.lookupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.physicianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,16 +78,18 @@
             // 
             this.newPatientToolStripMenuItem.AccessibleName = "";
             this.newPatientToolStripMenuItem.Name = "newPatientToolStripMenuItem";
-            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newPatientToolStripMenuItem.Tag = "";
             this.newPatientToolStripMenuItem.Text = "Patient";
+            this.newPatientToolStripMenuItem.ToolTipText = "Click to add patient";
             this.newPatientToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // newPhysicianToolStripMenuItem
             // 
             this.newPhysicianToolStripMenuItem.Name = "newPhysicianToolStripMenuItem";
-            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.newPhysicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newPhysicianToolStripMenuItem.Text = "Physician";
+            this.newPhysicianToolStripMenuItem.ToolTipText = "Click to add Physician";
             this.newPhysicianToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // lookupToolStripMenuItem
@@ -102,6 +106,7 @@
             this.patientToolStripMenuItem.Name = "patientToolStripMenuItem";
             this.patientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.patientToolStripMenuItem.Text = "Patient";
+            this.patientToolStripMenuItem.ToolTipText = "Click to Look up patient";
             this.patientToolStripMenuItem.Click += new System.EventHandler(this.patientToolStripMenuItem_Click);
             // 
             // physicianToolStripMenuItem
@@ -109,6 +114,7 @@
             this.physicianToolStripMenuItem.Name = "physicianToolStripMenuItem";
             this.physicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.physicianToolStripMenuItem.Text = "Physician";
+            this.physicianToolStripMenuItem.ToolTipText = "Click to look up Physician";
             this.physicianToolStripMenuItem.Click += new System.EventHandler(this.physicianToolStripMenuItem_Click);
             // 
             // Main
@@ -144,6 +150,7 @@
         private System.Windows.Forms.ToolStripMenuItem lookupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem physicianToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
