@@ -220,7 +220,7 @@
             this.txtfirstName.Location = new System.Drawing.Point(150, 13);
             this.txtfirstName.Margin = new System.Windows.Forms.Padding(4);
             this.txtfirstName.Name = "txtfirstName";
-            this.txtfirstName.Size = new System.Drawing.Size(617, 30);
+            this.txtfirstName.Size = new System.Drawing.Size(574, 30);
             this.txtfirstName.TabIndex = 1;
             this.txtfirstName.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -234,7 +234,7 @@
             this.txtphone2.Location = new System.Drawing.Point(150, 239);
             this.txtphone2.Margin = new System.Windows.Forms.Padding(4);
             this.txtphone2.Name = "txtphone2";
-            this.txtphone2.Size = new System.Drawing.Size(617, 30);
+            this.txtphone2.Size = new System.Drawing.Size(574, 30);
             this.txtphone2.TabIndex = 7;
             this.txtphone2.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -248,7 +248,7 @@
             this.txtphone1.Location = new System.Drawing.Point(150, 201);
             this.txtphone1.Margin = new System.Windows.Forms.Padding(4);
             this.txtphone1.Name = "txtphone1";
-            this.txtphone1.Size = new System.Drawing.Size(617, 30);
+            this.txtphone1.Size = new System.Drawing.Size(574, 30);
             this.txtphone1.TabIndex = 6;
             this.txtphone1.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -262,7 +262,7 @@
             this.txtemail.Location = new System.Drawing.Point(150, 277);
             this.txtemail.Margin = new System.Windows.Forms.Padding(4);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(617, 30);
+            this.txtemail.Size = new System.Drawing.Size(574, 30);
             this.txtemail.TabIndex = 8;
             this.txtemail.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -276,7 +276,7 @@
             this.txtmiddleInitial.Location = new System.Drawing.Point(150, 51);
             this.txtmiddleInitial.Margin = new System.Windows.Forms.Padding(4);
             this.txtmiddleInitial.Name = "txtmiddleInitial";
-            this.txtmiddleInitial.Size = new System.Drawing.Size(617, 30);
+            this.txtmiddleInitial.Size = new System.Drawing.Size(574, 30);
             this.txtmiddleInitial.TabIndex = 2;
             this.txtmiddleInitial.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -290,7 +290,7 @@
             this.txtlastName.Location = new System.Drawing.Point(150, 89);
             this.txtlastName.Margin = new System.Windows.Forms.Padding(4);
             this.txtlastName.Name = "txtlastName";
-            this.txtlastName.Size = new System.Drawing.Size(617, 30);
+            this.txtlastName.Size = new System.Drawing.Size(574, 30);
             this.txtlastName.TabIndex = 3;
             this.txtlastName.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -304,7 +304,7 @@
             this.txtcity.Location = new System.Drawing.Point(150, 353);
             this.txtcity.Margin = new System.Windows.Forms.Padding(4);
             this.txtcity.Name = "txtcity";
-            this.txtcity.Size = new System.Drawing.Size(617, 30);
+            this.txtcity.Size = new System.Drawing.Size(574, 30);
             this.txtcity.TabIndex = 10;
             this.txtcity.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -318,7 +318,7 @@
             this.txtstreet.Location = new System.Drawing.Point(150, 315);
             this.txtstreet.Margin = new System.Windows.Forms.Padding(4);
             this.txtstreet.Name = "txtstreet";
-            this.txtstreet.Size = new System.Drawing.Size(617, 30);
+            this.txtstreet.Size = new System.Drawing.Size(574, 30);
             this.txtstreet.TabIndex = 9;
             this.txtstreet.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -326,7 +326,7 @@
             // 
             this.btnAddPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddPatient.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPatient.Location = new System.Drawing.Point(647, 541);
+            this.btnAddPatient.Location = new System.Drawing.Point(604, 541);
             this.btnAddPatient.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddPatient.Name = "btnAddPatient";
             this.btnAddPatient.Size = new System.Drawing.Size(121, 39);
@@ -345,7 +345,7 @@
             this.dateDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateDOB.Location = new System.Drawing.Point(150, 128);
             this.dateDOB.Name = "dateDOB";
-            this.dateDOB.Size = new System.Drawing.Size(617, 26);
+            this.dateDOB.Size = new System.Drawing.Size(574, 26);
             this.dateDOB.TabIndex = 4;
             this.dateDOB.ValueChanged += new System.EventHandler(this.dateDOB_ValueChanged);
             // 
@@ -359,8 +359,8 @@
             this.txtInsuranceNum.Location = new System.Drawing.Point(149, 505);
             this.txtInsuranceNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceNum.Name = "txtInsuranceNum";
-            this.txtInsuranceNum.Size = new System.Drawing.Size(619, 30);
-            this.txtInsuranceNum.TabIndex = 13;
+            this.txtInsuranceNum.Size = new System.Drawing.Size(576, 30);
+            this.txtInsuranceNum.TabIndex = 14;
             this.txtInsuranceNum.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label1
@@ -384,8 +384,8 @@
             this.txtInsuranceCo.Location = new System.Drawing.Point(149, 467);
             this.txtInsuranceCo.Margin = new System.Windows.Forms.Padding(4);
             this.txtInsuranceCo.Name = "txtInsuranceCo";
-            this.txtInsuranceCo.Size = new System.Drawing.Size(619, 30);
-            this.txtInsuranceCo.TabIndex = 14;
+            this.txtInsuranceCo.Size = new System.Drawing.Size(576, 30);
+            this.txtInsuranceCo.TabIndex = 13;
             this.txtInsuranceCo.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
             // label2
@@ -415,7 +415,7 @@
             this.txtzip.Location = new System.Drawing.Point(150, 429);
             this.txtzip.Margin = new System.Windows.Forms.Padding(4);
             this.txtzip.Name = "txtzip";
-            this.txtzip.Size = new System.Drawing.Size(617, 30);
+            this.txtzip.Size = new System.Drawing.Size(574, 30);
             this.txtzip.TabIndex = 12;
             this.txtzip.TextChanged += new System.EventHandler(this.form_TextChanged);
             // 
@@ -482,7 +482,7 @@
             "WY - Wyoming"});
             this.stateComboBox.Location = new System.Drawing.Point(150, 390);
             this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(617, 31);
+            this.stateComboBox.Size = new System.Drawing.Size(574, 31);
             this.stateComboBox.TabIndex = 11;
             this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
@@ -500,7 +500,7 @@
             "NA"});
             this.genderComboBox.Location = new System.Drawing.Point(150, 163);
             this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(617, 31);
+            this.genderComboBox.Size = new System.Drawing.Size(574, 31);
             this.genderComboBox.TabIndex = 5;
             this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
@@ -508,7 +508,7 @@
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Location = new System.Drawing.Point(647, 541);
+            this.saveBtn.Location = new System.Drawing.Point(604, 541);
             this.saveBtn.Margin = new System.Windows.Forms.Padding(2);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(121, 39);
@@ -523,8 +523,7 @@
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -545,7 +544,7 @@
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(754, 140);
+            this.dataGridView.Size = new System.Drawing.Size(711, 189);
             this.dataGridView.TabIndex = 34;
             this.dataGridView.Visible = false;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
@@ -621,7 +620,7 @@
             // 
             this.PrescriptionsLbl.AutoSize = true;
             this.PrescriptionsLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrescriptionsLbl.Location = new System.Drawing.Point(11, 559);
+            this.PrescriptionsLbl.Location = new System.Drawing.Point(11, 558);
             this.PrescriptionsLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PrescriptionsLbl.Name = "PrescriptionsLbl";
             this.PrescriptionsLbl.Size = new System.Drawing.Size(111, 23);
@@ -647,7 +646,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(779, 736);
+            this.ClientSize = new System.Drawing.Size(736, 786);
             this.Controls.Add(this.addPrescriptionBtn);
             this.Controls.Add(this.PrescriptionsLbl);
             this.Controls.Add(this.dataGridView);

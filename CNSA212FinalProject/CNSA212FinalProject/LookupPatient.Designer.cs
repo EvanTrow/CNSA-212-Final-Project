@@ -77,7 +77,7 @@
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(935, 250);
+            this.dataGridView.Size = new System.Drawing.Size(752, 396);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
@@ -169,11 +169,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 250);
+            this.ClientSize = new System.Drawing.Size(752, 396);
             this.Controls.Add(this.dataGridView);
             this.Name = "LookupPatient";
             this.ShowIcon = false;
             this.Text = "Patient Lookup";
+            this.Activated += new System.EventHandler(this.LookupPatient_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

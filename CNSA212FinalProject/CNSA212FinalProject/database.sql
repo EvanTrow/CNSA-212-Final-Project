@@ -259,6 +259,115 @@ AS
 	END
 GO
 
+
+CREATE PROC Update_Patient(
+	@patientId		INT,
+	@fName			VARCHAR(25),
+	@lName			VARCHAR(25),
+	@mInit			CHAR(1) = NULL,
+	@DOB			DATE,
+	@gender			CHAR(1),
+	@street		VARCHAR(60),
+	@city			VARCHAR(30),
+	@stateAbbr		CHAR(2),
+	@zip			INT,
+	@phone1		VARCHAR(15),
+	@phone2		VARCHAR(15) = NULL,
+	@email		VARCHAR(100),
+	@InsuranceCo	VARCHAR(40) = NULL,
+	@InsuranceNum	VARCHAR(30) = NULL
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			UPDATE Patient SET
+			fName = @fName, lName = @lName, mInit = @mInit, DOB = @DOB, gender = @gender, 
+			street = @street, city = @city, stateAbbr = @stateAbbr, zip = @zip, 
+			phone1 = @phone1, phone2 = @phone2, email = @email, 
+			InsuranceCo = @InsuranceCo, InsuranceNum = @InsuranceNum 
+			WHERE patientId = @patientId
+
+			IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to update record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record updated successfully!'
+				END
+	END
+GO
+
+CREATE PROC Update_Physician(
+	@physicianId	INT,
+	@fName			VARCHAR(25),
+	@lName			VARCHAR(25),
+	@mInit			CHAR(1) = NULL,
+	@gender			CHAR(1),
+	@street			VARCHAR(60),
+	@city			VARCHAR(30),
+	@stateAbbr		CHAR(2),
+	@zip			INT,
+	@phone1			VARCHAR(15),
+	@phone2			VARCHAR(15) = NULL,
+	@email			VARCHAR(100),
+	@specialty1		VARCHAR(40) = NULL,
+	@specialty2		VARCHAR(30) = NULL
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			UPDATE Physician SET
+			fName = @fName, lName = @lName, mInit = @mInit, gender = @gender, 
+			street = @street, city = @city, stateAbbr = @stateAbbr, zip = @zip, 
+			phone1 = @phone1, phone2 = @phone2, email = @email, 
+			specialty1 = @specialty1, specialty2 = @specialty2 
+			WHERE physicianId = @physicianId
+
+			IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to update record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record updated successfully!'
+				END
+	END
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE PROCEDURE dbo.sp_FindStringInTable @stringToFind VARCHAR(100), @schema sysname, @table sysname 
 AS
 BEGIN TRY

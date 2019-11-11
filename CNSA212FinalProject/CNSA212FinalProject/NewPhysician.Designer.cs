@@ -190,7 +190,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 464);
+            this.label1.Location = new System.Drawing.Point(9, 464);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
@@ -515,6 +515,7 @@
             this.Name = "NewPhysician";
             this.ShowIcon = false;
             this.Text = "New Physician";
+            this.Activated += new System.EventHandler(this.NewPhysician_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

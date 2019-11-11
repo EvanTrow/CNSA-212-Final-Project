@@ -14,6 +14,8 @@ namespace CNSA212FinalProject
 {
     public partial class NewPhysician : Form
     {
+
+        public bool alreadyActive = false;
         public int fillFromId;
         public NewPhysician(int FillFromId)
         {
@@ -306,7 +308,62 @@ namespace CNSA212FinalProject
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "EXEC Update_Physician @physicianId, @fName, @lName, @mInit, @gender, @street, @city, @stateAbbr, @zip, @phone1, @phone2, @email, @specialty1, @specialty2";
 
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@physicianId", fillFromId);
+                    command.Parameters.AddWithValue("@fName", txtfirstName.Text);
+                    command.Parameters.AddWithValue("@lName", txtlastName.Text);
+                    command.Parameters.AddWithValue("@mInit", txtmiddleInitial.Text);
+                    command.Parameters.AddWithValue("@gender", genderComboBox.Text);
+                    command.Parameters.AddWithValue("@street", txtstreet.Text);
+                    command.Parameters.AddWithValue("@city", txtcity.Text);
+                    command.Parameters.AddWithValue("@stateAbbr", stateComboBox.Text.Substring(0, 2).Trim());
+                    command.Parameters.AddWithValue("@zip", int.Parse(txtzip.Text));
+                    command.Parameters.AddWithValue("@phone1", txtphone1.Text);
+                    command.Parameters.AddWithValue("@phone2", txtphone2.Text);
+                    command.Parameters.AddWithValue("@email", txtemail.Text);
+                    command.Parameters.AddWithValue("@specialty1", txtSpecialty1.Text);
+                    command.Parameters.AddWithValue("@specialty2", txtSpecialty2.Text);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                    {
+                        MessageBox.Show("Physician Updated Sussessfully!",
+                                "Physician Updated!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1);
+
+                        autoFillData(fillFromId);
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Error updating data in Database!",
+                                "Error!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error,
+                                MessageBoxDefaultButton.Button1);
+                    }
+                }
+            }
+        }
+
+        private void NewPhysician_Activated(object sender, EventArgs e)
+        {
+            if (alreadyActive && fillFromId != -1)
+            {
+                autoFillData(fillFromId);
+            }
+
+            alreadyActive = true;
         }
     }
 }

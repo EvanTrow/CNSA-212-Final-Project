@@ -174,6 +174,7 @@
             this.Name = "LookupPhysician";
             this.ShowIcon = false;
             this.Text = "Physician Lookup";
+            this.Activated += new System.EventHandler(this.LookupPhysician_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

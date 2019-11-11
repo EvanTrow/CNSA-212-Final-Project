@@ -53,6 +53,7 @@
             this.fillOnCreateCheckBox = new System.Windows.Forms.CheckBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.refillBtn = new System.Windows.Forms.Button();
+            this.refillsLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -340,11 +341,23 @@
             this.refillBtn.Visible = false;
             this.refillBtn.Click += new System.EventHandler(this.refillBtn_Click);
             // 
+            // refillsLbl
+            // 
+            this.refillsLbl.AutoSize = true;
+            this.refillsLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refillsLbl.Location = new System.Drawing.Point(179, 354);
+            this.refillsLbl.Name = "refillsLbl";
+            this.refillsLbl.Size = new System.Drawing.Size(79, 23);
+            this.refillsLbl.TabIndex = 57;
+            this.refillsLbl.Text = "Refills: 0";
+            this.refillsLbl.Visible = false;
+            // 
             // NewPrescription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 436);
+            this.Controls.Add(this.refillsLbl);
             this.Controls.Add(this.refillBtn);
             this.Controls.Add(this.fillOnCreateCheckBox);
             this.Controls.Add(this.addPrescriptionBtn);
@@ -402,5 +415,6 @@
         private System.Windows.Forms.CheckBox fillOnCreateCheckBox;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button refillBtn;
+        private System.Windows.Forms.Label refillsLbl;
     }
 }

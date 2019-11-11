@@ -312,10 +312,11 @@ namespace CNSA212FinalProject
             btnAddPatient.Visible = false;
             saveBtn.Visible = true;
             dataGridView.Visible = true;
+            dataGridView.Rows.Clear();
             addPrescriptionBtn.Visible = true;
             PrescriptionsLbl.Visible = true;
 
-            this.MinimumSize = new System.Drawing.Size(459, 775);
+            //this.MinimumSize = new System.Drawing.Size(459, 775);
 
             // get prescriptions
 
@@ -344,7 +345,53 @@ namespace CNSA212FinalProject
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "EXEC Update_Patient @patientId, @fName, @lName, @mInit, @DOB, @gender, @street, @city, @stateAbbr, @zip, @phone1, @phone2, @email, @InsuranceCo, @InsuranceNum";
 
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@patientId", fillFromId);
+                    command.Parameters.AddWithValue("@fName", txtfirstName.Text);
+                    command.Parameters.AddWithValue("@lName", txtlastName.Text);
+                    command.Parameters.AddWithValue("@mInit", txtmiddleInitial.Text);
+                    command.Parameters.AddWithValue("@DOB", dateDOB.Text);
+                    command.Parameters.AddWithValue("@gender", genderComboBox.Text);
+                    command.Parameters.AddWithValue("@street", txtstreet.Text);
+                    command.Parameters.AddWithValue("@city", txtcity.Text);
+                    command.Parameters.AddWithValue("@stateAbbr", stateComboBox.Text.Substring(0, 2).Trim());
+                    command.Parameters.AddWithValue("@zip", int.Parse(txtzip.Text));
+                    command.Parameters.AddWithValue("@phone1", txtphone1.Text);
+                    command.Parameters.AddWithValue("@phone2", txtphone2.Text);
+                    command.Parameters.AddWithValue("@email", txtemail.Text);
+                    command.Parameters.AddWithValue("@InsuranceCo", txtInsuranceCo.Text);
+                    command.Parameters.AddWithValue("@InsuranceNum", txtInsuranceNum.Text);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                    {
+                        MessageBox.Show("Patient Updated Sussessfully!",
+                                "Patient Updated!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1);
+
+                        autoFillData(fillFromId);
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Error updating data in Database!",
+                                "Error!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error,
+                                MessageBoxDefaultButton.Button1);
+                    }
+                }
+            }
         }
 
         private void addPrescriptionBtn_Click(object sender, EventArgs e)
@@ -356,7 +403,6 @@ namespace CNSA212FinalProject
 
         private void NewPatient_Activated(object sender, EventArgs e)
         {
-            
             if (alreadyActive && fillFromId != -1)
             {
                 dataGridView.Rows.Clear();

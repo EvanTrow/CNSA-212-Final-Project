@@ -10,15 +10,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CNSA212FinalProject
+
 {
     public partial class LookupPhysician : Form
     {
+        bool alreadyActive = false;
+
         TabControl tabForms;
-        public LookupPhysician(TabControl TabForms, string search)
+        string search;
+
+        public LookupPhysician(TabControl TabForms, string Search)
         {
             InitializeComponent();
             tabForms = TabForms;
+            search = Search;
 
+            lookupPhysician(search);
+        }
+
+        public void lookupPhysician(string search)
+        {
             string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
             SqlConnection cnn = new SqlConnection(connetionString);
             cnn.Open();
@@ -51,6 +62,17 @@ namespace CNSA212FinalProject
                     MessageBox.Show("" + ex);
                 }
             }
+        }
+
+        private void LookupPhysician_Activated(object sender, EventArgs e)
+        {
+            if (alreadyActive)
+            {
+                dataGridView.Rows.Clear();
+                lookupPhysician(search);
+            }
+
+            alreadyActive = true;
         }
     }
 }

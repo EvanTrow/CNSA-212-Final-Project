@@ -13,12 +13,22 @@ namespace CNSA212FinalProject
 {
     public partial class LookupPatient : Form
     {
+        bool alreadyActive = false;
+
         TabControl tabForms;
-        public LookupPatient(TabControl TabForms, string search)
+        string search;
+
+        public LookupPatient(TabControl TabForms, string Search)
         {
             InitializeComponent();
             tabForms = TabForms;
+            search = Search;
 
+            lookupPatient(search);
+        }
+
+        public void lookupPatient(string search)
+        {
             string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
             SqlConnection cnn = new SqlConnection(connetionString);
             cnn.Open();
@@ -30,11 +40,10 @@ namespace CNSA212FinalProject
             while (dataReader.Read())
             {
                 dataGridView.Rows.Add(dataReader["patientID"], dataReader["fName"], dataReader["mInit"], dataReader["lName"], Convert.ToDateTime(dataReader["DOB"]).ToString("MM/dd/yyyy"),
-                    dataReader["gender"], dataReader["street"], dataReader["city"], dataReader["stateAbbr"], dataReader["zip"], 
+                    dataReader["gender"], dataReader["street"], dataReader["city"], dataReader["stateAbbr"], dataReader["zip"],
                     dataReader["phone1"], dataReader["phone2"], dataReader["InsuranceCo"], dataReader["InsuranceNum"]);
             }
             cnn.Close();
-
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -51,6 +60,18 @@ namespace CNSA212FinalProject
                     MessageBox.Show(""+ex);
                 }
             }
+        
+        }
+
+        private void LookupPatient_Activated(object sender, EventArgs e)
+        {
+            if (alreadyActive)
+            {
+                dataGridView.Rows.Clear();
+                lookupPatient(search);
+            }
+
+            alreadyActive = true;
         }
     }
 }

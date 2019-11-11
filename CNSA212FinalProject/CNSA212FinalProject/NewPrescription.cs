@@ -294,7 +294,8 @@ namespace CNSA212FinalProject
 
             string sql = "SELECT fName, lName, Prescription.medName, Prescription.medType, " +
                             "Prescription.dispense, Prescription.intake, Prescription.medDosage, Prescription.freqNumber, " +
-                            "Prescription.freqInterval, Prescription.maxRefills FROM Prescription " +
+                            "Prescription.freqInterval, Prescription.maxRefills, (SELECT COUNT(*) FROM Fill WHERE Fill.prescriptionId = Prescription.prescriptionId) as refillsUsed " +
+                            "FROM Prescription " +
                             "INNER JOIN Physician ON Prescription.physicianId = Physician.physicianId " +
                             "WHERE prescriptionId =" + prescriptionID;
             SqlCommand command = new SqlCommand(sql, cnn);
@@ -311,6 +312,13 @@ namespace CNSA212FinalProject
                 freqNumberTxt.Text = dataReader["freqNumber"].ToString();
                 freqIntervalTxt.Text = dataReader["freqInterval"].ToString();
                 maxRefillsTxt.Text = dataReader["maxRefills"].ToString();
+                refillsLbl.Text = "Refills: "+dataReader["refillsUsed"].ToString() + "/" + dataReader["maxRefills"].ToString();
+
+                //  int.Parse(dataReader["refillsUsed"].ToString()) / int.Parse(dataReader["maxRefills"].ToString());
+                if (int.Parse(dataReader["refillsUsed"].ToString()) >= int.Parse(dataReader["maxRefills"].ToString()))
+                {
+                    refillBtn.Enabled = false;
+                }
 
             }
             cnn.Close();
@@ -318,29 +326,42 @@ namespace CNSA212FinalProject
             addPrescriptionBtn.Visible = false;
             fillOnCreateCheckBox.Visible = false;
             refillBtn.Visible = true;
+            refillsLbl.Visible = true;
             saveBtn.Visible = true;
         }
 
         private void refillBtn_Click(object sender, EventArgs e)
         {
             DatePicker datePicker = new DatePicker();
-            DialogResult result = datePicker.ShowDialog();
+            DialogResult dialogResult = datePicker.ShowDialog();
             datePicker.Hide();
-
-           /* if (result == DialogResult.OK)
+            if (dialogResult == DialogResult.OK)
             {
-                MessageBox.Show(datePicker.date);
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     String query = "EXEC Fill_Prescription @prescriptionId, @refillDate";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@prescriptionId", PatientID);
+                        command.Parameters.AddWithValue("@prescriptionId", PrescriptionID);
                         command.Parameters.AddWithValue("@refillDate", datePicker.date);
 
                         connection.Open();
-                        int result = command.ExecuteNonQuery();
+
+                        int result;
+                        try
+                        {
+                            result = command.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message,
+                                       "Error!",
+                                       MessageBoxButtons.OK,
+                                       MessageBoxIcon.Error,
+                                       MessageBoxDefaultButton.Button1);
+                            result = 1;
+                        }
 
 
                         // Check Error
@@ -351,10 +372,8 @@ namespace CNSA212FinalProject
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information,
                                     MessageBoxDefaultButton.Button1);
-
-                            medNameTxt.Text = medTypeTxt.Text = dispenseTxt.Text = intakeTxt.Text = medDosageTxt.Text = freqNumberTxt.Text = freqIntervalTxt.Text = maxRefillsTxt.Text = "";
-                            physicianComboBox.SelectedIndex = -1;
-                        }
+                            autoFillData(PrescriptionID);
+                        }/*
                         else
                         {
 
@@ -363,10 +382,10 @@ namespace CNSA212FinalProject
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error,
                                     MessageBoxDefaultButton.Button1);
-                        }
+                        }*/
                     }
                 }
-            }*/
+            }
 
             datePicker.Dispose();
         }

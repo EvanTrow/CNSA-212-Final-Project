@@ -46,7 +46,7 @@
             this.tabForms.Location = new System.Drawing.Point(0, 26);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(703, 24);
+            this.tabForms.Size = new System.Drawing.Size(634, 24);
             this.tabForms.TabIndex = 1;
             this.tabForms.Visible = false;
             this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
@@ -59,7 +59,7 @@
             this.lookupToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(703, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(634, 26);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -100,14 +100,14 @@
             // patientToolStripMenuItem
             // 
             this.patientToolStripMenuItem.Name = "patientToolStripMenuItem";
-            this.patientToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.patientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.patientToolStripMenuItem.Text = "Patient";
             this.patientToolStripMenuItem.Click += new System.EventHandler(this.patientToolStripMenuItem_Click);
             // 
             // physicianToolStripMenuItem
             // 
             this.physicianToolStripMenuItem.Name = "physicianToolStripMenuItem";
-            this.physicianToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.physicianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.physicianToolStripMenuItem.Text = "Physician";
             this.physicianToolStripMenuItem.Click += new System.EventHandler(this.physicianToolStripMenuItem_Click);
             // 
@@ -115,12 +115,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 433);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(634, 361);
             this.Controls.Add(this.tabForms);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(650, 400);
             this.Name = "Main";
             this.Text = "Louis’ Pharmacy";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
