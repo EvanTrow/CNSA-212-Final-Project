@@ -119,5 +119,12 @@ namespace CNSA212FinalProject
                 lookupPhysician.Show();
             }
         }
+
+        private void aboutLouisPharmacyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox kForm = new AboutBox();
+            kForm.MdiParent = this;
+            kForm.Show();
+        }
     }
 }

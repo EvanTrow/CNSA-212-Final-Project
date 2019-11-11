@@ -39,6 +39,7 @@
             this.patientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.physicianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.aboutLouisPharmacyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,8 @@
             this.menuStrip1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.formsToolStripMenuItem,
-            this.lookupToolStripMenuItem});
+            this.lookupToolStripMenuItem,
+            this.aboutLouisPharmacyToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(634, 26);
@@ -117,6 +119,13 @@
             this.physicianToolStripMenuItem.ToolTipText = "Click to look up Physician";
             this.physicianToolStripMenuItem.Click += new System.EventHandler(this.physicianToolStripMenuItem_Click);
             // 
+            // aboutLouisPharmacyToolStripMenuItem
+            // 
+            this.aboutLouisPharmacyToolStripMenuItem.Name = "aboutLouisPharmacyToolStripMenuItem";
+            this.aboutLouisPharmacyToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.aboutLouisPharmacyToolStripMenuItem.Text = "About Louis\' Pharmacy";
+            this.aboutLouisPharmacyToolStripMenuItem.Click += new System.EventHandler(this.aboutLouisPharmacyToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +160,7 @@
         private System.Windows.Forms.ToolStripMenuItem patientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem physicianToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem aboutLouisPharmacyToolStripMenuItem;
     }
 }
 

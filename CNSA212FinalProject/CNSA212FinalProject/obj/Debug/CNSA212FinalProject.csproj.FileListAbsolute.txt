@@ -36,3 +36,4 @@ C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA21
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.csproj.GenerateResource.cache
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.exe
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.pdb
+C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.AboutBox.resources
