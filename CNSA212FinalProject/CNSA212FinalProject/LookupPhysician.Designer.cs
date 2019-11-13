@@ -86,84 +86,98 @@
             this.physicianId.HeaderText = "Physician ID";
             this.physicianId.Name = "physicianId";
             this.physicianId.ReadOnly = true;
+            this.physicianId.ToolTipText = "This is the Physician ID";
             // 
             // fName
             // 
             this.fName.HeaderText = "First Name";
             this.fName.Name = "fName";
             this.fName.ReadOnly = true;
+            this.fName.ToolTipText = "This is the Physician\'s First Name";
             // 
             // mInit
             // 
             this.mInit.HeaderText = "Init";
             this.mInit.Name = "mInit";
             this.mInit.ReadOnly = true;
+            this.mInit.ToolTipText = "This is the Physician\'s middle initial";
             // 
             // lName
             // 
             this.lName.HeaderText = "Last Name";
             this.lName.Name = "lName";
             this.lName.ReadOnly = true;
+            this.lName.ToolTipText = "This is the Physician\'s lastname";
             // 
             // gender
             // 
             this.gender.HeaderText = "Gender";
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
+            this.gender.ToolTipText = "This is the Physician\'s Gender";
             // 
             // street
             // 
             this.street.HeaderText = "Street";
             this.street.Name = "street";
             this.street.ReadOnly = true;
+            this.street.ToolTipText = "This is the Physician\'s street address";
             // 
             // city
             // 
             this.city.HeaderText = "City";
             this.city.Name = "city";
             this.city.ReadOnly = true;
+            this.city.ToolTipText = "This is the Physician\'s city";
             // 
             // stateAbbr
             // 
             this.stateAbbr.HeaderText = "State";
             this.stateAbbr.Name = "stateAbbr";
             this.stateAbbr.ReadOnly = true;
+            this.stateAbbr.ToolTipText = "This is the Physician\'s state";
             // 
             // zip
             // 
             this.zip.HeaderText = "Zip";
             this.zip.Name = "zip";
             this.zip.ReadOnly = true;
+            this.zip.ToolTipText = "This is the Physician\'s zip";
             // 
             // phone1
             // 
             this.phone1.HeaderText = "Phone 1";
             this.phone1.Name = "phone1";
             this.phone1.ReadOnly = true;
+            this.phone1.ToolTipText = "This is the Physician\'s phone number";
             // 
             // phone2
             // 
             this.phone2.HeaderText = "Phone 2";
             this.phone2.Name = "phone2";
             this.phone2.ReadOnly = true;
+            this.phone2.ToolTipText = "This is the Physician\'s phone number";
             // 
             // email
             // 
             this.email.HeaderText = "Email";
             this.email.Name = "email";
             this.email.ReadOnly = true;
+            this.email.ToolTipText = "This is the Physician\'s email";
             // 
             // specialty1
             // 
             this.specialty1.HeaderText = "Specialty 1";
             this.specialty1.Name = "specialty1";
             this.specialty1.ReadOnly = true;
+            this.specialty1.ToolTipText = "This is the Physician\'s specialty";
             // 
             // specialty2
             // 
             this.specialty2.HeaderText = "Specialty 2";
             this.specialty2.Name = "specialty2";
             this.specialty2.ReadOnly = true;
+            this.specialty2.ToolTipText = "This is the Physician\'s specialty";
             // 
             // LookupPhysician
             // 

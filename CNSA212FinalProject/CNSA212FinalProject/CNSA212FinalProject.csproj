@@ -89,18 +89,6 @@
     <Compile Include="LookupPhysician.Designer.cs">
       <DependentUpon>LookupPhysician.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdatePatient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdatePatient.Designer.cs">
-      <DependentUpon>UpdatePatient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Refill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Refill.Designer.cs">
-      <DependentUpon>Refill.cs</DependentUpon>
-    </Compile>
     <Compile Include="NewPrescription.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,9 +139,6 @@
     <EmbeddedResource Include="LookupPhysician.resx">
       <DependentUpon>LookupPhysician.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdatePatient.resx">
-      <DependentUpon>UpdatePatient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NewPhysician.resx">
       <DependentUpon>NewPhysician.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,9 +166,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Refill.resx">
-      <DependentUpon>Refill.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -77,7 +77,7 @@
             this.dataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(752, 396);
+            this.dataGridView.Size = new System.Drawing.Size(752, 401);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
@@ -86,90 +86,104 @@
             this.patientId.HeaderText = "Patient ID";
             this.patientId.Name = "patientId";
             this.patientId.ReadOnly = true;
+            this.patientId.ToolTipText = "This is the Patient\'s ID";
             // 
             // fName
             // 
             this.fName.HeaderText = "First Name";
             this.fName.Name = "fName";
             this.fName.ReadOnly = true;
+            this.fName.ToolTipText = "This is the Patient\'s first name";
             // 
             // mInit
             // 
             this.mInit.HeaderText = "Init";
             this.mInit.Name = "mInit";
             this.mInit.ReadOnly = true;
+            this.mInit.ToolTipText = "This is the Patient\'s initial";
             // 
             // lName
             // 
             this.lName.HeaderText = "Last Name";
             this.lName.Name = "lName";
             this.lName.ReadOnly = true;
+            this.lName.ToolTipText = "This is the Patient\'s last name";
             // 
             // DOB
             // 
             this.DOB.HeaderText = "DOB";
             this.DOB.Name = "DOB";
             this.DOB.ReadOnly = true;
+            this.DOB.ToolTipText = "This is the Patient\'s date of birth";
             // 
             // gender
             // 
             this.gender.HeaderText = "Gender";
             this.gender.Name = "gender";
             this.gender.ReadOnly = true;
+            this.gender.ToolTipText = "This is the Patient\'s gender";
             // 
             // street
             // 
             this.street.HeaderText = "Street";
             this.street.Name = "street";
             this.street.ReadOnly = true;
+            this.street.ToolTipText = "This is the Patient\'s street";
             // 
             // city
             // 
             this.city.HeaderText = "City";
             this.city.Name = "city";
             this.city.ReadOnly = true;
+            this.city.ToolTipText = "This is the Patient\'s city";
             // 
             // stateAbbr
             // 
             this.stateAbbr.HeaderText = "State";
             this.stateAbbr.Name = "stateAbbr";
             this.stateAbbr.ReadOnly = true;
+            this.stateAbbr.ToolTipText = "This is the Patient\'s state";
             // 
             // zip
             // 
             this.zip.HeaderText = "Zip";
             this.zip.Name = "zip";
             this.zip.ReadOnly = true;
+            this.zip.ToolTipText = "This is the Patient\'s zip";
             // 
             // phone1
             // 
             this.phone1.HeaderText = "Phone 1";
             this.phone1.Name = "phone1";
             this.phone1.ReadOnly = true;
+            this.phone1.ToolTipText = "This is the Patient\'s phone number";
             // 
             // phone2
             // 
             this.phone2.HeaderText = "Phone 2";
             this.phone2.Name = "phone2";
             this.phone2.ReadOnly = true;
+            this.phone2.ToolTipText = "This is the Patient\'s phone number";
             // 
             // InsuranceCo
             // 
             this.InsuranceCo.HeaderText = "Insurance Co";
             this.InsuranceCo.Name = "InsuranceCo";
             this.InsuranceCo.ReadOnly = true;
+            this.InsuranceCo.ToolTipText = "This is the Patient\'s insurance company";
             // 
             // InsuranceNum
             // 
             this.InsuranceNum.HeaderText = "Insurance #";
             this.InsuranceNum.Name = "InsuranceNum";
             this.InsuranceNum.ReadOnly = true;
+            this.InsuranceNum.ToolTipText = "This is the Patient\'s insurance number";
             // 
             // LookupPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 396);
+            this.ClientSize = new System.Drawing.Size(752, 401);
             this.Controls.Add(this.dataGridView);
             this.Name = "LookupPatient";
             this.ShowIcon = false;

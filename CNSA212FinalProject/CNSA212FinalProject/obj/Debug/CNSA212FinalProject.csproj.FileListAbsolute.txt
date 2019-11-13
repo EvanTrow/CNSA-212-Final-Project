@@ -24,7 +24,6 @@ C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA21
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.DatePicker.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.LookupPatient.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.LookupPhysician.resources
-C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.UpdatePatient.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.NewPhysician.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.Main.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.NewPatient.resources
@@ -32,7 +31,6 @@ C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA21
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.Login.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.SplashScreen.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.Properties.Resources.resources
-C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.Refill.resources
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.csproj.GenerateResource.cache
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.exe
 C:\Users\gndetore\Source\Repos\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.pdb
