@@ -72,11 +72,11 @@
             this.freqNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.freqInterval = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxRefills = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmuDeleteSelected = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PrescriptionsLbl = new System.Windows.Forms.Label();
             this.addPrescriptionBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cmuDeleteSelected = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.cmuDeleteSelected.SuspendLayout();
@@ -567,7 +567,7 @@
             this.dataGridView.Size = new System.Drawing.Size(711, 189);
             this.dataGridView.TabIndex = 34;
             this.dataGridView.Visible = false;
-            this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DoubleClick);
             // 
             // prescriptionId
             // 
@@ -636,6 +636,20 @@
             this.maxRefills.ReadOnly = true;
             this.maxRefills.Width = 107;
             // 
+            // cmuDeleteSelected
+            // 
+            this.cmuDeleteSelected.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.cmuDeleteSelected.Name = "cmuDeleteSelected";
+            this.cmuDeleteSelected.Size = new System.Drawing.Size(181, 48);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // PrescriptionsLbl
             // 
             this.PrescriptionsLbl.AutoSize = true;
@@ -661,20 +675,6 @@
             this.addPrescriptionBtn.UseVisualStyleBackColor = true;
             this.addPrescriptionBtn.Visible = false;
             this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
-            // 
-            // cmuDeleteSelected
-            // 
-            this.cmuDeleteSelected.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteToolStripMenuItem});
-            this.cmuDeleteSelected.Name = "cmuDeleteSelected";
-            this.cmuDeleteSelected.Size = new System.Drawing.Size(181, 48);
-            this.cmuDeleteSelected.Opening += new System.ComponentModel.CancelEventHandler(this.cmuDeleteSelected_Opening);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // NewPatient
             // 

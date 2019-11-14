@@ -411,11 +411,8 @@ namespace CNSA212FinalProject
 
             alreadyActive = true;
         }
-
-        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_DoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-
             foreach (DataGridViewRow row in ((DataGridView)sender).SelectedRows)
             {
                 try
@@ -431,22 +428,23 @@ namespace CNSA212FinalProject
             }
         }
 
-        private void cmuDeleteSelected_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                String query = "EXEC DeletePrescription @prescriptionId";
+                String query = "EXEC DeletePrescription @prescriptionId, @refillId";
 
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {                        
+                using (SqlCommand command1 = new SqlCommand(query, connection))
+                {
+
                     DataGridViewRow row = dataGridView.SelectedRows[0];
-                      var deleteprescriptionId = row.Cells[0].Value.ToString();
-                   
-                    command.Parameters.AddWithValue("@prescriptionId", deleteprescriptionId);
+                    var deleteprescriptionId = row.Cells[0].Value.ToString();
 
+                    command1.Parameters.AddWithValue("@prescriptionId", deleteprescriptionId);
+                    command1.Parameters.AddWithValue("@refillId", deleteprescriptionId);
                     connection.Open();
-                    int result = command.ExecuteNonQuery();
-
+                    int result = command1.ExecuteNonQuery();
+                  NewPatient_Activated(sender, e);
                     // Check Error
                     if (result < 0)
                     {
@@ -458,7 +456,7 @@ namespace CNSA212FinalProject
                                 MessageBoxIcon.Information,
                                 MessageBoxDefaultButton.Button1);
 
-                        
+
                     }
                     else
                     {
@@ -472,6 +470,5 @@ namespace CNSA212FinalProject
                 }
             }
         }
-
     }
 }
