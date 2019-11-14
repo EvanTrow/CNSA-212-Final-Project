@@ -414,6 +414,8 @@ namespace CNSA212FinalProject
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+
             foreach (DataGridViewRow row in ((DataGridView)sender).SelectedRows)
             {
                 try
@@ -428,5 +430,48 @@ namespace CNSA212FinalProject
                 }
             }
         }
+
+        private void cmuDeleteSelected_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                String query = "EXEC DeletePrescription @prescriptionId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {                        
+                    DataGridViewRow row = dataGridView.SelectedRows[0];
+                      var deleteprescriptionId = row.Cells[0].Value.ToString();
+                   
+                    command.Parameters.AddWithValue("@prescriptionId", deleteprescriptionId);
+
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    // Check Error
+                    if (result < 0)
+                    {
+
+
+                        MessageBox.Show("Patient Updated Sussessfully!",
+                                "Patient Updated!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1);
+
+                        
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Error updating data in Database!",
+                                "Error!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error,
+                                MessageBoxDefaultButton.Button1);
+                    }
+                }
+            }
+        }
+
     }
 }

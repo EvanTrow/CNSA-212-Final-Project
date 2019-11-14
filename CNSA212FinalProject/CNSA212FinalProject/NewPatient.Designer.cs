@@ -62,9 +62,6 @@
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.PrescriptionsLbl = new System.Windows.Forms.Label();
-            this.addPrescriptionBtn = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.prescriptionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.physician = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,8 +72,14 @@
             this.freqNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.freqInterval = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxRefills = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrescriptionsLbl = new System.Windows.Forms.Label();
+            this.addPrescriptionBtn = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cmuDeleteSelected = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.cmuDeleteSelected.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblfirstName
@@ -553,6 +556,7 @@
             this.freqNumber,
             this.freqInterval,
             this.maxRefills});
+            this.dataGridView.ContextMenuStrip = this.cmuDeleteSelected;
             this.dataGridView.Location = new System.Drawing.Point(12, 585);
             this.dataGridView.MinimumSize = new System.Drawing.Size(0, 140);
             this.dataGridView.MultiSelect = false;
@@ -564,32 +568,6 @@
             this.dataGridView.TabIndex = 34;
             this.dataGridView.Visible = false;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
-            // 
-            // PrescriptionsLbl
-            // 
-            this.PrescriptionsLbl.AutoSize = true;
-            this.PrescriptionsLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrescriptionsLbl.Location = new System.Drawing.Point(11, 558);
-            this.PrescriptionsLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.PrescriptionsLbl.Name = "PrescriptionsLbl";
-            this.PrescriptionsLbl.Size = new System.Drawing.Size(111, 23);
-            this.PrescriptionsLbl.TabIndex = 35;
-            this.PrescriptionsLbl.Text = "Prescriptions:";
-            this.PrescriptionsLbl.Visible = false;
-            // 
-            // addPrescriptionBtn
-            // 
-            this.addPrescriptionBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addPrescriptionBtn.Location = new System.Drawing.Point(126, 541);
-            this.addPrescriptionBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.addPrescriptionBtn.Name = "addPrescriptionBtn";
-            this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
-            this.addPrescriptionBtn.TabIndex = 36;
-            this.addPrescriptionBtn.Text = "Add Prescription";
-            this.toolTip1.SetToolTip(this.addPrescriptionBtn, "Click to add Prescription");
-            this.addPrescriptionBtn.UseVisualStyleBackColor = true;
-            this.addPrescriptionBtn.Visible = false;
-            this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
             // 
             // prescriptionId
             // 
@@ -658,6 +636,46 @@
             this.maxRefills.ReadOnly = true;
             this.maxRefills.Width = 107;
             // 
+            // PrescriptionsLbl
+            // 
+            this.PrescriptionsLbl.AutoSize = true;
+            this.PrescriptionsLbl.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrescriptionsLbl.Location = new System.Drawing.Point(11, 558);
+            this.PrescriptionsLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PrescriptionsLbl.Name = "PrescriptionsLbl";
+            this.PrescriptionsLbl.Size = new System.Drawing.Size(111, 23);
+            this.PrescriptionsLbl.TabIndex = 35;
+            this.PrescriptionsLbl.Text = "Prescriptions:";
+            this.PrescriptionsLbl.Visible = false;
+            // 
+            // addPrescriptionBtn
+            // 
+            this.addPrescriptionBtn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPrescriptionBtn.Location = new System.Drawing.Point(126, 541);
+            this.addPrescriptionBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.addPrescriptionBtn.Name = "addPrescriptionBtn";
+            this.addPrescriptionBtn.Size = new System.Drawing.Size(153, 39);
+            this.addPrescriptionBtn.TabIndex = 36;
+            this.addPrescriptionBtn.Text = "Add Prescription";
+            this.toolTip1.SetToolTip(this.addPrescriptionBtn, "Click to add Prescription");
+            this.addPrescriptionBtn.UseVisualStyleBackColor = true;
+            this.addPrescriptionBtn.Visible = false;
+            this.addPrescriptionBtn.Click += new System.EventHandler(this.addPrescriptionBtn_Click);
+            // 
+            // cmuDeleteSelected
+            // 
+            this.cmuDeleteSelected.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.cmuDeleteSelected.Name = "cmuDeleteSelected";
+            this.cmuDeleteSelected.Size = new System.Drawing.Size(181, 48);
+            this.cmuDeleteSelected.Opening += new System.ComponentModel.CancelEventHandler(this.cmuDeleteSelected_Opening);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            // 
             // NewPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -705,6 +723,7 @@
             this.Activated += new System.EventHandler(this.NewPatient_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.cmuDeleteSelected.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -757,5 +776,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn freqNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn freqInterval;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxRefills;
+        private System.Windows.Forms.ContextMenuStrip cmuDeleteSelected;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

@@ -259,6 +259,32 @@ AS
 	END
 GO
 
+CREATE PROC DeletePrescription(
+	@prescriptionId INT
+
+	)
+
+	AS
+		BEGIN
+set nocount on;
+	begin transaction
+			Delete 
+			from Prescription
+			where prescriptionId = @prescriptionId
+
+IF @@ERROR <> 0
+					BEGIN 
+						ROLLBACK TRANSACTION
+							RAISERROR('Unable to update visit.',16,1)
+							RETURN -1
+					END
+				ELSE
+					BEGIN
+						COMMIT TRANSACTION
+						select 'visit successfully updated.'
+					END
+end
+go
 
 CREATE PROC Update_Patient(
 	@patientId		INT,
