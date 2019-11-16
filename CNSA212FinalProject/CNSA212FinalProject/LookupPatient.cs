@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CNSA212FinalProject.Data.Get;
+using CNSA212FinalProject.Data.Type;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,8 @@ namespace CNSA212FinalProject
 {
     public partial class LookupPatient : Form
     {
+        AppMessage appMessage = new AppMessage();
+
         bool alreadyActive = false;
 
         TabControl tabForms;
@@ -27,23 +31,12 @@ namespace CNSA212FinalProject
             lookupPatient(search);
         }
 
+        Patients patients;
         public void lookupPatient(string search)
         {
-            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
-            SqlConnection cnn = new SqlConnection(connetionString);
-            cnn.Open();
+            patients = new Patients(search);
 
-            string sql = "EXEC sp_FindStringInTable '%" + search + "%', 'dbo', 'Patient'";
-            SqlCommand command = new SqlCommand(sql, cnn);
-            SqlDataReader dataReader = command.ExecuteReader();
-
-            while (dataReader.Read())
-            {
-                dataGridView.Rows.Add(dataReader["patientID"], dataReader["fName"], dataReader["mInit"], dataReader["lName"], Convert.ToDateTime(dataReader["DOB"]).ToString("MM/dd/yyyy"),
-                    dataReader["gender"], dataReader["street"], dataReader["city"], dataReader["stateAbbr"], dataReader["zip"],
-                    dataReader["phone1"], dataReader["phone2"], dataReader["InsuranceCo"], dataReader["InsuranceNum"]);
-            }
-            cnn.Close();
+            patients.AddToDataGrid(dataGridView);
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -57,7 +50,7 @@ namespace CNSA212FinalProject
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(""+ex);
+                    appMessage.Error(ex.Message);
                 }
             }
         
@@ -67,7 +60,7 @@ namespace CNSA212FinalProject
         {
             if (alreadyActive)
             {
-                dataGridView.Rows.Clear();
+                patients.PatientList.Clear();
                 lookupPatient(search);
             }
 

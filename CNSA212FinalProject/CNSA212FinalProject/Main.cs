@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using CNSA212FinalProject.Data.Get;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace CNSA212FinalProject
         public Main()
         {
             InitializeComponent();
+
         }
         private void Main_MdiChildActivate(object sender, EventArgs e)
         {

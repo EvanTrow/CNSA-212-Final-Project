@@ -14,6 +14,7 @@ namespace CNSA212FinalProject
 {
     public partial class NewPhysician : Form
     {
+        AppMessage appMessage = new AppMessage();
 
         public bool alreadyActive = false;
         public int fillFromId;
@@ -239,11 +240,8 @@ namespace CNSA212FinalProject
                     // Check Error
                     if (result < 0)
                     {
-                        MessageBox.Show("Physician Added Sussessfully!",
-                                "Physician Added!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Info("Physician Added Sussessfully!",
+                                "Physician Added!");
 
                         txtfirstName.Text = txtlastName.Text = txtmiddleInitial.Text = txtstreet.Text = txtcity.Text = txtzip.Text = txtphone1.Text = txtphone2.Text = txtemail.Text = txtSpecialty1.Text = txtSpecialty2.Text = "";
                         stateComboBox.SelectedIndex = genderComboBox.SelectedIndex = -1;
@@ -251,11 +249,8 @@ namespace CNSA212FinalProject
                     else
                     {
 
-                        MessageBox.Show("Error inserting data into Database!",
-                                "Error!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Error("Error inserting data into Database!",
+                                "Error!");
                     }
                 }
             }
@@ -335,22 +330,16 @@ namespace CNSA212FinalProject
                     // Check Error
                     if (result < 0)
                     {
-                        MessageBox.Show("Physician Updated Sussessfully!",
-                                "Physician Updated!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Info("Physician Updated Sussessfully!",
+                                "Physician Updated!");
 
                         autoFillData(fillFromId);
                     }
                     else
                     {
 
-                        MessageBox.Show("Error updating data in Database!",
-                                "Error!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Error("Error updating data in Database!",
+                                "Error!");
                     }
                 }
             }

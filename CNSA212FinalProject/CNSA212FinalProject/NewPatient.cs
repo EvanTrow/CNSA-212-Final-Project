@@ -10,9 +10,11 @@ namespace CNSA212FinalProject
 {
     public partial class NewPatient : Form
     {
+        AppMessage appMessage = new AppMessage();
 
         public bool alreadyActive = false;
         public int fillFromId;
+
         public NewPatient(int FillFromId)
         {
             InitializeComponent();
@@ -211,7 +213,7 @@ namespace CNSA212FinalProject
 
             if (selectedDate > todaysDate)
             {
-                MessageBox.Show("error");
+                appMessage.Error("error");
             }
 
         }
@@ -246,22 +248,16 @@ namespace CNSA212FinalProject
                     // Check Error
                     if (result < 0)
                     {
-                        MessageBox.Show("Patient Added Sussessfully!",
-                                "Patient Added!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Info("Patient Added Sussessfully!",
+                                "Patient Added!");
 
                         txtfirstName.Text = txtlastName.Text = txtmiddleInitial.Text = txtstreet.Text = txtcity.Text = txtzip.Text = txtphone1.Text = txtphone2.Text = txtemail.Text = txtInsuranceCo.Text = txtInsuranceNum.Text = "";
                         stateComboBox.SelectedIndex = genderComboBox.SelectedIndex = -1;
                     } else
                     {
 
-                        MessageBox.Show("Error inserting data into Database!",
-                                "Error!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Error("Error inserting data into Database!",
+                                "Error!");
                     }
                 }
             }
@@ -373,22 +369,16 @@ namespace CNSA212FinalProject
                     // Check Error
                     if (result < 0)
                     {
-                        MessageBox.Show("Patient Updated Sussessfully!",
-                                "Patient Updated!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Info("Patient Updated Sussessfully!",
+                                "Patient Updated!");
 
                         autoFillData(fillFromId);
                     }
                     else
                     {
 
-                        MessageBox.Show("Error updating data in Database!",
-                                "Error!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Error("Error updating data in Database!",
+                                "Error!");
                     }
                 }
             }
@@ -423,7 +413,7 @@ namespace CNSA212FinalProject
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("" + ex);
+                    appMessage.Error("" + ex);
                 }
             }
         }
@@ -450,22 +440,16 @@ namespace CNSA212FinalProject
                     {
 
 
-                        MessageBox.Show("Patient Updated Sussessfully!",
-                                "Patient Updated!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Info("Patient Updated Sussessfully!",
+                                "Patient Updated!");
 
 
                     }
                     else
                     {
 
-                        MessageBox.Show("Error updating data in Database!",
-                                "Error!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Error("Error updating data in Database!",
+                                "Error!");
                     }
                 }
             }

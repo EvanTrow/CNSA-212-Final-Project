@@ -14,6 +14,8 @@ namespace CNSA212FinalProject
 {
     public partial class Login : Form
     {
+        AppMessage appMessage = new AppMessage();
+
         SplashScreen SplashScreen;
         public Login(SplashScreen splashScreen)
         {
@@ -84,7 +86,7 @@ namespace CNSA212FinalProject
             }
             if (e.Control && e.KeyCode == Keys.N)
             {
-                MessageBox.Show("Encripted: " + EncryptPassword(passwordTxt.Text));
+                appMessage.Info("Encripted: " + EncryptPassword(passwordTxt.Text));
             }
         }
 

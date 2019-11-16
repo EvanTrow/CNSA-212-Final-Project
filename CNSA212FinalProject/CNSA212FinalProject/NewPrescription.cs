@@ -14,6 +14,8 @@ namespace CNSA212FinalProject
 {
     public partial class NewPrescription : Form
     {
+        AppMessage appMessage = new AppMessage();
+
         int PatientID;
         int PrescriptionID;
         public NewPrescription(int patientID, int prescriptionID)
@@ -265,11 +267,8 @@ namespace CNSA212FinalProject
                     // Check Error
                     if (result < 0)
                     {
-                        MessageBox.Show("Prescription Added Sussessfully!",
-                                "Prescription Added!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Info("Prescription Added Sussessfully!",
+                                "Prescription Added!");
 
                         medNameTxt.Text = medTypeTxt.Text = dispenseTxt.Text = intakeTxt.Text = medDosageTxt.Text = freqNumberTxt.Text = freqIntervalTxt.Text = maxRefillsTxt.Text = "";
                         physicianComboBox.SelectedIndex = -1;
@@ -277,11 +276,8 @@ namespace CNSA212FinalProject
                     else
                     {
 
-                        MessageBox.Show("Error inserting data into Database!",
-                                "Error!",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error,
-                                MessageBoxDefaultButton.Button1);
+                        appMessage.Error("Error inserting data into Database!",
+                                "Error!");
                     }
                 }
             }
@@ -355,11 +351,8 @@ namespace CNSA212FinalProject
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message,
-                                       "Error!",
-                                       MessageBoxButtons.OK,
-                                       MessageBoxIcon.Error,
-                                       MessageBoxDefaultButton.Button1);
+                            appMessage.Error(ex.Message,
+                                       "Error!");
                             result = 1;
                         }
 
@@ -367,11 +360,8 @@ namespace CNSA212FinalProject
                         // Check Error
                         if (result < 0)
                         {
-                            MessageBox.Show("Prescription filled Sussessfully!",
-                                    "Prescription Filled!",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information,
-                                    MessageBoxDefaultButton.Button1);
+                            appMessage.Info("Prescription filled Sussessfully!",
+                                    "Prescription Filled!");
                             autoFillData(PrescriptionID);
                         }/*
                         else

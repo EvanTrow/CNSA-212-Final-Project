@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CNSA212FinalProject.Data.Get;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,8 @@ namespace CNSA212FinalProject
 {
     public partial class LookupPhysician : Form
     {
+        AppMessage appMessage = new AppMessage();
+
         bool alreadyActive = false;
 
         TabControl tabForms;
@@ -28,23 +31,12 @@ namespace CNSA212FinalProject
             lookupPhysician(search);
         }
 
+        Physicians physicians;
         public void lookupPhysician(string search)
         {
-            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
-            SqlConnection cnn = new SqlConnection(connetionString);
-            cnn.Open();
+            physicians = new Physicians(search);
 
-            string sql = "EXEC sp_FindStringInTable '%" + search + "%', 'dbo', 'Physician'";
-            SqlCommand command = new SqlCommand(sql, cnn);
-            SqlDataReader dataReader = command.ExecuteReader();
-
-            while (dataReader.Read())
-            {
-                dataGridView.Rows.Add(dataReader["physicianID"], dataReader["fName"], dataReader["mInit"], dataReader["lName"],
-                    dataReader["gender"], dataReader["street"], dataReader["city"], dataReader["stateAbbr"], dataReader["zip"],
-                    dataReader["phone1"], dataReader["phone2"], dataReader["email"], dataReader["specialty1"], dataReader["specialty2"]);
-            }
-            cnn.Close();
+            physicians.AddToDataGrid(dataGridView);
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -59,7 +51,7 @@ namespace CNSA212FinalProject
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("" + ex);
+                    appMessage.Error(ex.Message);
                 }
             }
         }
@@ -68,7 +60,7 @@ namespace CNSA212FinalProject
         {
             if (alreadyActive)
             {
-                dataGridView.Rows.Clear();
+                physicians.PhysicianList.Clear();
                 lookupPhysician(search);
             }
 
