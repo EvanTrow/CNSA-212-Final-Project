@@ -86,7 +86,6 @@
     <Compile Include="DatePicker.Designer.cs">
       <DependentUpon>DatePicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorChecking.cs" />
     <Compile Include="LookupPatient.cs">
       <SubType>Form</SubType>
     </Compile>

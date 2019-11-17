@@ -16,8 +16,6 @@ namespace CNSA212FinalProject
 {
     public partial class NewPhysician : Form
     {
-        AppMessage appMessage = new AppMessage();
-
         public bool alreadyActive = false;
         public int fillFromId;
         public NewPhysician(int FillFromId)
@@ -228,8 +226,7 @@ namespace CNSA212FinalProject
         Physician autoFillPhysician;
         private void autoFillData(int physicianId)
         {
-
-            // search patients by ID
+            // search physicians by ID
             autoFillPhysician = new Physicians().Get(physicianId);
             if (autoFillPhysician != null)
             {

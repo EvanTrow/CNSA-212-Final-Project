@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CNSA212FinalProject.Data.Get;
+using CNSA212FinalProject.Data.Type;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -214,116 +216,55 @@ namespace CNSA212FinalProject
 
         private void getPhysicansCombo()
         {
-            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
-            SqlConnection cnn = new SqlConnection(connetionString);
-            cnn.Open();
-
-            string sql = "SELECT physicianId, fName, lName FROM Physician";
-            SqlCommand command = new SqlCommand(sql, cnn);
-            SqlDataReader dataReader = command.ExecuteReader();
-
-            while (dataReader.Read())
-            {
-                ComboboxItem item = new ComboboxItem();
-                item.Text = "Dr. " + dataReader["fName"].ToString() + " " + dataReader["lName"].ToString();
-                item.Value = dataReader["physicianId"];
-
-                physicianComboBox.Items.Add(item);
-            }
-            cnn.Close();
-
+            new Physicians().SetPhysianCombo(physicianComboBox);
         }
 
-        string _connectionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
         private void addPrescriptionBtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            Prescription prescription = new Prescription(medNameTxt.Text, medTypeTxt.Text, int.Parse(dispenseTxt.Text), intakeTxt.Text,
+                medDosageTxt.Text, int.Parse(freqNumberTxt.Text), freqIntervalTxt.Text, "");
+
+            if (prescription.ExecInsert(PatientID, int.Parse((physicianComboBox.SelectedItem as ComboboxItem).Value.ToString()), int.Parse(maxRefillsTxt.Text), fillOnCreateCheckBox.Checked))
             {
-                String query = "EXEC Add_Prescription @patientId, @physicianId, @medName, @medType,  @dispense, @intake, @medDosage, @freqNumber, @freqInterval, @maxRefills, @fillOnCreate";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@patientId", PatientID);
-                    command.Parameters.AddWithValue("@physicianId", (physicianComboBox.SelectedItem as ComboboxItem).Value.ToString());
-                    command.Parameters.AddWithValue("@medName", medNameTxt.Text);
-                    command.Parameters.AddWithValue("@medType", medTypeTxt.Text);
-                    command.Parameters.AddWithValue("@dispense", dispenseTxt.Text);
-                    command.Parameters.AddWithValue("@intake", intakeTxt.Text);
-                    command.Parameters.AddWithValue("@medDosage", medDosageTxt.Text);
-                    command.Parameters.AddWithValue("@freqNumber", freqNumberTxt.Text);
-                    command.Parameters.AddWithValue("@freqInterval", freqIntervalTxt.Text);
-                    command.Parameters.AddWithValue("@maxRefills", maxRefillsTxt.Text);
-                    if (fillOnCreateCheckBox.Checked)
-                    {
-                        command.Parameters.AddWithValue("@fillOnCreate", 1);
-                    } else
-                    {
-                        command.Parameters.AddWithValue("@fillOnCreate", 0);
-                    }
-
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-
-                    // Check Error
-                    if (result < 0)
-                    {
-                        appMessage.Info("Prescription Added Sussessfully!",
-                                "Prescription Added!");
-
-                        medNameTxt.Text = medTypeTxt.Text = dispenseTxt.Text = intakeTxt.Text = medDosageTxt.Text = freqNumberTxt.Text = freqIntervalTxt.Text = maxRefillsTxt.Text = "";
-                        physicianComboBox.SelectedIndex = -1;
-                    }
-                    else
-                    {
-
-                        appMessage.Error("Error inserting data into Database!",
-                                "Error!");
-                    }
-                }
+                medNameTxt.Text = medTypeTxt.Text = dispenseTxt.Text = intakeTxt.Text = medDosageTxt.Text = freqNumberTxt.Text = freqIntervalTxt.Text = maxRefillsTxt.Text = "";
+                physicianComboBox.SelectedIndex = -1;
             }
         }
+
+        Prescription autoFillPrescription;
         private void autoFillData(int prescriptionID)
         {
-            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
-            SqlConnection cnn = new SqlConnection(connetionString);
-            cnn.Open();
-
-            string sql = "SELECT fName, lName, Prescription.medName, Prescription.medType, " +
-                            "Prescription.dispense, Prescription.intake, Prescription.medDosage, Prescription.freqNumber, " +
-                            "Prescription.freqInterval, Prescription.maxRefills, (SELECT COUNT(*) FROM Fill WHERE Fill.prescriptionId = Prescription.prescriptionId) as refillsUsed " +
-                            "FROM Prescription " +
-                            "INNER JOIN Physician ON Prescription.physicianId = Physician.physicianId " +
-                            "WHERE prescriptionId =" + prescriptionID;
-            SqlCommand command = new SqlCommand(sql, cnn);
-            SqlDataReader dataReader = command.ExecuteReader();
-
-            while (dataReader.Read())
+            // search prescriptions by ID
+            autoFillPrescription = new Prescriptions().Get(prescriptionID);
+            if (autoFillPrescription != null)
             {
-                physicianComboBox.Text = "Dr. " + dataReader["fName"].ToString() + " " + dataReader["lName"].ToString();
-                medNameTxt.Text = dataReader["medName"].ToString();
-                medTypeTxt.Text = dataReader["medType"].ToString();
-                dispenseTxt.Text = dataReader["dispense"].ToString();
-                intakeTxt.Text = dataReader["intake"].ToString();
-                medDosageTxt.Text = dataReader["medDosage"].ToString();
-                freqNumberTxt.Text = dataReader["freqNumber"].ToString();
-                freqIntervalTxt.Text = dataReader["freqInterval"].ToString();
-                maxRefillsTxt.Text = dataReader["maxRefills"].ToString();
-                refillsLbl.Text = "Refills: "+dataReader["refillsUsed"].ToString() + "/" + dataReader["maxRefills"].ToString();
-
-                //  int.Parse(dataReader["refillsUsed"].ToString()) / int.Parse(dataReader["maxRefills"].ToString());
-                if (int.Parse(dataReader["refillsUsed"].ToString()) >= int.Parse(dataReader["maxRefills"].ToString()))
+                // set input elements
+                physicianComboBox.Text = autoFillPrescription.Physician;
+                medNameTxt.Text = autoFillPrescription.MedName;
+                medTypeTxt.Text = autoFillPrescription.MedType;
+                dispenseTxt.Text = autoFillPrescription.Dispense.ToString();
+                intakeTxt.Text = autoFillPrescription.Intake;
+                medDosageTxt.Text = autoFillPrescription.MedDosage;
+                freqNumberTxt.Text = autoFillPrescription.FreqNumber.ToString();
+                freqIntervalTxt.Text = autoFillPrescription.FreqInterval;
+                maxRefillsTxt.Text = autoFillPrescription.Refills.Substring(autoFillPrescription.Refills.LastIndexOf('/') + 1);
+                refillsLbl.Text = "Refills: " + autoFillPrescription.Refills;
+                // set UI elements
+                if (int.Parse(autoFillPrescription.Refills.Substring(0, autoFillPrescription.Refills.LastIndexOf('/'))) >= 
+                    int.Parse(autoFillPrescription.Refills.Substring(autoFillPrescription.Refills.LastIndexOf('/') + 1)))
                 {
                     refillBtn.Enabled = false;
                 }
-
+                addPrescriptionBtn.Visible = false;
+                fillOnCreateCheckBox.Visible = false;
+                refillBtn.Visible = true;
+                refillsLbl.Visible = true;
+                saveBtn.Visible = true;
             }
-            cnn.Close();
-
-            addPrescriptionBtn.Visible = false;
-            fillOnCreateCheckBox.Visible = false;
-            refillBtn.Visible = true;
-            refillsLbl.Visible = true;
-            saveBtn.Visible = true;
+            else
+            {
+                this.Close();
+            }
         }
 
         private void refillBtn_Click(object sender, EventArgs e)
@@ -333,51 +274,36 @@ namespace CNSA212FinalProject
             datePicker.Hide();
             if (dialogResult == DialogResult.OK)
             {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
+                try
                 {
-                    String query = "EXEC Fill_Prescription @prescriptionId, @refillDate";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    if (autoFillPrescription.ExecRefill(datePicker))
                     {
-                        command.Parameters.AddWithValue("@prescriptionId", PrescriptionID);
-                        command.Parameters.AddWithValue("@refillDate", datePicker.date);
-
-                        connection.Open();
-
-                        int result;
-                        try
-                        {
-                            result = command.ExecuteNonQuery();
-                        }
-                        catch (Exception ex)
-                        {
-                            appMessage.Error(ex.Message,
-                                       "Error!");
-                            result = 1;
-                        }
-
-
-                        // Check Error
-                        if (result < 0)
-                        {
-                            appMessage.Info("Prescription filled Sussessfully!",
-                                    "Prescription Filled!");
-                            autoFillData(PrescriptionID);
-                        }/*
-                        else
-                        {
-
-                            MessageBox.Show("Error inserting data into Database!",
-                                    "Error!",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error,
-                                    MessageBoxDefaultButton.Button1);
-                        }*/
+                        autoFillData(PrescriptionID);
                     }
                 }
+                finally
+                {
+                    datePicker.Dispose();
+                }
             }
+        }
 
-            datePicker.Dispose();
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            // set prescription details
+            autoFillPrescription.Physician = physicianComboBox.Text;
+            autoFillPrescription.MedName = medNameTxt.Text;
+            autoFillPrescription.MedType = medTypeTxt.Text;
+            autoFillPrescription.Dispense = int.Parse(dispenseTxt.Text);
+            autoFillPrescription.Intake = intakeTxt.Text;
+            autoFillPrescription.MedDosage = medDosageTxt.Text;
+            autoFillPrescription.FreqNumber = int.Parse(freqNumberTxt.Text);
+            autoFillPrescription.FreqInterval = freqIntervalTxt.Text;
+            // set update
+            if (autoFillPrescription.ExecUpdate(physicianComboBox, maxRefillsTxt.Text))
+            {
+                autoFillData(PrescriptionID);
+            }
         }
     }
     public class ComboboxItem

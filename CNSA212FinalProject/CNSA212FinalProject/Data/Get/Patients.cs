@@ -98,6 +98,5 @@ namespace CNSA212FinalProject.Data.Get
             }
             return patient;
         }
-
     }
 }

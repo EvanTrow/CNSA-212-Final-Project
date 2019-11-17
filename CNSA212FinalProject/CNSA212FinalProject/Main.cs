@@ -83,10 +83,10 @@ namespace CNSA212FinalProject
         LookupPatient lookupPatient;
         private void patientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string test = Interaction.InputBox("Search for patient", "Lookup Patient", "");
+            string search = Interaction.InputBox("Search for patient", "Lookup Patient", "");
             if (lookupPatient == null)
             {
-                lookupPatient = new LookupPatient(tabForms, test.Trim());
+                lookupPatient = new LookupPatient(tabForms, search.Trim());
                 lookupPatient.MdiParent = this;
                 lookupPatient.Show();
             }
@@ -95,7 +95,7 @@ namespace CNSA212FinalProject
                 lookupPatient.Close();
                 lookupPatient = null;
 
-                lookupPatient = new LookupPatient(tabForms, test.Trim());
+                lookupPatient = new LookupPatient(tabForms, search.Trim());
                 lookupPatient.MdiParent = this;
                 lookupPatient.Show();
             }
@@ -104,10 +104,10 @@ namespace CNSA212FinalProject
         LookupPhysician lookupPhysician;
         private void physicianToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string test = Interaction.InputBox("Search for patient", "Lookup Patient", "");
+            string search = Interaction.InputBox("Search for patient", "Lookup Patient", "");
             if (lookupPhysician == null)
             {
-                lookupPhysician = new LookupPhysician(tabForms, test.Trim());
+                lookupPhysician = new LookupPhysician(tabForms, search.Trim());
                 lookupPhysician.MdiParent = this;
                 lookupPhysician.Show();
             }
@@ -116,7 +116,7 @@ namespace CNSA212FinalProject
                 lookupPhysician.Close();
                 lookupPhysician = null;
 
-                lookupPhysician = new LookupPhysician(tabForms, test.Trim());
+                lookupPhysician = new LookupPhysician(tabForms, search.Trim());
                 lookupPhysician.MdiParent = this;
                 lookupPhysician.Show();
             }

@@ -259,6 +259,43 @@ AS
 	END
 GO
 
+CREATE PROC Update_Prescription(
+	@prescriptionId	INT,
+	@physicianId	INT,
+	@medName		VARCHAR(40),
+	@medType		VARCHAR(15),
+	@dispense		INT,
+	@intake			VARCHAR(125),
+	@medDosage		VARCHAR(15),
+	@freqNumber		INT,
+	@freqInterval	VARCHAR(20),
+	@maxRefills		INT
+)
+AS
+	BEGIN
+	SET NOCOUNT ON;
+		BEGIN TRANSACTION
+			UPDATE Prescription SET
+			physicianId = @physicianId, medName = @medName, medType = @medType, dispense = @dispense, 
+			intake = @intake, medDosage = @medDosage, freqNumber = @freqNumber, 
+			freqInterval = @freqInterval, maxRefills = @maxRefills
+			WHERE prescriptionId = @prescriptionId
+
+			IF @@ERROR <> 0
+				BEGIN
+					ROLLBACK TRANSACTION
+					RAISERROR ('Unable to update record.',16,1)
+					RETURN -1
+				END
+			ELSE
+				BEGIN
+					COMMIT TRANSACTION
+					PRINT 'Record updated successfully!'
+				END
+	END
+GO
+
+
 CREATE PROC DeletePrescription(
 	@prescriptionId INT
 

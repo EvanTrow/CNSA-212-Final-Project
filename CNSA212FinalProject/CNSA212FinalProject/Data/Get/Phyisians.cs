@@ -97,5 +97,36 @@ namespace CNSA212FinalProject.Data.Get
             }
             return physician;
         }
+
+        public void SetPhysianCombo(ComboBox comboBox)
+        {
+            SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnsa"].ConnectionString);
+            try
+            {
+                cnn.Open();
+
+                string sql = "SELECT physicianId, fName, lName FROM Physician";
+                SqlCommand command = new SqlCommand(sql, cnn);
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    ComboboxItem item = new ComboboxItem();
+                    item.Text = "Dr. " + dataReader["fName"].ToString() + " " + dataReader["lName"].ToString();
+                    item.Value = dataReader["physicianId"];
+
+                    comboBox.Items.Add(item);
+                }
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                appMessage.Error(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+        }
     }
 }
