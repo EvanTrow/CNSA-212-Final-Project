@@ -37,11 +37,11 @@ namespace CNSA212FinalProject.Data.Get
 
                     while (dataReader.Read())
                     {
-                        PhysicianList.Add(new Physician(int.Parse(dataReader["physicianId"].ToString()), dataReader["fName"].ToString(), dataReader["mInit"].ToString(),
+                        PhysicianList.Add(new Physician(dataReader["fName"].ToString(), dataReader["mInit"].ToString(),
                             dataReader["lName"].ToString(), dataReader["gender"].ToString(),
                             dataReader["street"].ToString(), dataReader["city"].ToString(), dataReader["stateAbbr"].ToString(), int.Parse(dataReader["zip"].ToString()),
                             dataReader["phone1"].ToString(), dataReader["phone2"].ToString(), dataReader["email"].ToString(),
-                            dataReader["specialty1"].ToString(), dataReader["specialty2"].ToString()));
+                            dataReader["specialty1"].ToString(), dataReader["specialty2"].ToString(), int.Parse(dataReader["physicianId"].ToString())));
                     }
                     cnn.Close();
                 }
@@ -60,6 +60,42 @@ namespace CNSA212FinalProject.Data.Get
         public void AddToDataGrid(DataGridView dataGrid)
         {
             dataGrid.DataSource = this.PhysicianList;
+        }
+
+
+        public Physician Get(int physicianId)
+        {
+            Physician physician = null;
+
+            SqlConnection cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["cnsa"].ConnectionString);
+            try
+            {
+
+                cnn.Open();
+
+                string sql = "SELECT * from Physician WHERE physicianID=" + physicianId + "";
+                SqlCommand command = new SqlCommand(sql, cnn);
+                SqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    physician = new Physician(dataReader["fName"].ToString(), dataReader["mInit"].ToString().Trim(), dataReader["lName"].ToString(),
+                        dataReader["gender"].ToString(), dataReader["street"].ToString(), dataReader["city"].ToString(),
+                        dataReader["stateAbbr"].ToString(), int.Parse(dataReader["zip"].ToString()), dataReader["phone1"].ToString(),
+                        dataReader["phone2"].ToString(), dataReader["email"].ToString(),
+                        dataReader["specialty1"].ToString(), dataReader["specialty2"].ToString(), int.Parse(dataReader["physicianID"].ToString()));
+                }
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                appMessage.Error(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return physician;
         }
     }
 }

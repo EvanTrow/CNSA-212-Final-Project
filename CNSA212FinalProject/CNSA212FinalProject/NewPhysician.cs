@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CNSA212FinalProject.Data.Get;
+using CNSA212FinalProject.Data.Type;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -210,139 +212,69 @@ namespace CNSA212FinalProject
             }
         }
 
-        string _connectionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
         private void btnAddPhysician_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            Physician physician = new Physician(txtfirstName.Text, txtmiddleInitial.Text, txtlastName.Text, genderComboBox.Text,
+                txtstreet.Text, txtcity.Text, stateComboBox.Text.Substring(0, 2).Trim(), int.Parse(txtzip.Text), txtphone1.Text, txtphone2.Text, txtemail.Text,
+                txtSpecialty1.Text, txtSpecialty2.Text);
+
+            if (physician.ExecInsert())
             {
-                String query = "EXEC Add_Physician @fName, @lName, @mInit, @gender, @street, @city, @stateAbbr, @zip, @phone1, @phone2, @email, @specialty1, @specialty2";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@fName", txtfirstName.Text);
-                    command.Parameters.AddWithValue("@lName", txtlastName.Text);
-                    command.Parameters.AddWithValue("@mInit", txtmiddleInitial.Text);
-                    command.Parameters.AddWithValue("@gender", genderComboBox.Text);
-                    command.Parameters.AddWithValue("@street", txtstreet.Text);
-                    command.Parameters.AddWithValue("@city", txtcity.Text);
-                    command.Parameters.AddWithValue("@stateAbbr", stateComboBox.Text.Substring(0, 2).Trim());
-                    command.Parameters.AddWithValue("@zip", int.Parse(txtzip.Text));
-                    command.Parameters.AddWithValue("@phone1", txtphone1.Text);
-                    command.Parameters.AddWithValue("@phone2", txtphone2.Text);
-                    command.Parameters.AddWithValue("@email", txtemail.Text);
-                    command.Parameters.AddWithValue("@specialty1", txtSpecialty1.Text);
-                    command.Parameters.AddWithValue("@specialty2", txtSpecialty2.Text);
-
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-
-
-                    // Check Error
-                    if (result < 0)
-                    {
-                        appMessage.Info("Physician Added Sussessfully!",
-                                "Physician Added!");
-
-                        txtfirstName.Text = txtlastName.Text = txtmiddleInitial.Text = txtstreet.Text = txtcity.Text = txtzip.Text = txtphone1.Text = txtphone2.Text = txtemail.Text = txtSpecialty1.Text = txtSpecialty2.Text = "";
-                        stateComboBox.SelectedIndex = genderComboBox.SelectedIndex = -1;
-                    }
-                    else
-                    {
-
-                        appMessage.Error("Error inserting data into Database!",
-                                "Error!");
-                    }
-                }
+                txtfirstName.Text = txtlastName.Text = txtmiddleInitial.Text = txtstreet.Text = txtcity.Text = txtzip.Text = txtphone1.Text = txtphone2.Text = txtemail.Text = txtSpecialty1.Text = txtSpecialty2.Text = "";
+                stateComboBox.SelectedIndex = genderComboBox.SelectedIndex = -1;
             }
         }
 
+        Physician autoFillPhysician;
         private void autoFillData(int physicianId)
         {
-            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
-            SqlConnection cnn = new SqlConnection(connetionString);
-            cnn.Open();
 
-            string sql = "SELECT * from Physician WHERE physicianID=" + physicianId + "";
-            SqlCommand command = new SqlCommand(sql, cnn);
-            SqlDataReader dataReader = command.ExecuteReader();
-
-            while (dataReader.Read())
+            // search patients by ID
+            autoFillPhysician = new Physicians().Get(physicianId);
+            if (autoFillPhysician != null)
             {
-                txtfirstName.Text = dataReader["fName"].ToString();
-                txtlastName.Text = dataReader["lName"].ToString();
-                txtmiddleInitial.Text = dataReader["mInit"].ToString().Trim();
-
-                if (dataReader["gender"].ToString() == "M")
-                {
-                    genderComboBox.SelectedIndex = 0;
-                }
-                else if (dataReader["gender"].ToString() == "F")
-                {
-                    genderComboBox.SelectedIndex = 1;
-                }
-                else
-                {
-                    genderComboBox.SelectedIndex = 2;
-                }
-
-                txtstreet.Text = dataReader["street"].ToString();
-                txtcity.Text = dataReader["city"].ToString();
-                stateComboBox.SelectedIndex = int.Parse(stateComboBox.FindString(dataReader["stateAbbr"].ToString()).ToString());
-                txtzip.Text = dataReader["zip"].ToString();
-                txtphone1.Text = dataReader["phone1"].ToString();
-                txtphone2.Text = dataReader["phone2"].ToString();
-                txtemail.Text = dataReader["email"].ToString();
-                txtSpecialty1.Text = dataReader["specialty1"].ToString();
-                txtSpecialty2.Text = dataReader["specialty2"].ToString();
+                // set input elements
+                txtfirstName.Text = autoFillPhysician.Fname;
+                txtlastName.Text = autoFillPhysician.Lname;
+                txtmiddleInitial.Text = autoFillPhysician.Minit;
+                genderComboBox.SelectedIndex = int.Parse(genderComboBox.FindString(autoFillPhysician.Gender).ToString());
+                txtstreet.Text = autoFillPhysician.Street;
+                txtcity.Text = autoFillPhysician.City;
+                stateComboBox.SelectedIndex = int.Parse(stateComboBox.FindString(autoFillPhysician.StateAbbr).ToString());
+                txtzip.Text = autoFillPhysician.Zip.ToString();
+                txtphone1.Text = autoFillPhysician.Phone1;
+                txtphone2.Text = autoFillPhysician.Phone2;
+                txtemail.Text = autoFillPhysician.Email;
+                txtSpecialty1.Text = autoFillPhysician.Specialty1;
+                txtSpecialty2.Text = autoFillPhysician.Specialty2;
+                // set UI elements
+                btnAddPhysician.Visible = false;
+                saveBtn.Visible = true;
             }
-            cnn.Close();
-
-            btnAddPhysician.Visible = false;
-            saveBtn.Visible = true;
+            else
+            {
+                this.Close();
+            }
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                String query = "EXEC Update_Physician @physicianId, @fName, @lName, @mInit, @gender, @street, @city, @stateAbbr, @zip, @phone1, @phone2, @email, @specialty1, @specialty2";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@physicianId", fillFromId);
-                    command.Parameters.AddWithValue("@fName", txtfirstName.Text);
-                    command.Parameters.AddWithValue("@lName", txtlastName.Text);
-                    command.Parameters.AddWithValue("@mInit", txtmiddleInitial.Text);
-                    command.Parameters.AddWithValue("@gender", genderComboBox.Text);
-                    command.Parameters.AddWithValue("@street", txtstreet.Text);
-                    command.Parameters.AddWithValue("@city", txtcity.Text);
-                    command.Parameters.AddWithValue("@stateAbbr", stateComboBox.Text.Substring(0, 2).Trim());
-                    command.Parameters.AddWithValue("@zip", int.Parse(txtzip.Text));
-                    command.Parameters.AddWithValue("@phone1", txtphone1.Text);
-                    command.Parameters.AddWithValue("@phone2", txtphone2.Text);
-                    command.Parameters.AddWithValue("@email", txtemail.Text);
-                    command.Parameters.AddWithValue("@specialty1", txtSpecialty1.Text);
-                    command.Parameters.AddWithValue("@specialty2", txtSpecialty2.Text);
-
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-
-                    // Check Error
-                    if (result < 0)
-                    {
-                        appMessage.Info("Physician Updated Sussessfully!",
-                                "Physician Updated!");
-
-                        autoFillData(fillFromId);
-                    }
-                    else
-                    {
-
-                        appMessage.Error("Error updating data in Database!",
-                                "Error!");
-                    }
-                }
-            }
+            // set Patient details
+            autoFillPhysician.Fname = txtfirstName.Text;
+            autoFillPhysician.Lname = txtlastName.Text;
+            autoFillPhysician.Minit = txtmiddleInitial.Text;
+            autoFillPhysician.Gender = genderComboBox.Text;
+            autoFillPhysician.Street = txtstreet.Text;
+            autoFillPhysician.City = txtcity.Text;
+            autoFillPhysician.StateAbbr = stateComboBox.Text.Substring(0, 2).Trim();
+            autoFillPhysician.Zip = int.Parse(txtzip.Text);
+            autoFillPhysician.Phone1 = txtphone1.Text;
+            autoFillPhysician.Phone2 = txtphone2.Text;
+            autoFillPhysician.Email = txtemail.Text;
+            autoFillPhysician.Specialty1 = txtSpecialty1.Text;
+            autoFillPhysician.Specialty2 = txtSpecialty2.Text;
+            // set update
+            autoFillPhysician.ExecUpdate();
         }
 
         private void NewPhysician_Activated(object sender, EventArgs e)
