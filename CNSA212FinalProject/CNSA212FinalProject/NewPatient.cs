@@ -330,38 +330,11 @@ namespace CNSA212FinalProject
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["cnsa"].ConnectionString))
+            DataGridViewRow row = dataGridView.SelectedRows[0];
+
+            if (autoFillPatient.Prescriptions[autoFillPatient.Prescriptions.IndexOf((Prescription)row.DataBoundItem)].ExecDelete())
             {
-                String query = "EXEC DeletePrescription @prescriptionId, @refillId";
-
-                using (SqlCommand command1 = new SqlCommand(query, connection))
-                {
-
-                    DataGridViewRow row = dataGridView.SelectedRows[0];
-                    var deleteprescriptionId = row.Cells[0].Value.ToString();
-
-                    command1.Parameters.AddWithValue("@prescriptionId", deleteprescriptionId);
-                    command1.Parameters.AddWithValue("@refillId", deleteprescriptionId);
-                    connection.Open();
-                    int result = command1.ExecuteNonQuery();
-                  NewPatient_Activated(sender, e);
-                    // Check Error
-                    if (result < 0)
-                    {
-
-
-                        appMessage.Info("Patient Updated Sussessfully!",
-                                "Patient Updated!");
-
-
-                    }
-                    else
-                    {
-
-                        appMessage.Error("Error updating data in Database!",
-                                "Error!");
-                    }
-                }
+                autoFillData(fillFromId);
             }
         }
     }

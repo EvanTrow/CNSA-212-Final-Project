@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,5 +45,38 @@ namespace CNSA212FinalProject.Data.Type
         [System.ComponentModel.DisplayName("Interval")]
         public string FreqInterval { get; set; }
         public string Refills { get; set; }
+
+        public bool ExecDelete()
+        {
+            if (PrescriptionId != -1)
+            {
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["cnsa"].ConnectionString))
+                {
+                    String query = "EXEC DeletePrescription @prescriptionId, @refillId";
+
+                    using (SqlCommand command1 = new SqlCommand(query, connection))
+                    {
+                        command1.Parameters.AddWithValue("@prescriptionId", this.PrescriptionId);
+                        command1.Parameters.AddWithValue("@refillId", this.PrescriptionId);
+                        connection.Open();
+                        int result = command1.ExecuteNonQuery();
+                        //             NewPatient_Activated(sender, e);
+                        // Check Error
+                        if (result < 0)
+                        {
+                            appMessage.Info("Prescription Deleted Sussessfully!", "Prescription Deleted!");
+                            return true;
+                        }
+                        else
+                        {
+                            appMessage.Error("Error deleting data in Database!", "Error!");
+                            return false;
+                        }
+                    }
+                }
+
+            }
+            return false;
+        }
     }
 }
