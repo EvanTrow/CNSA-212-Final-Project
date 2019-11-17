@@ -22,6 +22,7 @@ namespace CNSA212FinalProject
             timer1.Start();
         }
 
+        // fake loading events
         string[] loading = new string[] { "Connecting.", "Connecting..", "Connecting...", 
                                             "Connecting.", "Connecting..", "Connecting...", 
                                             "Loading Resourses...", "Loading Physicans...", 
@@ -30,6 +31,8 @@ namespace CNSA212FinalProject
                                             "Initializing Forms...", "Launching", "Launching", "" };
 
 
+
+        // run through timer and change loading events
         int index = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -51,7 +54,7 @@ namespace CNSA212FinalProject
                     }
                 }
             }
-            catch (Exception Ex)
+            finally
             {
                 timer1.Stop();
                 Login login = new Login(this);
@@ -61,6 +64,8 @@ namespace CNSA212FinalProject
             index++;
         }
 
+
+        // Ping Google for internet check
         public static bool CheckForInternetConnection()
         {
             try

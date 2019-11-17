@@ -62,16 +62,6 @@
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.prescriptionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.physician = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dispense = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.intake = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freqNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.freqInterval = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxRefills = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmuDeleteSelected = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PrescriptionsLbl = new System.Windows.Forms.Label();
@@ -513,9 +503,9 @@
             this.genderComboBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE",
-            "NA"});
+            "Male",
+            "Female",
+            "Other"});
             this.genderComboBox.Location = new System.Drawing.Point(150, 163);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(574, 31);
@@ -545,17 +535,6 @@
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prescriptionId,
-            this.physician,
-            this.medName,
-            this.medType,
-            this.dispense,
-            this.intake,
-            this.medDosage,
-            this.freqNumber,
-            this.freqInterval,
-            this.maxRefills});
             this.dataGridView.ContextMenuStrip = this.cmuDeleteSelected;
             this.dataGridView.Location = new System.Drawing.Point(12, 585);
             this.dataGridView.MinimumSize = new System.Drawing.Size(0, 140);
@@ -569,84 +548,17 @@
             this.dataGridView.Visible = false;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DoubleClick);
             // 
-            // prescriptionId
-            // 
-            this.prescriptionId.HeaderText = "Prescription ID";
-            this.prescriptionId.Name = "prescriptionId";
-            this.prescriptionId.ReadOnly = true;
-            // 
-            // physician
-            // 
-            this.physician.HeaderText = "Physician";
-            this.physician.Name = "physician";
-            this.physician.ReadOnly = true;
-            // 
-            // medName
-            // 
-            this.medName.HeaderText = "Medicine";
-            this.medName.Name = "medName";
-            this.medName.ReadOnly = true;
-            this.medName.Width = 107;
-            // 
-            // medType
-            // 
-            this.medType.HeaderText = "Type";
-            this.medType.Name = "medType";
-            this.medType.ReadOnly = true;
-            this.medType.Width = 108;
-            // 
-            // dispense
-            // 
-            this.dispense.HeaderText = "Dispense";
-            this.dispense.Name = "dispense";
-            this.dispense.ReadOnly = true;
-            // 
-            // intake
-            // 
-            this.intake.HeaderText = "Intake";
-            this.intake.Name = "intake";
-            this.intake.ReadOnly = true;
-            this.intake.Width = 107;
-            // 
-            // medDosage
-            // 
-            this.medDosage.HeaderText = "Dosage";
-            this.medDosage.Name = "medDosage";
-            this.medDosage.ReadOnly = true;
-            this.medDosage.Width = 107;
-            // 
-            // freqNumber
-            // 
-            this.freqNumber.HeaderText = "Frequency";
-            this.freqNumber.Name = "freqNumber";
-            this.freqNumber.ReadOnly = true;
-            this.freqNumber.Width = 107;
-            // 
-            // freqInterval
-            // 
-            this.freqInterval.HeaderText = "Interval";
-            this.freqInterval.Name = "freqInterval";
-            this.freqInterval.ReadOnly = true;
-            this.freqInterval.Width = 108;
-            // 
-            // maxRefills
-            // 
-            this.maxRefills.HeaderText = "Refills";
-            this.maxRefills.Name = "maxRefills";
-            this.maxRefills.ReadOnly = true;
-            this.maxRefills.Width = 107;
-            // 
             // cmuDeleteSelected
             // 
             this.cmuDeleteSelected.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem});
             this.cmuDeleteSelected.Name = "cmuDeleteSelected";
-            this.cmuDeleteSelected.Size = new System.Drawing.Size(181, 48);
+            this.cmuDeleteSelected.Size = new System.Drawing.Size(108, 26);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -766,16 +678,6 @@
         private System.Windows.Forms.Button addPrescriptionBtn;
         private System.Windows.Forms.Label PrescriptionsLbl;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescriptionId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn physician;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dispense;
-        private System.Windows.Forms.DataGridViewTextBoxColumn intake;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medDosage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freqNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn freqInterval;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maxRefills;
         private System.Windows.Forms.ContextMenuStrip cmuDeleteSelected;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }

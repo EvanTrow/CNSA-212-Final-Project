@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CNSA212FinalProject.Data.Get;
+using CNSA212FinalProject.Data.Type;
+using System;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -218,170 +221,77 @@ namespace CNSA212FinalProject
 
         }
 
-        string _connectionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
         private void btnAddPatient_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            Patient patient = new Patient(txtfirstName.Text, txtmiddleInitial.Text, txtlastName.Text, dateDOB.Text, genderComboBox.Text,
+                txtstreet.Text, txtcity.Text, stateComboBox.Text.Substring(0, 2).Trim(), int.Parse(txtzip.Text), txtphone1.Text, txtphone2.Text, txtemail.Text,
+                txtInsuranceCo.Text, txtInsuranceNum.Text);
+
+            if (patient.ExecInsert())
             {
-                String query = "EXEC Add_Patient @fName, @lName, @mInit, @DOB, @gender, @street, @city, @stateAbbr, @zip, @phone1, @phone2, @email, @InsuranceCo, @InsuranceNum";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@fName", txtfirstName.Text);
-                    command.Parameters.AddWithValue("@lName", txtlastName.Text);
-                    command.Parameters.AddWithValue("@mInit", txtmiddleInitial.Text);
-                    command.Parameters.AddWithValue("@DOB", dateDOB.Text);
-                    command.Parameters.AddWithValue("@gender", genderComboBox.Text);
-                    command.Parameters.AddWithValue("@street", txtstreet.Text);
-                    command.Parameters.AddWithValue("@city", txtcity.Text);
-                    command.Parameters.AddWithValue("@stateAbbr", stateComboBox.Text.Substring(0, 2).Trim());
-                    command.Parameters.AddWithValue("@zip", int.Parse(txtzip.Text));
-                    command.Parameters.AddWithValue("@phone1", txtphone1.Text);
-                    command.Parameters.AddWithValue("@phone2", txtphone2.Text);
-                    command.Parameters.AddWithValue("@email", txtemail.Text);
-                    command.Parameters.AddWithValue("@InsuranceCo", txtInsuranceCo.Text);
-                    command.Parameters.AddWithValue("@InsuranceNum", txtInsuranceNum.Text);
-
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-
-                    // Check Error
-                    if (result < 0)
-                    {
-                        appMessage.Info("Patient Added Sussessfully!",
-                                "Patient Added!");
-
-                        txtfirstName.Text = txtlastName.Text = txtmiddleInitial.Text = txtstreet.Text = txtcity.Text = txtzip.Text = txtphone1.Text = txtphone2.Text = txtemail.Text = txtInsuranceCo.Text = txtInsuranceNum.Text = "";
-                        stateComboBox.SelectedIndex = genderComboBox.SelectedIndex = -1;
-                    } else
-                    {
-
-                        appMessage.Error("Error inserting data into Database!",
-                                "Error!");
-                    }
-                }
+                txtfirstName.Text = txtlastName.Text = txtmiddleInitial.Text = txtstreet.Text = txtcity.Text = txtzip.Text = txtphone1.Text = txtphone2.Text = txtemail.Text = txtInsuranceCo.Text = txtInsuranceNum.Text = "";
+                stateComboBox.SelectedIndex = genderComboBox.SelectedIndex = -1;
             }
         }
 
+        Patient autoFillPatient;
         private void autoFillData(int patientId)
         {
-            string connetionString = @"Data Source=cnsa.trowbridge.tech;Initial Catalog=Pharmacy;User ID=cnsa;Password=CNSAcnsa1";
-            SqlConnection cnn = new SqlConnection(connetionString);
-            cnn.Open();
-
-            string sql = "SELECT * from Patient WHERE patientID="+ patientId + "";
-            SqlCommand command = new SqlCommand(sql, cnn);
-            SqlDataReader dataReader = command.ExecuteReader();
-
-            while (dataReader.Read())
+            // search patients by ID
+            autoFillPatient = new Patients().Get(patientId);
+            if (autoFillPatient != null)
             {
-                txtfirstName.Text = dataReader["fName"].ToString();
-                txtlastName.Text = dataReader["lName"].ToString();
-                txtmiddleInitial.Text = dataReader["mInit"].ToString().Trim();
-                dateDOB.Value = DateTime.Parse((dataReader["DOB"]).ToString());
+                // set input elements
+                txtfirstName.Text = autoFillPatient.Fname;
+                txtlastName.Text = autoFillPatient.Lname;
+                txtmiddleInitial.Text = autoFillPatient.Minit;
+                dateDOB.Value = DateTime.Parse(autoFillPatient.DOB);
+                genderComboBox.SelectedIndex = int.Parse(genderComboBox.FindString(autoFillPatient.Gender).ToString());
+                txtstreet.Text = autoFillPatient.Street;
+                txtcity.Text = autoFillPatient.City;
+                stateComboBox.SelectedIndex = int.Parse(stateComboBox.FindString(autoFillPatient.StateAbbr).ToString());
+                txtzip.Text = autoFillPatient.Zip.ToString();
+                txtphone1.Text = autoFillPatient.Phone1;
+                txtphone2.Text = autoFillPatient.Phone2;
+                txtemail.Text = autoFillPatient.Email;
+                txtInsuranceCo.Text = autoFillPatient.InsuranceCo;
+                txtInsuranceNum.Text = autoFillPatient.InsuranceNum;
+                // set UI elements
+                btnAddPatient.Visible = false;
+                saveBtn.Visible = dataGridView.Visible = addPrescriptionBtn.Visible = PrescriptionsLbl.Visible = true;
+                autoFillPatient.Prescriptions.Clear();
 
-                if (dataReader["gender"].ToString() == "M")
+                // get prescriptions
+                if (autoFillPatient.GetPrescriptions())
                 {
-                    genderComboBox.SelectedIndex = 0;
-                }
-                else if (dataReader["gender"].ToString() == "F")
-                {
-                    genderComboBox.SelectedIndex = 1;
-                }
-                else
-                {
-                    genderComboBox.SelectedIndex = 2;
+                    dataGridView.DataSource = autoFillPatient.Prescriptions;
                 }
 
-                txtstreet.Text = dataReader["street"].ToString();
-                txtcity.Text = dataReader["city"].ToString();
-                stateComboBox.SelectedIndex = int.Parse(stateComboBox.FindString(dataReader["stateAbbr"].ToString()).ToString());
-                txtzip.Text = dataReader["zip"].ToString();
-                txtphone1.Text = dataReader["phone1"].ToString();
-                txtphone2.Text = dataReader["phone2"].ToString();
-                txtemail.Text = dataReader["email"].ToString();
-                txtInsuranceCo.Text = dataReader["InsuranceCo"].ToString();
-                txtInsuranceNum.Text = dataReader["InsuranceNum"].ToString();
-            }
-            cnn.Close();
-
-            btnAddPatient.Visible = false;
-            saveBtn.Visible = true;
-            dataGridView.Visible = true;
-            dataGridView.Rows.Clear();
-            addPrescriptionBtn.Visible = true;
-            PrescriptionsLbl.Visible = true;
-
-            //this.MinimumSize = new System.Drawing.Size(459, 775);
-
-            // get prescriptions
-
-
-            cnn = new SqlConnection(connetionString);
-            cnn.Open();
-
-            sql = "SELECT Prescription.prescriptionId, fName, lName, Prescription.medName, Prescription.medType, "+
-                    "Prescription.dispense, Prescription.intake, Prescription.medDosage, Prescription.freqNumber, "+
-                    "Prescription.freqInterval, Prescription.maxRefills, (SELECT COUNT(*) FROM Fill WHERE Fill.prescriptionId = Prescription.prescriptionId) as refillsUsed FROM Prescription "+
-                    "INNER JOIN Physician ON Prescription.physicianId = Physician.physicianId "+
-                    "WHERE patientId = "+fillFromId;
-            command = new SqlCommand(sql, cnn);
-            dataReader = command.ExecuteReader();
-
-            while (dataReader.Read())
+            } else
             {
-                dataGridView.Rows.Add(dataReader["prescriptionId"], "Dr. " + dataReader["fName"] + " " + dataReader["lName"], dataReader["medName"], dataReader["medType"],
-                                        dataReader["dispense"], dataReader["intake"], dataReader["medDosage"],
-                                        dataReader["freqNumber"], dataReader["freqInterval"], dataReader["refillsUsed"] + "/" + dataReader["maxRefills"]);
+                this.Close();
             }
-            cnn.Close();
-
-
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                String query = "EXEC Update_Patient @patientId, @fName, @lName, @mInit, @DOB, @gender, @street, @city, @stateAbbr, @zip, @phone1, @phone2, @email, @InsuranceCo, @InsuranceNum";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@patientId", fillFromId);
-                    command.Parameters.AddWithValue("@fName", txtfirstName.Text);
-                    command.Parameters.AddWithValue("@lName", txtlastName.Text);
-                    command.Parameters.AddWithValue("@mInit", txtmiddleInitial.Text);
-                    command.Parameters.AddWithValue("@DOB", dateDOB.Text);
-                    command.Parameters.AddWithValue("@gender", genderComboBox.Text);
-                    command.Parameters.AddWithValue("@street", txtstreet.Text);
-                    command.Parameters.AddWithValue("@city", txtcity.Text);
-                    command.Parameters.AddWithValue("@stateAbbr", stateComboBox.Text.Substring(0, 2).Trim());
-                    command.Parameters.AddWithValue("@zip", int.Parse(txtzip.Text));
-                    command.Parameters.AddWithValue("@phone1", txtphone1.Text);
-                    command.Parameters.AddWithValue("@phone2", txtphone2.Text);
-                    command.Parameters.AddWithValue("@email", txtemail.Text);
-                    command.Parameters.AddWithValue("@InsuranceCo", txtInsuranceCo.Text);
-                    command.Parameters.AddWithValue("@InsuranceNum", txtInsuranceNum.Text);
-
-                    connection.Open();
-                    int result = command.ExecuteNonQuery();
-
-                    // Check Error
-                    if (result < 0)
-                    {
-                        appMessage.Info("Patient Updated Sussessfully!",
-                                "Patient Updated!");
-
-                        autoFillData(fillFromId);
-                    }
-                    else
-                    {
-
-                        appMessage.Error("Error updating data in Database!",
-                                "Error!");
-                    }
-                }
-            }
+            // set Patient details
+            autoFillPatient.Fname = txtfirstName.Text;
+            autoFillPatient.Lname =  txtlastName.Text;
+            autoFillPatient.Minit = txtmiddleInitial.Text;
+            autoFillPatient.DOB = dateDOB.Text;
+            autoFillPatient.Gender = genderComboBox.Text;
+            autoFillPatient.Street = txtstreet.Text;
+            autoFillPatient.City = txtcity.Text;
+            autoFillPatient.StateAbbr = stateComboBox.Text.Substring(0, 2).Trim();
+            autoFillPatient.Zip = int.Parse(txtzip.Text);
+            autoFillPatient.Phone1 = txtphone1.Text;
+            autoFillPatient.Phone2 = txtphone2.Text;
+            autoFillPatient.Email = txtemail.Text;
+            autoFillPatient.InsuranceCo = txtInsuranceCo.Text;
+            autoFillPatient.InsuranceNum = txtInsuranceNum.Text;
+            // set update
+            autoFillPatient.ExecUpdate();
         }
 
         private void addPrescriptionBtn_Click(object sender, EventArgs e)
@@ -395,7 +305,7 @@ namespace CNSA212FinalProject
         {
             if (alreadyActive && fillFromId != -1)
             {
-                dataGridView.Rows.Clear();
+                autoFillPatient.Prescriptions.Clear();
                 autoFillData(fillFromId);
             }
 
@@ -420,7 +330,7 @@ namespace CNSA212FinalProject
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["cnsa"].ConnectionString))
             {
                 String query = "EXEC DeletePrescription @prescriptionId, @refillId";
 

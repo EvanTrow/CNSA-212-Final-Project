@@ -72,6 +72,8 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data\Get\Prescriptions.cs" />
+    <Compile Include="Data\Get\User.cs" />
     <Compile Include="Data\Get\Patients.cs" />
     <Compile Include="Data\Get\Phyisians.cs" />
     <Compile Include="Data\Type\Patient.cs" />

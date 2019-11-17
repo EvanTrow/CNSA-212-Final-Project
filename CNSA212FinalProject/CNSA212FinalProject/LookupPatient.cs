@@ -31,12 +31,12 @@ namespace CNSA212FinalProject
             lookupPatient(search);
         }
 
-        Patients patients;
+        Patients patientSearch;
         public void lookupPatient(string search)
         {
-            patients = new Patients(search);
+            patientSearch = new Patients.Search(search);
 
-            patients.AddToDataGrid(dataGridView);
+            patientSearch.AddToDataGrid(dataGridView);
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -60,7 +60,7 @@ namespace CNSA212FinalProject
         {
             if (alreadyActive)
             {
-                patients.PatientList.Clear();
+                patientSearch.PatientList.Clear();
                 lookupPatient(search);
             }
 

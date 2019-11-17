@@ -71,9 +71,9 @@
             this.genderComboBox.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Items.AddRange(new object[] {
-            "MALE",
-            "FEMALE",
-            "NA"});
+            "Male",
+            "Female",
+            "Other"});
             this.genderComboBox.Location = new System.Drawing.Point(150, 119);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(634, 31);

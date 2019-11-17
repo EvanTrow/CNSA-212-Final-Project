@@ -122,11 +122,16 @@ namespace CNSA212FinalProject
             }
         }
 
-        private void aboutLouisPharmacyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox kForm = new AboutBox();
-            kForm.MdiParent = this;
-            kForm.Show();
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.MdiParent = this;
+            aboutBox.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -45,10 +45,14 @@ namespace CNSA212FinalProject.Data.Type
         [System.ComponentModel.DisplayName("State")]
         public string StateAbbr { get; set; }
         public int Zip { get; set; }
+        [System.ComponentModel.DisplayName("Phone 1")]
         public string Phone1 { get; set; }
+        [System.ComponentModel.DisplayName("Phone 2")]
         public string Phone2 { get; set; }
         public string Email { get; set; }
+        [System.ComponentModel.DisplayName("Specialty 1")]
         public string Specialty1 { get; set; }
+        [System.ComponentModel.DisplayName("Specialty 2")]
         public string Specialty2 { get; set; }
     }
 }

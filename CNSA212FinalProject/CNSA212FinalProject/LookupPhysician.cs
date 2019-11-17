@@ -34,7 +34,7 @@ namespace CNSA212FinalProject
         Physicians physicians;
         public void lookupPhysician(string search)
         {
-            physicians = new Physicians(search);
+            physicians = new Physicians.Search(search);
 
             physicians.AddToDataGrid(dataGridView);
         }
