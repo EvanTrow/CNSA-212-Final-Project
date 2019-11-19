@@ -60,7 +60,7 @@ namespace CNSA212FinalProject.Data.Type
                         command.Parameters.AddWithValue("@patientId", patientId);
                         command.Parameters.AddWithValue("@physicianId", physicianId);
                         command.Parameters.AddWithValue("@medName", this.MedName);
-                        command.Parameters.AddWithValue("@medType", this.MedDosage);
+                        command.Parameters.AddWithValue("@medType", this.MedType);
                         command.Parameters.AddWithValue("@dispense", this.Dispense);
                         command.Parameters.AddWithValue("@intake", this.Intake);
                         command.Parameters.AddWithValue("@medDosage", this.MedDosage);
