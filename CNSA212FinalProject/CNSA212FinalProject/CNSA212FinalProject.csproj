@@ -86,6 +86,9 @@
     <Compile Include="DatePicker.Designer.cs">
       <DependentUpon>DatePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Design\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LookupPatient.cs">
       <SubType>Form</SubType>
     </Compile>

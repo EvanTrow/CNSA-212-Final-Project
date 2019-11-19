@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.usernameTxt = new System.Windows.Forms.TextBox();
             this.passwordTxt = new System.Windows.Forms.TextBox();
-            this.loginBtn = new System.Windows.Forms.Button();
+            this.loginBtn = new CNSA212FinalProject.Design.FlatButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.errorLbl = new System.Windows.Forms.Label();
@@ -143,7 +143,7 @@
 
         private System.Windows.Forms.TextBox usernameTxt;
         private System.Windows.Forms.TextBox passwordTxt;
-        private System.Windows.Forms.Button loginBtn;
+        private Design.FlatButton loginBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label errorLbl;

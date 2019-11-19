@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.submitBtn = new System.Windows.Forms.Button();
+            this.submitBtn = new CNSA212FinalProject.Design.FlatButton();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
@@ -94,7 +94,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button submitBtn;
+        private Design.FlatButton submitBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ToolTip toolTip1;
     }

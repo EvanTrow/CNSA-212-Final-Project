@@ -56,9 +56,9 @@
             this.lblfirstName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnAddPhysician = new System.Windows.Forms.Button();
+            this.btnAddPhysician = new CNSA212FinalProject.Design.FlatButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.saveBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new CNSA212FinalProject.Design.FlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -550,8 +550,8 @@
         private System.Windows.Forms.Label lblfirstName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnAddPhysician;
+        private Design.FlatButton btnAddPhysician;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button saveBtn;
+        private Design.FlatButton saveBtn;
     }
 }

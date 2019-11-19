@@ -48,11 +48,11 @@
             this.maxRefillsTxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.physicianComboBox = new System.Windows.Forms.ComboBox();
-            this.addPrescriptionBtn = new System.Windows.Forms.Button();
+            this.addPrescriptionBtn = new CNSA212FinalProject.Design.FlatButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.fillOnCreateCheckBox = new System.Windows.Forms.CheckBox();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.refillBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new CNSA212FinalProject.Design.FlatButton();
+            this.refillBtn = new CNSA212FinalProject.Design.FlatButton();
             this.refillsLbl = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -424,11 +424,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox physicianComboBox;
         private System.Windows.Forms.TextBox freqNumberTxt;
-        private System.Windows.Forms.Button addPrescriptionBtn;
+        private Design.FlatButton addPrescriptionBtn;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckBox fillOnCreateCheckBox;
-        private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Button refillBtn;
+        private Design.FlatButton saveBtn;
+        private Design.FlatButton refillBtn;
         private System.Windows.Forms.Label refillsLbl;
         private System.Windows.Forms.ToolTip toolTip1;
     }
