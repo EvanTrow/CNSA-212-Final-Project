@@ -34,9 +34,6 @@ C:\Users\gnd19\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA-212-Final-Proje
 C:\Users\gnd19\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.csproj.GenerateResource.cache
 C:\Users\gnd19\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.exe
 C:\Users\gnd19\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.pdb
-C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\bin\Debug\CNSA212FinalProject.exe.config
-C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\bin\Debug\CNSA212FinalProject.exe
-C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\bin\Debug\CNSA212FinalProject.pdb
 C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.AboutBox.resources
 C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.DatePicker.resources
 C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.LookupPatient.resources
@@ -49,6 +46,9 @@ C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\C
 C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.SplashScreen.resources
 C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.Properties.Resources.resources
 C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.csproj.GenerateResource.cache
-C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.exe
-C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.pdb
 C:\Users\evan\Source\Repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\CNSA212FinalProject.csprojAssemblyReference.cache
+C:\Users\evan\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\bin\Debug\Louis' Phramacy.exe.config
+C:\Users\evan\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\bin\Debug\Louis' Phramacy.exe
+C:\Users\evan\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\bin\Debug\Louis' Phramacy.pdb
+C:\Users\evan\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\Louis' Phramacy.exe
+C:\Users\evan\source\repos\EvanTrow\CNSA-212-Final-Project\CNSA212FinalProject\CNSA212FinalProject\obj\Debug\Louis' Phramacy.pdb
